@@ -1,0 +1,20 @@
+echo "🔍 Validating commit message..."
+
+# Run commitlint on the commit message
+npx --no -- commitlint --edit "$1"
+
+if [ $? -eq 0 ]; then
+  echo "✅ Commit message is valid!"
+else
+  echo ""
+  echo "❌ Commit message does not follow conventions!"
+  echo ""
+  echo "📝 Format: <type>(<scope>): <subject>"
+  echo ""
+  echo "Examples:"
+  echo "  feat(landing): Add color palette generator"
+  echo "  fix(newsletter): Validate email before submission"
+  echo "  docs(readme): Update installation instructions"
+  echo ""
+  exit 1
+fi

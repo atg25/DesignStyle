@@ -1,0 +1,15 @@
+echo "🔍 Running pre-commit checks..."
+
+# Check if build succeeds
+echo "📦 Testing build..."
+npm run build > /dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+  echo "✅ Build successful"
+else
+  echo "❌ Build failed! Run 'npm run build' to see errors."
+  exit 1
+fi
+
+echo "✅ Pre-commit checks passed!"
+echo "💡 Tip: Run 'npm run format' before committing to auto-format files"

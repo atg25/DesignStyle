@@ -1,0 +1,6 @@
+echo "🎉 Commit successful!"
+echo ""
+echo "📊 Quick stats:"
+git log -1 --stat
+echo ""
+echo "💡 Tip: Push when ready with: git push origin main"
