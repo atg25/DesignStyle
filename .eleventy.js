@@ -11,6 +11,7 @@ module.exports = function (eleventyConfig) {
 
   // Set custom directories
   return {
+    pathPrefix: '/DesignStyle/',
     dir: {
       input: 'src',
       output: '_site',

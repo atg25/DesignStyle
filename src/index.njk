@@ -53,7 +53,7 @@ from "components/icon.njk" import icon %} {# ===================================
       <div class="hero__image">
         <div class="hero__image-wrapper">
           <img
-            src="/images/hero-eames-chair.jpg"
+            src="{{ '/assets/images/hero-eames-chair.jpg' | url }}"
             alt="Iconic Eames Lounge Chair in warm walnut and black leather"
             width="800"
             height="900"
@@ -141,16 +141,16 @@ from "components/icon.njk" import icon %} {# ===================================
     </div>
 
     <div class="featured__grid">
-      {# Featured Article #} {{ card( image="/images/color-wheel-mcm.jpg", imageAlt="Mid-century modern color wheel
+      {# Featured Article #} {{ card( image="/assets/images/color-wheel-mcm.jpg" | url, imageAlt="Mid-century modern color wheel
       showing warm oranges, teals, and earth tones", category="Learn", categoryHref="/learn", title="Understanding MCM
       Color Theory", description="Discover the vibrant yet sophisticated color palettes that defined the era, from burnt
       oranges to avocado greens.", meta={ readTime: "8 min read", level: "Beginner" }, href="/learn/color-theory",
-      style="soft" ) }} {# Featured Furniture #} {{ card( image="/images/noguchi-table.jpg", imageAlt="Noguchi Coffee
+      style="soft" ) }} {# Featured Furniture #} {{ card( image="/assets/images/noguchi-table.jpg" | url, imageAlt="Noguchi Coffee
       Table with sculptural wooden base and glass top", category="Explore", categoryHref="/explore", title="Noguchi
       Coffee Table", description="Isamu Noguchi's sculptural masterpiece that blurs the line between furniture and
       art.", meta={ designer: "Isamu Noguchi", year: "1947", manufacturer: "Herman Miller" }, price="$1,895",
       href="/explore/furniture/noguchi-table", style="soft" ) }} {# Featured Designer #} {{ card(
-      image="/images/charles-ray-eames.jpg", imageAlt="Charles and Ray Eames in their studio", category="Explore",
+      image="/assets/images/charles-ray-eames.jpg" | url, imageAlt="Charles and Ray Eames in their studio", category="Explore",
       categoryHref="/explore", title="Charles & Ray Eames", description="The power couple who revolutionized American
       design with innovation, playfulness, and functionality.", meta={ active: "1941-1978", pieces: "50+ designs" },
       href="/explore/designers/charles-ray-eames", style="soft" ) }}
