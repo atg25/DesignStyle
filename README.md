@@ -5,6 +5,7 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+ and npm
 
 ### Installation
@@ -33,6 +34,7 @@ The site will be available at `http://localhost:8080`
 The site automatically deploys to GitHub Pages when you push to the `main` branch.
 
 **Setup:**
+
 1. Go to your repository Settings → Pages
 2. Under "Build and deployment", select "GitHub Actions" as the source
 3. Push to `main` branch - deployment happens automatically!
@@ -83,6 +85,7 @@ DesignStyle/
 ## 🎨 Features
 
 ### Landing Page
+
 - **Split Hero Layout** - Iconic MCM imagery with clear CTAs
 - **Value Pillars** - Learn, Explore, Practice pathways
 - **Interactive Color Generator** - 6 preset palettes, click-to-copy
@@ -91,6 +94,7 @@ DesignStyle/
 - **Accessibility** - WCAG 2.1 AA compliant
 
 ### Design System
+
 - **162 Design Tokens** - Colors, typography, spacing
 - **Reusable Components** - Buttons, cards, icons
 - **Consistent Styling** - BEM naming, ITCSS architecture
@@ -121,6 +125,7 @@ DesignStyle/
 ## 📖 Documentation
 
 See the `/docs` folder for detailed documentation:
+
 - `landing-page.md` - Complete landing page implementation guide
 - `landing-page-summary.md` - Quick reference
 

@@ -135,11 +135,11 @@
     grid-template-columns: 1fr;
     gap: var(--space-8);
   }
-  
+
   .hero__title {
     font-size: var(--text-4xl);
   }
-  
+
   .hero__image-wrapper {
     transform: rotate(0deg);
     max-width: 500px;
@@ -151,27 +151,27 @@
   .hero--split {
     padding: var(--space-12) 0;
   }
-  
+
   .hero__title {
     font-size: var(--text-3xl);
   }
-  
+
   .hero__subtitle {
     font-size: var(--text-lg);
   }
-  
+
   .hero__actions {
     flex-direction: column;
   }
-  
+
   .hero__actions .btn {
     width: 100%;
   }
-  
+
   .hero__stats {
     gap: var(--space-4);
   }
-  
+
   .stat__number {
     font-size: var(--text-2xl);
   }
@@ -218,17 +218,25 @@
 }
 
 .pillar__icon--orange {
-  background: linear-gradient(135deg, var(--color-primary-lighter), var(--color-primary));
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-lighter),
+    var(--color-primary)
+  );
   color: white;
 }
 
 .pillar__icon--teal {
-  background: linear-gradient(135deg, var(--color-secondary-lighter), var(--color-secondary));
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary-lighter),
+    var(--color-secondary)
+  );
   color: white;
 }
 
 .pillar__icon--yellow {
-  background: linear-gradient(135deg, #FFF3CD, var(--color-yellow));
+  background: linear-gradient(135deg, #fff3cd, var(--color-yellow));
   color: var(--color-charcoal);
 }
 
@@ -436,7 +444,7 @@
   .color-preview__swatches {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .color-preview__header {
     flex-direction: column;
     gap: var(--space-3);
@@ -520,7 +528,7 @@
   .testimonial__text {
     font-size: var(--text-xl);
   }
-  
+
   .testimonial__stats {
     gap: var(--space-4);
   }
@@ -553,7 +561,11 @@
   height: 80px;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-primary-lighter), var(--color-primary));
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-lighter),
+    var(--color-primary)
+  );
   color: white;
   border-radius: var(--radius-lg);
   margin-bottom: var(--space-6);
@@ -622,7 +634,7 @@
   .newsletter__form {
     flex-direction: column;
   }
-  
+
   .newsletter__form .btn {
     width: 100%;
     justify-content: center;

@@ -7,9 +7,11 @@ The landing page serves as the primary entry point for the MCM Design Hub, desig
 ## Page Structure
 
 ### 1. Hero Section (Split Layout)
+
 **Purpose:** Immediate visual impact and clear value proposition
 
 **Features:**
+
 - Split-screen design: Content left, iconic furniture image right
 - Bold headline with color emphasis
 - Dual CTAs: "Start Learning" (primary) + "Explore Gallery" (secondary)
@@ -17,60 +19,72 @@ The landing page serves as the primary entry point for the MCM Design Hub, desig
 - Rotating hero image with caption overlay
 
 **Design Decisions:**
+
 - Split layout provides balance between information and visual appeal
 - Rotated image adds playful MCM character
 - Stats build credibility immediately
 - Primary CTA focuses on education (aligns with site purpose)
 
 ### 2. Value Pillars (Three Pathways)
+
 **Purpose:** Guide users based on their interests
 
 **Three Pillars:**
+
 1. **Learn** - Educational content (orange accent)
 2. **Explore** - Browse collection (teal accent)
 3. **Practice** - Interactive tools (yellow accent)
 
 **Features:**
+
 - Icon-based visual hierarchy
 - Feature lists under each pillar
 - Consistent ghost button CTAs
 - Hover animations (lift + shadow)
 
 **Design Decisions:**
+
 - Three-column layout mirrors navigation structure
 - Color-coded icons create visual associations
 - Feature bullets preview what's available
 - Cards lift on hover (engagement feedback)
 
 ### 3. Featured Content
+
 **Purpose:** Showcase quality content immediately
 
 **Components:**
+
 - Latest educational article
 - Featured furniture piece
 - Designer spotlight
 
 **Features:**
+
 - Grid layout with three cards
 - Consistent card component usage
 - Meta information (read time, year, price)
 - "View All Articles" CTA below
 
 **Design Decisions:**
+
 - Shows variety of content types
 - Uses existing card component (consistency)
 - Soft style cards (friendly, approachable)
 
 ### 4. Interactive Preview
+
 **Purpose:** Engage visitors with hands-on experience
 
 **Features:**
+
 - Color palette generator with 6 preset palettes
 - Click to copy color codes
 - Generate new palette button
 - Link to full tool
 
 **Palettes Included:**
+
 - Warm Sunset
 - Cool Retro
 - Atomic Age
@@ -79,21 +93,25 @@ The landing page serves as the primary entry point for the MCM Design Hub, desig
 - Pastel Dream
 
 **Interactions:**
+
 - Button rotates 360° on click
 - Swatches animate in with stagger
 - Click swatch to copy hex code
 - Shows "Copied!" tooltip feedback
 
 **Design Decisions:**
+
 - Dark background (charcoal) makes colors pop
 - White card provides clean canvas
 - Interactive element drives engagement
 - Low-commitment preview (no account needed)
 
 ### 5. Testimonial / Social Proof
+
 **Purpose:** Build credibility and trust
 
 **Features:**
+
 - Frank Lloyd Wright quote
 - Three badge indicators:
   - WCAG 2.1 AA Accessible
@@ -101,14 +119,17 @@ The landing page serves as the primary entry point for the MCM Design Hub, desig
   - Mobile Optimized
 
 **Design Decisions:**
+
 - Quote from legendary designer adds authority
 - Technical badges appeal to designers/developers
 - Light background section for variety
 
 ### 6. Newsletter CTA
+
 **Purpose:** Capture interested visitors
 
 **Features:**
+
 - Email input with validation
 - Submit with loading state
 - Success state animation
@@ -116,12 +137,14 @@ The landing page serves as the primary entry point for the MCM Design Hub, desig
 - Gradient orange background
 
 **Interactions:**
+
 - Email validation on submit
 - Loading state ("Subscribing...")
 - Success message with checkmark
 - Error handling with timeout
 
 **Design Decisions:**
+
 - Prominent orange background draws attention
 - White card provides contrast
 - Privacy note builds trust
@@ -152,14 +175,16 @@ src/
 ### CSS Architecture
 
 **Organized by section:**
-- Hero styles (.hero--split, .hero__grid, etc.)
+
+- Hero styles (.hero--split, .hero\_\_grid, etc.)
 - Pillars styles (.pillars, .pillar, etc.)
-- Featured styles (.featured, .featured__grid)
+- Featured styles (.featured, .featured\_\_grid)
 - Interactive styles (.color-preview, .swatch)
-- Testimonial styles (.testimonial__quote)
-- Newsletter styles (.newsletter, .newsletter__form)
+- Testimonial styles (.testimonial\_\_quote)
+- Newsletter styles (.newsletter, .newsletter\_\_form)
 
 **Key Features:**
+
 - Mobile-first responsive design
 - Smooth transitions and animations
 - Hover states on interactive elements
@@ -168,11 +193,13 @@ src/
 ### JavaScript Features
 
 **Classes:**
+
 1. `ColorPalettePreview` - Color generator
 2. `NewsletterForm` - Form handling
 3. `ScrollAnimations` - Intersection Observer animations
 
 **Functions:**
+
 - `initSmoothScroll()` - Anchor link handling
 - Copy to clipboard for color codes
 - Form validation
@@ -197,18 +224,21 @@ src/
 ## Responsive Breakpoints
 
 **Desktop (1024px+):**
+
 - Hero: Side-by-side layout
 - Pillars: 3 columns
 - Featured: 3 columns
 - Color preview: 5 columns
 
 **Tablet (768px-1023px):**
+
 - Hero: Stacked, centered
 - Pillars: 1 column (max-width 600px)
 - Featured: 1 column (max-width 500px)
 - Color preview: 5 columns
 
 **Mobile (< 768px):**
+
 - Hero: Stacked, full width
 - Hero buttons: Full width, stacked
 - Stats: Smaller numbers, closer together
@@ -218,17 +248,20 @@ src/
 ## Content Guidelines
 
 ### Hero Copy
+
 - **Headline:** Action-oriented, clear benefit
 - **Subhead:** Expands on headline, 3 key benefits
 - **Stats:** Round numbers, impressive but achievable
 
 ### Pillar Descriptions
+
 - Lead with benefit, not feature
 - 2-3 sentences maximum
 - Active voice
 - Feature bullets: 4 per pillar
 
 ### Featured Cards
+
 - Descriptive titles
 - Concise descriptions (1-2 sentences)
 - Complete meta information
@@ -237,6 +270,7 @@ src/
 ## Future Enhancements
 
 ### Potential Additions:
+
 1. **Hero Carousel** - Rotate through multiple hero images
 2. **Video Background** - Subtle animation in hero
 3. **Live Search Preview** - Mini search bar in hero
@@ -247,6 +281,7 @@ src/
 8. **Loading Animation** - Branded loader on first visit
 
 ### Analytics to Track:
+
 - CTA click rates (which pillar performs best)
 - Color generator interactions
 - Newsletter conversion rate
@@ -257,12 +292,14 @@ src/
 ## Maintenance
 
 ### Regular Updates:
+
 - Rotate featured content weekly
 - Update stats quarterly
 - Refresh hero image monthly
 - Add new color palettes seasonally
 
 ### Testing Checklist:
+
 - [ ] All CTAs work
 - [ ] Forms validate and submit
 - [ ] Color generator functions

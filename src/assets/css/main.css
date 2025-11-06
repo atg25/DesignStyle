@@ -5,62 +5,63 @@
 /* CSS Variables / Design Tokens */
 :root {
   /* Colors - Primary */
-  --color-primary: #FF6B35;
-  --color-primary-light: #FF8C5A;
-  --color-primary-dark: #E55A2B;
-  
+  --color-primary: #ff6b35;
+  --color-primary-light: #ff8c5a;
+  --color-primary-dark: #e55a2b;
+
   /* Colors - Secondary */
-  --color-secondary: #1FB7C8;
-  --color-secondary-light: #4FC8D6;
-  --color-secondary-dark: #189DAB;
-  
+  --color-secondary: #1fb7c8;
+  --color-secondary-light: #4fc8d6;
+  --color-secondary-dark: #189dab;
+
   /* Colors - Accent */
-  --color-accent: #F4C542;
-  --color-accent-light: #F7D570;
-  --color-accent-dark: #DAB03B;
-  
+  --color-accent: #f4c542;
+  --color-accent-light: #f7d570;
+  --color-accent-dark: #dab03b;
+
   /* Colors - Neutrals */
-  --color-text: #2D2D2D;
+  --color-text: #2d2d2d;
   --color-text-secondary: #666666;
   --color-text-tertiary: #999999;
-  --color-background: #FFFFFF;
-  --color-surface: #F8F8F8;
-  --color-surface-raised: #FFFFFF;
-  --color-border: #E5E5E5;
-  
+  --color-background: #ffffff;
+  --color-surface: #f8f8f8;
+  --color-surface-raised: #ffffff;
+  --color-border: #e5e5e5;
+
   /* Colors - Semantic */
-  --color-success: #4CAF50;
-  --color-error: #F44336;
-  --color-warning: #FF9800;
-  --color-info: #2196F3;
-  
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-warning: #ff9800;
+  --color-info: #2196f3;
+
   /* Typography */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-serif: 'Georgia', 'Times New Roman', serif;
-  --font-mono: 'Courier New', Courier, monospace;
-  
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-mono: "Courier New", Courier, monospace;
+
   /* Font Sizes */
-  --text-xs: 0.75rem;    /* 12px */
-  --text-sm: 0.875rem;   /* 14px */
-  --text-base: 1rem;     /* 16px */
-  --text-lg: 1.125rem;   /* 18px */
-  --text-xl: 1.25rem;    /* 20px */
-  --text-2xl: 1.5rem;    /* 24px */
-  --text-3xl: 1.875rem;  /* 30px */
-  --text-4xl: 2.25rem;   /* 36px */
-  --text-5xl: 3rem;      /* 48px */
-  
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+
   /* Spacing */
-  --space-1: 0.25rem;    /* 4px */
-  --space-2: 0.5rem;     /* 8px */
-  --space-3: 0.75rem;    /* 12px */
-  --space-4: 1rem;       /* 16px */
-  --space-6: 1.5rem;     /* 24px */
-  --space-8: 2rem;       /* 32px */
-  --space-12: 3rem;      /* 48px */
-  --space-16: 4rem;      /* 64px */
-  --space-20: 5rem;      /* 80px */
-  
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -68,7 +69,7 @@
   --radius-xl: 16px;
   --radius-2xl: 24px;
   --radius-full: 9999px;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -105,19 +106,36 @@ body {
    Typography
    ============================================ */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--space-4);
 }
 
-h1 { font-size: var(--text-5xl); }
-h2 { font-size: var(--text-4xl); }
-h3 { font-size: var(--text-3xl); }
-h4 { font-size: var(--text-2xl); }
-h5 { font-size: var(--text-xl); }
-h6 { font-size: var(--text-lg); }
+h1 {
+  font-size: var(--text-5xl);
+}
+h2 {
+  font-size: var(--text-4xl);
+}
+h3 {
+  font-size: var(--text-3xl);
+}
+h4 {
+  font-size: var(--text-2xl);
+}
+h5 {
+  font-size: var(--text-xl);
+}
+h6 {
+  font-size: var(--text-lg);
+}
 
 p {
   margin-bottom: var(--space-4);
@@ -425,13 +443,19 @@ a:hover {
   .nav-menu {
     gap: var(--space-4);
   }
-  
+
   .nav-menu a {
     padding: var(--space-1) var(--space-2);
     font-size: var(--text-sm);
   }
-  
-  h1 { font-size: var(--text-3xl); }
-  h2 { font-size: var(--text-2xl); }
-  h3 { font-size: var(--text-xl); }
+
+  h1 {
+    font-size: var(--text-3xl);
+  }
+  h2 {
+    font-size: var(--text-2xl);
+  }
+  h3 {
+    font-size: var(--text-xl);
+  }
 }
