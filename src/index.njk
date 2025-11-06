@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Discover Mid-Century Modern Design
-description: Learn the principles, explore iconic pieces, and practice with interactive tools. Your complete guide to understanding and applying MCM design.
+title: Discover Mid-Century Modern Graphic Design
+description: Learn the principles and practice with interactive tools. Your complete guide to understanding and applying MCM graphic design style.
 permalink: /
 eleventyNavigation:
   key: Home
@@ -9,61 +9,40 @@ eleventyNavigation:
 ---
 
 {# Import components #} {% from "components/button.njk" import button %} {% from "components/card.njk" import card %} {%
-from "components/icon.njk" import icon %} {# ============================================ HERO SECTION - Split Layout
+from "components/icon.njk" import icon %} {# ============================================ HERO SECTION - Centered
 ============================================ #}
-<section class="hero hero--split">
-  <div class="container">
-    <div class="hero__grid">
-      {# Left: Content #}
-      <div class="hero__content">
-        <h1 class="hero__title">
-          Discover the Timeless Beauty of
-          <span class="hero__title-highlight">Mid-Century Modern</span> Design
-        </h1>
+<section class="hero">
+  <div class="container container--narrow">
+    <div class="hero__content">
+      <h1 class="hero__title">
+        Master the Art of
+        <span class="hero__title-highlight">Mid-Century Modern</span> Graphic Design
+      </h1>
 
-        <p class="hero__subtitle">
-          Learn the principles, explore iconic pieces, and practice with interactive tools. Your complete guide to
-          understanding and applying MCM design.
-        </p>
+      <p class="hero__subtitle">
+        Learn the timeless principles of MCM graphic design through interactive lessons and hands-on tools. Discover the
+        bold colors, clean typography, and geometric patterns that defined an era.
+      </p>
 
-        <div class="hero__actions">
-          {{ button( text="Start Learning", variant="primary", size="lg", shape="rounded", href="/learn",
-          icon="arrow-right", iconPosition="right" ) }} {{ button( text="Explore Gallery", variant="secondary",
-          size="lg", shape="rounded", href="/explore/furniture" ) }}
-        </div>
-
-        {# Quick stats #}
-        <div class="hero__stats">
-          <div class="stat">
-            <div class="stat__number">50+</div>
-            <div class="stat__label">Learning Modules</div>
-          </div>
-          <div class="stat">
-            <div class="stat__number">100+</div>
-            <div class="stat__label">Iconic Pieces</div>
-          </div>
-          <div class="stat">
-            <div class="stat__number">20+</div>
-            <div class="stat__label">Designers</div>
-          </div>
-        </div>
+      <div class="hero__actions">
+        {{ button( text="Start Learning", variant="primary", size="lg", shape="rounded", href="/learn",
+        icon="arrow-right", iconPosition="right" ) }} {{ button( text="Try Color Tools", variant="secondary", size="lg",
+        shape="rounded", href="/practice" ) }}
       </div>
 
-      {# Right: Featured Image #}
-      <div class="hero__image">
-        <div class="hero__image-wrapper">
-          <img
-            src="{{ '/assets/images/hero-eames-chair.jpg' | url }}"
-            alt="Iconic Eames Lounge Chair in warm walnut and black leather"
-            width="800"
-            height="900"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <div class="hero__image-caption">
-            <strong>Eames Lounge Chair</strong>
-            <span>Charles & Ray Eames, 1956</span>
-          </div>
+      {# Quick stats #}
+      <div class="hero__stats">
+        <div class="stat">
+          <div class="stat__number">12</div>
+          <div class="stat__label">Design Principles</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">50+</div>
+          <div class="stat__label">Color Palettes</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">8</div>
+          <div class="stat__label">Typography Guides</div>
         </div>
       </div>
     </div>
@@ -74,7 +53,7 @@ from "components/icon.njk" import icon %} {# ===================================
 ============================================ #}
 <section class="section pillars">
   <div class="container">
-    <h2 class="section__title">Your Journey Into MCM Design</h2>
+    <h2 class="section__title">Your Journey Into MCM Graphic Design</h2>
     <p class="section__subtitle">Choose your path or explore them all</p>
 
     <div class="pillars__grid">
@@ -83,14 +62,13 @@ from "components/icon.njk" import icon %} {# ===================================
         <div class="pillar__icon pillar__icon--orange">{{ icon(name="book", size="48") }}</div>
         <h3 class="pillar__title">Learn</h3>
         <p class="pillar__description">
-          Master the principles, history, and philosophy of mid-century modern design through comprehensive lessons and
-          visual examples.
+          Master the core principles of mid-century modern graphic design through comprehensive lessons on color, typography, and composition.
         </p>
         <ul class="pillar__features">
           <li>Color Theory & Palettes</li>
           <li>Typography Systems</li>
-          <li>Spatial Principles</li>
-          <li>Material Selection</li>
+          <li>Geometric Patterns</li>
+          <li>Layout Principles</li>
         </ul>
         {{ button( text="Start Learning", variant="ghost", href="/learn", icon="arrow-right", iconPosition="right" ) }}
       </div>
@@ -100,15 +78,15 @@ from "components/icon.njk" import icon %} {# ===================================
         <div class="pillar__icon pillar__icon--teal">{{ icon(name="grid", size="48") }}</div>
         <h3 class="pillar__title">Explore</h3>
         <p class="pillar__description">
-          Browse our curated collection of iconic furniture, architecture, and designers that defined the era.
+          Browse iconic MCM graphic designers, posters, branding, and visual styles that shaped the era from 1945-1970.
         </p>
         <ul class="pillar__features">
-          <li>Furniture Gallery</li>
-          <li>Architecture Showcase</li>
           <li>Designer Profiles</li>
+          <li>Poster Collections</li>
+          <li>Brand Identities</li>
           <li>Pattern Library</li>
         </ul>
-        {{ button( text="Browse Collection", variant="ghost", href="/explore", icon="arrow-right", iconPosition="right"
+        {{ button( text="Browse Gallery", variant="ghost", href="/explore", icon="arrow-right", iconPosition="right"
         ) }}
       </div>
 
@@ -117,12 +95,12 @@ from "components/icon.njk" import icon %} {# ===================================
         <div class="pillar__icon pillar__icon--yellow">{{ icon(name="filter", size="48") }}</div>
         <h3 class="pillar__title">Practice</h3>
         <p class="pillar__description">
-          Apply what you've learned with interactive tools that let you experiment with colors, typography, and layouts.
+          Apply what you've learned with interactive tools for color palettes, typography pairing, and pattern generation.
         </p>
         <ul class="pillar__features">
           <li>Color Palette Generator</li>
           <li>Typography Playground</li>
-          <li>Design Lab</li>
+          <li>Layout Grid Tool</li>
           <li>Pattern Creator</li>
         </ul>
         {{ button( text="Try Tools", variant="ghost", href="/practice", icon="arrow-right", iconPosition="right" ) }}
@@ -131,33 +109,52 @@ from "components/icon.njk" import icon %} {# ===================================
   </div>
 </section>
 
-{# ============================================ FEATURED CONTENT - Latest & Highlights
+{# ============================================ FEATURED CONTENT - Design Topics
 ============================================ #}
 <section class="section featured">
   <div class="container">
     <div class="section__header">
-      <h2 class="section__title">Featured Content</h2>
-      <p class="section__subtitle">Handpicked highlights to get you started</p>
+      <h2 class="section__title">Featured Design Topics</h2>
+      <p class="section__subtitle">Essential lessons to get you started</p>
     </div>
 
     <div class="featured__grid">
-      {# Featured Article #} {{ card( image="/assets/images/color-wheel-mcm.jpg" | url, imageAlt="Mid-century modern color wheel
-      showing warm oranges, teals, and earth tones", category="Learn", categoryHref="/learn", title="Understanding MCM
-      Color Theory", description="Discover the vibrant yet sophisticated color palettes that defined the era, from burnt
-      oranges to avocado greens.", meta={ readTime: "8 min read", level: "Beginner" }, href="/learn/color-theory",
-      style="soft" ) }} {# Featured Furniture #} {{ card( image="/assets/images/noguchi-table.jpg" | url, imageAlt="Noguchi Coffee
-      Table with sculptural wooden base and glass top", category="Explore", categoryHref="/explore", title="Noguchi
-      Coffee Table", description="Isamu Noguchi's sculptural masterpiece that blurs the line between furniture and
-      art.", meta={ designer: "Isamu Noguchi", year: "1947", manufacturer: "Herman Miller" }, price="$1,895",
-      href="/explore/furniture/noguchi-table", style="soft" ) }} {# Featured Designer #} {{ card(
-      image="/assets/images/charles-ray-eames.jpg" | url, imageAlt="Charles and Ray Eames in their studio", category="Explore",
-      categoryHref="/explore", title="Charles & Ray Eames", description="The power couple who revolutionized American
-      design with innovation, playfulness, and functionality.", meta={ active: "1941-1978", pieces: "50+ designs" },
-      href="/explore/designers/charles-ray-eames", style="soft" ) }}
+      {# Color Theory Card #} 
+      {{ card( 
+        category="Learn", 
+        categoryHref="/learn", 
+        title="Understanding MCM Color Theory", 
+        description="Discover the vibrant yet sophisticated color palettes that defined the era, from burnt oranges to avocado greens.", 
+        meta={ readTime: "8 min read", level: "Beginner" }, 
+        href="/learn/color-theory",
+        style="soft" 
+      ) }} 
+      
+      {# Typography Card #} 
+      {{ card( 
+        category="Learn", 
+        categoryHref="/learn", 
+        title="MCM Typography Essentials", 
+        description="Learn how modernist typefaces like Helvetica and Futura shaped the clean, geometric aesthetic of the 1950s-60s.", 
+        meta={ readTime: "12 min read", level: "Intermediate" }, 
+        href="/learn/typography",
+        style="soft" 
+      ) }} 
+      
+      {# Geometric Patterns Card #} 
+      {{ card( 
+        category="Explore", 
+        categoryHref="/explore", 
+        title="Geometric Patterns & Motifs", 
+        description="Explore the atomic-age patterns, starbursts, and organic shapes that became iconic MCM design elements.", 
+        meta={ patterns: "25+ examples", era: "1945-1970" }, 
+        href="/explore/patterns",
+        style="soft" 
+      ) }}
     </div>
 
     <div class="featured__cta">
-      {{ button( text="View All Articles", variant="secondary", size="lg", href="/learn" ) }}
+      {{ button( text="View All Lessons", variant="secondary", size="lg", href="/learn" ) }}
     </div>
   </div>
 </section>
