@@ -1,10 +1,16 @@
 /* ============================================
-   LANDING PAGE STYLES - MCM INSPIRED
-   Bold Graphic Design Approach
+   LANDING PAGE - MCM POSTER DESIGN
+   All Solutions Combined: Structure + Visual + Typography + Grid + Hybrid
    ============================================ */
 
 /* ============================================
-   Hero Section - Bold Color Block Design
+   SOLUTION 3: Typography First - Import MCM Fonts
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Archivo+Black&display=swap');
+
+/* ============================================
+   HERO SECTION - Full Bleed Poster Design
+   Solutions 1, 2, 3, 4, 5 Combined
    ============================================ */
 
 .hero {
@@ -12,109 +18,143 @@
   background: var(--color-cream);
   position: relative;
   overflow: hidden;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-/* Bold geometric background */
+/* SOLUTION 2: Visual Layer - Bold geometric backgrounds */
 .hero::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 40%;
-  height: 100%;
-  background: var(--color-accent);
+  width: 100%;
+  height: 40%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-accent),
+    var(--color-accent) 50px,
+    var(--color-chartreuse) 50px,
+    var(--color-chartreuse) 100px
+  );
   z-index: 0;
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  opacity: 0.15;
 }
 
 .hero::after {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
-  width: 35%;
-  height: 100%;
+  width: 60%;
+  height: 35%;
   background: var(--color-secondary);
   z-index: 0;
-  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.3;
 }
 
-.hero .container {
-  position: relative;
-  z-index: 1;
-  padding: var(--space-16) var(--space-6);
-}
-
+/* SOLUTION 1: Full width content, no containers */
 .hero__content {
-  max-width: 100%;
+  position: relative;
+  z-index: 10;
+  width: 90vw;
+  max-width: 1400px;
   margin: 0 auto;
-  text-align: center;
   background: var(--color-background);
-  padding: var(--space-16) var(--space-12);
-  border: 8px solid var(--color-text);
+  padding: clamp(3rem, 8vw, 8rem) clamp(2rem, 6vw, 6rem);
+  border: clamp(8px, 1.5vw, 16px) solid var(--color-text);
+  
+  /* SOLUTION 5: Dramatic shadows */
   box-shadow: 
-    12px 12px 0 var(--color-primary),
-    24px 24px 0 var(--color-secondary);
-  transform: none;
-  transition: transform 0.3s ease;
+    20px 20px 0 var(--color-primary),
+    40px 40px 0 var(--color-secondary),
+    60px 60px 0 var(--color-accent),
+    60px 60px 40px rgba(0, 0, 0, 0.4);
+  
+  /* SOLUTION 5: Slight rotation for dynamism */
+  transform: rotate(-1deg);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .hero__content:hover {
-  transform: translate(-4px, -4px);
+  transform: rotate(0deg) scale(1.02);
   box-shadow: 
-    16px 16px 0 var(--color-primary),
-    28px 28px 0 var(--color-secondary);
+    24px 24px 0 var(--color-primary),
+    48px 48px 0 var(--color-secondary),
+    72px 72px 0 var(--color-accent),
+    72px 72px 60px rgba(0, 0, 0, 0.5);
 }
 
+/* SOLUTION 3: Typography Transformation - EXTREME SCALE */
 .hero__title {
-  font-family: var(--font-sans);
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-family: 'Archivo Black', 'Bebas Neue', 'Impact', var(--font-sans);
+  font-size: clamp(3rem, 12vw, 10rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 0.85;
   color: var(--color-text);
-  margin-bottom: var(--space-6);
+  margin-bottom: clamp(2rem, 4vw, 4rem);
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
+  text-align: center;
+  
+  /* SOLUTION 3: Text effects */
+  text-shadow: 
+    4px 4px 0 var(--color-primary),
+    8px 8px 0 var(--color-secondary);
 }
 
+/* SOLUTION 3 + 5: Highlight with extreme visual impact */
 .hero__title-highlight {
+  display: block;
   color: var(--color-background);
   background: var(--color-primary);
-  display: inline-block;
-  padding: 0 var(--space-4);
+  padding: clamp(0.5rem, 2vw, 2rem) clamp(1rem, 4vw, 4rem);
   transform: rotate(-2deg);
-  box-shadow: 4px 4px 0 var(--color-text);
+  box-shadow: 
+    8px 8px 0 var(--color-text),
+    12px 12px 0 var(--color-secondary);
+  margin: clamp(1rem, 3vw, 3rem) auto;
+  display: inline-block;
+  border: 6px solid var(--color-text);
+  
+  /* SOLUTION 2: Blend mode for richness */
+  position: relative;
 }
 
 .hero__subtitle {
-  font-size: var(--text-xl);
-  line-height: 1.6;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1.4;
   color: var(--color-text);
-  margin-bottom: var(--space-8);
-  max-width: 800px;
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  font-weight: 500;
+  font-weight: 600;
+  text-align: center;
+  /* SOLUTION 5: Increase readability */
+  letter-spacing: 0.01em;
 }
 
 .hero__actions {
   display: flex;
-  gap: var(--space-4);
-  margin-bottom: var(--space-10);
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-bottom: clamp(2rem, 4vw, 4rem);
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .hero__stats {
-  display: flex;
-  gap: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 3px solid var(--color-primary);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: clamp(1rem, 3vw, 3rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 6px solid var(--color-text);
   justify-content: center;
-  margin-top: var(--space-8);
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .stat {
@@ -122,44 +162,59 @@
   position: relative;
 }
 
+/* SOLUTION 5: Extreme stat styling */
 .stat__number {
-  font-size: var(--text-3xl);
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  color: var(--color-text);
+  font-family: 'Bebas Neue', 'Impact', var(--font-sans);
+  color: var(--color-background);
+  background: var(--color-text);
   line-height: 1;
-  margin-bottom: var(--space-1);
-  text-shadow: none;
-  background: var(--color-accent);
+  margin-bottom: var(--space-2);
   display: inline-block;
-  padding: var(--space-2) var(--space-4);
-  border: 3px solid var(--color-text);
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+  border: 4px solid var(--color-text);
+  box-shadow: 6px 6px 0 var(--color-accent);
+  transform: rotate(-3deg);
 }
 
 .stat__label {
-  font-size: var(--text-sm);
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
   color: var(--color-text);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-weight: 900;
+  font-family: 'Bebas Neue', var(--font-sans);
 }
 
 /* Responsive Hero */
 @media (max-width: 768px) {
   .hero {
-    padding: var(--space-12) 0;
+    padding: var(--space-8) 0;
+    min-height: auto;
   }
 
   .hero__content {
-    padding: var(--space-8);
+    padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+    width: 95vw;
+    box-shadow: 
+      12px 12px 0 var(--color-primary),
+      24px 24px 0 var(--color-secondary),
+      36px 36px 0 var(--color-accent);
   }
 
   .hero__title {
-    font-size: var(--text-3xl);
+    font-size: clamp(2rem, 10vw, 4rem);
   }
 
   .hero__stats {
     flex-direction: column;
     gap: var(--space-4);
+  }
+  
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -194,59 +249,116 @@
 }
 
 /* ============================================
-   Value Pillars Section - Bold Color Grid
+   PILLARS SECTION - ALL SOLUTIONS COMBINED
+   Monterey Pop Grid + Bold Typography + Full Bleed
    ============================================ */
 
 .pillars {
   padding: 0;
+  margin: 0;
   background: var(--color-background);
   position: relative;
 }
 
+/* SOLUTION 4: CSS Grid Poster Layout */
 .pillars__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  margin-top: 0;
+  margin: 0;
+  min-height: 100vh;
 }
 
+/* SOLUTION 1 + 5: Full bleed color blocks */
 .pillar {
-  padding: var(--space-16) var(--space-8);
-  background: var(--color-background);
+  padding: clamp(3rem, 8vw, 8rem) clamp(2rem, 4vw, 4rem);
   position: relative;
-  overflow: visible;
-  transition: all 0.3s ease;
-  border: 4px solid var(--color-text);
-  min-height: 500px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border: clamp(6px, 1vw, 12px) solid var(--color-text);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.pillar:nth-child(1) {
+/* SOLUTION 1: Direct color assignments (Monterey Pop style) */
+.pillar--learn {
   background: var(--color-primary);
   color: var(--color-background);
 }
 
-.pillar:nth-child(2) {
+.pillar--explore {
   background: var(--color-secondary);
   color: var(--color-background);
 }
 
-.pillar:nth-child(3) {
+.pillar--practice {
   background: var(--color-accent);
   color: var(--color-text);
 }
 
+/* SOLUTION 2: Visual layers with pseudo-elements */
 .pillar::before {
-  display: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(0, 0, 0, 0.03) 20px,
+    rgba(0, 0, 0, 0.03) 40px
+  );
+  z-index: 0;
+  pointer-events: none;
 }
 
+/* SOLUTION 2: Geometric shapes */
+.pillar::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 8px solid currentColor;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.pillar--learn::after {
+  top: 10%;
+  right: 10%;
+}
+
+.pillar--explore::after {
+  bottom: 15%;
+  left: 10%;
+  transform: rotate(45deg);
+  border-radius: 0;
+}
+
+.pillar--practice::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* SOLUTION 5: Dramatic hover effects */
 .pillar:hover {
   transform: scale(1.05);
-  z-index: 10;
+  z-index: 100;
   box-shadow: 
-    8px 8px 0 var(--color-text),
-    16px 16px 0 rgba(0, 0, 0, 0.2);
+    0 0 0 clamp(8px, 1.5vw, 16px) var(--color-text),
+    clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px) 0 rgba(0, 0, 0, 0.3);
 }
 
 .pillar > * {
@@ -254,53 +366,70 @@
   z-index: 1;
 }
 
+/* SOLUTION 3 + 5: Extreme icon styling */
 .pillar__icon {
-  width: 100px;
-  height: 100px;
+  width: clamp(100px, 15vw, 180px);
+  height: clamp(100px, 15vw, 180px);
   border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-6);
+  margin-bottom: clamp(2rem, 4vw, 4rem);
   position: relative;
   box-shadow: none;
   background: var(--color-background);
-  border: 4px solid var(--color-text);
+  border: clamp(6px, 1vw, 10px) solid var(--color-text);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
 }
 
-.pillar__icon::before {
-  display: none;
+.pillar:hover .pillar__icon {
+  transform: rotate(0deg) scale(1.1);
+}
+
+.pillar__icon svg {
+  transform: rotate(-45deg);
+  width: 60%;
+  height: 60%;
 }
 
 .pillar__icon--orange {
   color: var(--color-primary);
+  box-shadow: 12px 12px 0 var(--color-text);
 }
 
 .pillar__icon--teal {
   color: var(--color-secondary);
+  box-shadow: 12px 12px 0 var(--color-text);
 }
 
 .pillar__icon--yellow {
-  color: var(--color-text);
+  color: var(--color-accent);
+  box-shadow: 12px 12px 0 var(--color-text);
 }
 
+/* SOLUTION 3: Extreme typography */
 .pillar__title {
-  font-family: var(--font-sans);
-  font-size: var(--text-4xl);
+  font-family: 'Archivo Black', 'Bebas Neue', var(--font-sans);
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
   color: inherit;
-  margin-bottom: var(--space-4);
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .pillar__description {
-  font-size: var(--text-lg);
-  line-height: 1.6;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.5;
   color: inherit;
-  margin-bottom: var(--space-6);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
   opacity: 0.95;
-  font-weight: 500;
+  font-weight: 600;
+  max-width: 500px;
+  letter-spacing: 0.01em;
 }
 
 .pillar__features {
@@ -309,32 +438,51 @@
   margin: 0 0 var(--space-6) 0;
 }
 
+/* SOLUTION 5: Bold list styling */
+.pillar__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 clamp(2rem, 4vw, 4rem) 0;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 400px;
+}
+
 .pillar__features li {
-  padding: var(--space-3) 0;
-  font-size: var(--text-base);
+  padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   color: inherit;
-  border-bottom: 2px solid currentColor;
-  opacity: 0.9;
-  font-weight: 600;
+  border: 4px solid currentColor;
+  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+  opacity: 1;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: var(--text-sm);
+  letter-spacing: 0.1em;
+  font-family: 'Bebas Neue', var(--font-sans);
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pillar__features li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(10px);
 }
 
 .pillar__features li::before {
-  content: '■';
-  margin-right: var(--space-2);
+  content: '▶';
+  margin-right: clamp(0.5rem, 1.5vw, 1rem);
   color: inherit;
-  font-weight: var(--font-bold);
+  font-weight: 900;
 }
 
 /* Responsive Pillars */
 @media (max-width: 1024px) {
   .pillars__grid {
     grid-template-columns: 1fr;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  }
+  
+  .pillar {
+    min-height: 80vh;
   }
 }
 

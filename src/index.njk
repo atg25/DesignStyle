@@ -9,96 +9,98 @@ eleventyNavigation:
 ---
 
 {# Import components #} {% from "components/button.njk" import button %} {% from "components/card.njk" import card %} {%
-from "components/icon.njk" import icon %} {# ============================================ HERO SECTION - Centered
+from "components/icon.njk" import icon %} {# ============================================ HERO SECTION - Full Width Poster
 ============================================ #}
 <section class="hero">
-  <div class="container container--narrow">
-    <div class="hero__content">
-      <h1 class="hero__title">
-        Master the Art of
-        <span class="hero__title-highlight">Mid-Century Modern</span> Graphic Design
-      </h1>
+  <div class="hero__content">
+    <h1 class="hero__title">
+      MASTER THE ART OF
+      <span class="hero__title-highlight">MID-CENTURY MODERN</span>
+      GRAPHIC DESIGN
+    </h1>
 
-      <p class="hero__subtitle">
-        Learn the timeless principles of MCM graphic design through interactive lessons and hands-on tools. Discover the
-        bold colors, clean typography, and geometric patterns that defined an era.
-      </p>
+    <p class="hero__subtitle">
+      Learn the timeless principles of MCM graphic design through interactive lessons and hands-on tools. Discover the
+      bold colors, clean typography, and geometric patterns that defined an era.
+    </p>
 
-      <div class="hero__actions">
-        {{ button( text="Start Learning", variant="primary", size="lg", shape="rounded", href="/learn",
-        icon="arrow-right", iconPosition="right" ) }} {{ button( text="Try Color Tools", variant="secondary", size="lg",
-        shape="rounded", href="/practice" ) }}
+    <div class="hero__actions">
+      {{ button( text="Start Learning", variant="primary", size="lg", shape="rounded", href="/learn",
+      icon="arrow-right", iconPosition="right" ) }} {{ button( text="Try Color Tools", variant="secondary", size="lg",
+      shape="rounded", href="/practice" ) }}
+    </div>
+
+    {# Quick stats #}
+    <div class="hero__stats">
+      <div class="stat">
+        <div class="stat__number">12</div>
+        <div class="stat__label">DESIGN PRINCIPLES</div>
       </div>
-
-      {# Quick stats #}
-      <div class="hero__stats">
-        <div class="stat">
-          <div class="stat__number">12</div>
-          <div class="stat__label">Design Principles</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number">50+</div>
-          <div class="stat__label">Color Palettes</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number">8</div>
-          <div class="stat__label">Typography Guides</div>
-        </div>
+      <div class="stat">
+        <div class="stat__number">50+</div>
+        <div class="stat__label">COLOR PALETTES</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">8</div>
+        <div class="stat__label">TYPOGRAPHY GUIDES</div>
       </div>
     </div>
   </div>
 </section>
 
-{# ============================================ VALUE PILLARS - Three Main Pathways
+{# ============================================ VALUE PILLARS - Full Width Grid
 ============================================ #}
-<section class="section pillars">
-  <div class="container">
-    <h2 class="section__title">Your Journey Into MCM Graphic Design</h2>
-    <p class="section__subtitle">Choose your path or explore them all</p>
+<section class="pillars">
+  <div class="pillars__grid">
+    {# Learn Pillar #}
+    <div class="pillar pillar--learn">
+      <div class="pillar__icon pillar__icon--orange">{{ icon(name="book", size="64") }}</div>
+      <h3 class="pillar__title">LEARN</h3>
+      <p class="pillar__description">
+        Master the core principles of mid-century modern graphic design through comprehensive lessons on color, typography, and composition.
+      </p>
+      <ul class="pillar__features">
+        <li>COLOR THEORY</li>
+        <li>TYPOGRAPHY</li>
+        <li>PATTERNS</li>
+        <li>LAYOUT</li>
+      </ul>
+      {{ button( text="Start Learning", variant="ghost", href="/learn", icon="arrow-right", iconPosition="right" ) }}
+    </div>
 
-    <div class="pillars__grid">
-      {# Learn Pillar #}
-      <div class="pillar">
-        <div class="pillar__icon pillar__icon--orange">{{ icon(name="book", size="48") }}</div>
-        <h3 class="pillar__title">Learn</h3>
-        <p class="pillar__description">
-          Master the core principles of mid-century modern graphic design through comprehensive lessons on color, typography, and composition.
-        </p>
-        <ul class="pillar__features">
-          <li>Color Theory & Palettes</li>
-          <li>Typography Systems</li>
-          <li>Geometric Patterns</li>
-          <li>Layout Principles</li>
-        </ul>
-        {{ button( text="Start Learning", variant="ghost", href="/learn", icon="arrow-right", iconPosition="right" ) }}
-      </div>
+    {# Explore Pillar #}
+    <div class="pillar pillar--explore">
+      <div class="pillar__icon pillar__icon--teal">{{ icon(name="grid", size="64") }}</div>
+      <h3 class="pillar__title">EXPLORE</h3>
+      <p class="pillar__description">
+        Browse iconic MCM graphic designers, posters, branding, and visual styles that shaped the era from 1945-1970.
+      </p>
+      <ul class="pillar__features">
+        <li>DESIGNERS</li>
+        <li>POSTERS</li>
+        <li>BRANDING</li>
+        <li>PATTERNS</li>
+      </ul>
+      {{ button( text="Browse Gallery", variant="ghost", href="/explore", icon="arrow-right", iconPosition="right" ) }}
+    </div>
 
-      {# Explore Pillar #}
-      <div class="pillar">
-        <div class="pillar__icon pillar__icon--teal">{{ icon(name="grid", size="48") }}</div>
-        <h3 class="pillar__title">Explore</h3>
-        <p class="pillar__description">
-          Browse iconic MCM graphic designers, posters, branding, and visual styles that shaped the era from 1945-1970.
-        </p>
-        <ul class="pillar__features">
-          <li>Designer Profiles</li>
-          <li>Poster Collections</li>
-          <li>Brand Identities</li>
-          <li>Pattern Library</li>
-        </ul>
-        {{ button( text="Browse Gallery", variant="ghost", href="/explore", icon="arrow-right", iconPosition="right"
-        ) }}
-      </div>
-
-      {# Practice Pillar #}
-      <div class="pillar">
-        <div class="pillar__icon pillar__icon--yellow">{{ icon(name="filter", size="48") }}</div>
-        <h3 class="pillar__title">Practice</h3>
-        <p class="pillar__description">
-          Apply what you've learned with interactive tools for color palettes, typography pairing, and pattern generation.
-        </p>
-        <ul class="pillar__features">
-          <li>Color Palette Generator</li>
+    {# Practice Pillar #}
+    <div class="pillar pillar--practice">
+      <div class="pillar__icon pillar__icon--yellow">{{ icon(name="filter", size="64") }}</div>
+      <h3 class="pillar__title">PRACTICE</h3>
+      <p class="pillar__description">
+        Apply what you've learned with interactive tools for color palettes, typography pairing, and pattern generation.
+      </p>
+      <ul class="pillar__features">
+        <li>COLOR TOOLS</li>
+        <li>TYPE PAIRING</li>
+        <li>GRID TOOL</li>
+        <li>PATTERNS</li>
+      </ul>
+      {{ button( text="Try Tools", variant="ghost", href="/practice", icon="arrow-right", iconPosition="right" ) }}
+    </div>
+  </div>
+</section>
           <li>Typography Playground</li>
           <li>Layout Grid Tool</li>
           <li>Pattern Creator</li>
