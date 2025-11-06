@@ -1,0 +1,396 @@
+---
+layout: base.njk
+title: Discover Mid-Century Modern Design
+description: Learn the principles, explore iconic pieces, and practice with interactive tools. Your complete guide to understanding and applying MCM design.
+permalink: /
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+
+{# Import components #}
+{% from "components/button.njk" import button %}
+{% from "components/card.njk" import card %}
+{% from "components/icon.njk" import icon %}
+
+{# ============================================
+   HERO SECTION - Split Layout
+   ============================================ #}
+<section class="hero hero--split">
+  <div class="container">
+    <div class="hero__grid">
+      {# Left: Content #}
+      <div class="hero__content">
+        <h1 class="hero__title">
+          Discover the Timeless Beauty of 
+          <span class="hero__title-highlight">Mid-Century Modern</span> Design
+        </h1>
+        
+        <p class="hero__subtitle">
+          Learn the principles, explore iconic pieces, and practice with interactive tools. 
+          Your complete guide to understanding and applying MCM design.
+        </p>
+        
+        <div class="hero__actions">
+          {{ button(
+            text="Start Learning",
+            variant="primary",
+            size="lg",
+            shape="rounded",
+            href="/learn",
+            icon="arrow-right",
+            iconPosition="right"
+          ) }}
+          
+          {{ button(
+            text="Explore Gallery",
+            variant="secondary",
+            size="lg",
+            shape="rounded",
+            href="/explore/furniture"
+          ) }}
+        </div>
+        
+        {# Quick stats #}
+        <div class="hero__stats">
+          <div class="stat">
+            <div class="stat__number">50+</div>
+            <div class="stat__label">Learning Modules</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">100+</div>
+            <div class="stat__label">Iconic Pieces</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">20+</div>
+            <div class="stat__label">Designers</div>
+          </div>
+        </div>
+      </div>
+      
+      {# Right: Featured Image #}
+      <div class="hero__image">
+        <div class="hero__image-wrapper">
+          <img 
+            src="/images/hero-eames-chair.jpg" 
+            alt="Iconic Eames Lounge Chair in warm walnut and black leather"
+            width="800"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+          >
+          <div class="hero__image-caption">
+            <strong>Eames Lounge Chair</strong>
+            <span>Charles & Ray Eames, 1956</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ============================================
+   VALUE PILLARS - Three Main Pathways
+   ============================================ #}
+<section class="section pillars">
+  <div class="container">
+    <h2 class="section__title">Your Journey Into MCM Design</h2>
+    <p class="section__subtitle">Choose your path or explore them all</p>
+    
+    <div class="pillars__grid">
+      {# Learn Pillar #}
+      <div class="pillar">
+        <div class="pillar__icon pillar__icon--orange">
+          {{ icon(name="book", size="48") }}
+        </div>
+        <h3 class="pillar__title">Learn</h3>
+        <p class="pillar__description">
+          Master the principles, history, and philosophy of mid-century modern design 
+          through comprehensive lessons and visual examples.
+        </p>
+        <ul class="pillar__features">
+          <li>Color Theory & Palettes</li>
+          <li>Typography Systems</li>
+          <li>Spatial Principles</li>
+          <li>Material Selection</li>
+        </ul>
+        {{ button(
+          text="Start Learning",
+          variant="ghost",
+          href="/learn",
+          icon="arrow-right",
+          iconPosition="right"
+        ) }}
+      </div>
+      
+      {# Explore Pillar #}
+      <div class="pillar">
+        <div class="pillar__icon pillar__icon--teal">
+          {{ icon(name="grid", size="48") }}
+        </div>
+        <h3 class="pillar__title">Explore</h3>
+        <p class="pillar__description">
+          Browse our curated collection of iconic furniture, architecture, and 
+          designers that defined the era.
+        </p>
+        <ul class="pillar__features">
+          <li>Furniture Gallery</li>
+          <li>Architecture Showcase</li>
+          <li>Designer Profiles</li>
+          <li>Pattern Library</li>
+        </ul>
+        {{ button(
+          text="Browse Collection",
+          variant="ghost",
+          href="/explore",
+          icon="arrow-right",
+          iconPosition="right"
+        ) }}
+      </div>
+      
+      {# Practice Pillar #}
+      <div class="pillar">
+        <div class="pillar__icon pillar__icon--yellow">
+          {{ icon(name="filter", size="48") }}
+        </div>
+        <h3 class="pillar__title">Practice</h3>
+        <p class="pillar__description">
+          Apply what you've learned with interactive tools that let you experiment 
+          with colors, typography, and layouts.
+        </p>
+        <ul class="pillar__features">
+          <li>Color Palette Generator</li>
+          <li>Typography Playground</li>
+          <li>Design Lab</li>
+          <li>Pattern Creator</li>
+        </ul>
+        {{ button(
+          text="Try Tools",
+          variant="ghost",
+          href="/practice",
+          icon="arrow-right",
+          iconPosition="right"
+        ) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ============================================
+   FEATURED CONTENT - Latest & Highlights
+   ============================================ #}
+<section class="section featured">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Featured Content</h2>
+      <p class="section__subtitle">Handpicked highlights to get you started</p>
+    </div>
+    
+    <div class="featured__grid">
+      {# Featured Article #}
+      {{ card(
+        image="/images/color-wheel-mcm.jpg",
+        imageAlt="Mid-century modern color wheel showing warm oranges, teals, and earth tones",
+        category="Learn",
+        categoryHref="/learn",
+        title="Understanding MCM Color Theory",
+        description="Discover the vibrant yet sophisticated color palettes that defined the era, from burnt oranges to avocado greens.",
+        meta={
+          readTime: "8 min read",
+          level: "Beginner"
+        },
+        href="/learn/color-theory",
+        style="soft"
+      ) }}
+      
+      {# Featured Furniture #}
+      {{ card(
+        image="/images/noguchi-table.jpg",
+        imageAlt="Noguchi Coffee Table with sculptural wooden base and glass top",
+        category="Explore",
+        categoryHref="/explore",
+        title="Noguchi Coffee Table",
+        description="Isamu Noguchi's sculptural masterpiece that blurs the line between furniture and art.",
+        meta={
+          designer: "Isamu Noguchi",
+          year: "1947",
+          manufacturer: "Herman Miller"
+        },
+        price="$1,895",
+        href="/explore/furniture/noguchi-table",
+        style="soft"
+      ) }}
+      
+      {# Featured Designer #}
+      {{ card(
+        image="/images/charles-ray-eames.jpg",
+        imageAlt="Charles and Ray Eames in their studio",
+        category="Explore",
+        categoryHref="/explore",
+        title="Charles & Ray Eames",
+        description="The power couple who revolutionized American design with innovation, playfulness, and functionality.",
+        meta={
+          active: "1941-1978",
+          pieces: "50+ designs"
+        },
+        href="/explore/designers/charles-ray-eames",
+        style="soft"
+      ) }}
+    </div>
+    
+    <div class="featured__cta">
+      {{ button(
+        text="View All Articles",
+        variant="secondary",
+        size="lg",
+        href="/learn"
+      ) }}
+    </div>
+  </div>
+</section>
+
+{# ============================================
+   INTERACTIVE PREVIEW - Color Palette Tool
+   ============================================ #}
+<section class="section interactive">
+  <div class="container container--narrow">
+    <div class="interactive__content">
+      <div class="interactive__text">
+        <h2 class="section__title">Try It Yourself</h2>
+        <p class="section__subtitle">
+          Get a taste of our interactive tools. Generate authentic MCM color palettes 
+          with a single click.
+        </p>
+      </div>
+      
+      <div class="color-preview" data-color-preview>
+        <div class="color-preview__header">
+          <h3 class="color-preview__title">MCM Color Palette Generator</h3>
+          <button class="btn btn--sm btn--ghost" data-generate-palette>
+            {{ icon(name="refresh", size="16") }}
+            Generate New Palette
+          </button>
+        </div>
+        
+        <div class="color-preview__swatches" data-swatches>
+          <div class="swatch" data-swatch>
+            <div class="swatch__color" style="background: #FF6B35;"></div>
+            <div class="swatch__info">
+              <span class="swatch__name">Warm Orange</span>
+              <span class="swatch__hex">#FF6B35</span>
+            </div>
+          </div>
+          <div class="swatch" data-swatch>
+            <div class="swatch__color" style="background: #1FB7C8;"></div>
+            <div class="swatch__info">
+              <span class="swatch__name">Teal</span>
+              <span class="swatch__hex">#1FB7C8</span>
+            </div>
+          </div>
+          <div class="swatch" data-swatch>
+            <div class="swatch__color" style="background: #F4C542;"></div>
+            <div class="swatch__info">
+              <span class="swatch__name">Sunny Yellow</span>
+              <span class="swatch__hex">#F4C542</span>
+            </div>
+          </div>
+          <div class="swatch" data-swatch>
+            <div class="swatch__color" style="background: #6B4D3D;"></div>
+            <div class="swatch__info">
+              <span class="swatch__name">Walnut</span>
+              <span class="swatch__hex">#6B4D3D</span>
+            </div>
+          </div>
+          <div class="swatch" data-swatch>
+            <div class="swatch__color" style="background: #FAF8F6;"></div>
+            <div class="swatch__info">
+              <span class="swatch__name">Cream</span>
+              <span class="swatch__hex">#FAF8F6</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="color-preview__footer">
+          <p class="text-sm text-tertiary">
+            Want more control? Visit our full
+            <a href="/practice/color-generator">Color Palette Generator</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ============================================
+   TESTIMONIAL / SOCIAL PROOF
+   ============================================ #}
+<section class="section testimonial">
+  <div class="container container--narrow">
+    <blockquote class="testimonial__quote">
+      <p class="testimonial__text">
+        "Less is more only when more is too much."
+      </p>
+      <cite class="testimonial__author">
+        <strong>Frank Lloyd Wright</strong>
+        <span>Architect & Designer</span>
+      </cite>
+    </blockquote>
+    
+    <div class="testimonial__stats">
+      <div class="stat-badge">
+        <div class="stat-badge__icon">{{ icon(name="check", size="24") }}</div>
+        <div class="stat-badge__text">WCAG 2.1 AA Accessible</div>
+      </div>
+      <div class="stat-badge">
+        <div class="stat-badge__icon">{{ icon(name="check", size="24") }}</div>
+        <div class="stat-badge__text">100/100 Lighthouse Score</div>
+      </div>
+      <div class="stat-badge">
+        <div class="stat-badge__icon">{{ icon(name="check", size="24") }}</div>
+        <div class="stat-badge__text">Mobile Optimized</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ============================================
+   NEWSLETTER CTA
+   ============================================ #}
+<section class="section newsletter">
+  <div class="container container--narrow">
+    <div class="newsletter__card">
+      <div class="newsletter__icon">
+        {{ icon(name="mail", size="48") }}
+      </div>
+      
+      <h2 class="newsletter__title">Stay Inspired</h2>
+      <p class="newsletter__description">
+        Get weekly lessons, design inspiration, and tool updates delivered to your inbox.
+      </p>
+      
+      <form class="newsletter__form" data-newsletter-form>
+        <div class="form-group">
+          <label for="email" class="sr-only">Email address</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          >
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg">
+          Subscribe
+          {{ icon(name="arrow-right", size="20") }}
+        </button>
+      </form>
+      
+      <p class="newsletter__privacy text-xs text-tertiary">
+        No spam, ever. Unsubscribe anytime. Read our 
+        <a href="/privacy">privacy policy</a>.
+      </p>
+    </div>
+  </div>
+</section>

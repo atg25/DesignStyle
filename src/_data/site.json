@@ -1,0 +1,11 @@
+{
+  "name": "MCM Design Hub",
+  "description": "Educational platform for Mid-Century Modern design",
+  "url": "https://kaw393939.github.io/DesignStyle",
+  "baseUrl": "/DesignStyle/",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
+  "buildTime": "2025-11-06"
+}
