@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# Pre-commit hook that checks for common issues
+# Copy to .git/hooks/pre-commit and make executable
+
+echo "🔍 Running pre-commit checks..."
+
+# Check if build succeeds
+echo "📦 Testing build..."
+if ! npm run build > /dev/null 2>&1; then
+    echo "❌ Build failed! Fix errors before committing."
+    exit 1
+fi
+echo "✅ Build successful"
+
+# Check for common issues
+echo "🔍 Checking for common issues..."
+
+# Check for debug statements
+if git diff --cached --name-only | xargs grep -n "console.log\|debugger" 2>/dev/null; then
+    echo "❌ Found console.log or debugger statements"
+    echo "Remove them or use git commit --no-verify to bypass"
+    exit 1
+fi
+
+# Check for large files (> 1MB)
+for file in $(git diff --cached --name-only); do
+    if [ -f "$file" ]; then
+        size=$(wc -c < "$file")
+        if [ $size -gt 1000000 ]; then
+            echo "❌ File too large: $file ($(($size / 1000))KB)"
+            echo "Consider adding to .gitignore or using Git LFS"
+            exit 1
+        fi
+    fi
+done
+
+# Check for files that shouldn't be committed
+forbidden_files="node_modules _site .DS_Store .env"
+for file in $forbidden_files; do
+    if git diff --cached --name-only | grep -q "$file"; then
+        echo "❌ Attempting to commit forbidden file/directory: $file"
+        echo "Add it to .gitignore"
+        exit 1
+    fi
+done
+
+echo "✅ All checks passed!"
+exit 0
