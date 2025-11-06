@@ -11,6 +11,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 ```
 
 ### Types:
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation
@@ -21,11 +22,13 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 - `chore`: Maintenance
 
 ### Scopes:
+
 - `landing`, `learn`, `explore`, `practice`
 - `components`, `layout`, `styles`
 - `config`, `deploy`, `docs`
 
 ### Examples:
+
 ```bash
 feat(landing): Add color palette generator
 fix(newsletter): Validate email before submission
@@ -36,17 +39,20 @@ style(landing): Format JavaScript with Prettier
 ## 🔄 Workflow
 
 1. **Pull latest changes**
+
    ```bash
    git pull origin main
    ```
 
 2. **Make atomic commits** (one logical change each)
+
    ```bash
    git add <specific-file>
    git commit -m "feat(scope): description"
    ```
 
 3. **Test before pushing**
+
    ```bash
    npm run build
    npm start

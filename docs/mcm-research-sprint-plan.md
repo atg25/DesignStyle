@@ -28,7 +28,6 @@
 **Research Topics:**
 
 - [ ] Post-WWII context (1945-1949)
-
   - Economic boom and suburban expansion
   - New materials from war innovation (plywood, plastics, aluminum)
   - Housing shortage and need for affordable, functional design
@@ -135,7 +134,6 @@
 **Research Topics:**
 
 - [ ] Wood Tones
-
   - Teak (most iconic MCM wood)
   - Walnut (dark, rich)
   - Rosewood (luxury pieces)
@@ -995,7 +993,6 @@ Home
    - @hermanmiller
    - @knollinc
 2. **Pinterest Boards:**
-
    - "Mid-Century Modern Interior Design"
    - "MCM Color Palettes"
    - "1950s Graphic Design"
@@ -1112,7 +1109,6 @@ By the end of this sprint, you should be able to:
 ### Note-Taking Strategy
 
 1. **Use consistent format:**
-
    - Topic
    - Key points (bullet list)
    - Sources
@@ -1120,7 +1116,6 @@ By the end of this sprint, you should be able to:
    - Questions for further research
 
 2. **Create visual references:**
-
    - Screenshots with annotations
    - Pinterest boards by category
    - Figma mood boards
@@ -1163,19 +1158,16 @@ By the end of this sprint, you should be able to:
 If you need quick answers:
 
 1. **Quick Reference Guides:**
-
    - Wikipedia: "Mid-century modern" article (overview)
    - Design Within Reach: Learning center
    - Herman Miller: Design stories
 
 2. **Expert Blogs:**
-
    - Atomic Ranch magazine blog
    - Mid-Century Home blog
    - Design\*Sponge archives
 
 3. **Forums & Communities:**
-
    - Reddit: r/Mid_Century
    - Design forums
    - Instagram MCM community

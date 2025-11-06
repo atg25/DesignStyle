@@ -1,56 +1,40 @@
-{# Card Component Macro #}
-{% macro card(
-  title,
-  description="",
-  image="",
-  imageAlt="",
-  href="#",
-  meta={},
-  variant="default",
-  badge=""
-) %}
+{# Card Component Macro #} {% macro card( title, description="", image="", imageAlt="", href="#", meta={},
+variant="default", badge="" ) %}
 <article class="card card--{{ variant }}">
   {% if image %}
-    <div class="card__image">
-      <img src="{{ image }}" alt="{{ imageAlt }}" loading="lazy">
-      {% if badge %}
-        <span class="card__badge">{{ badge }}</span>
-      {% endif %}
-    </div>
+  <div class="card__image">
+    <img src="{{ image }}" alt="{{ imageAlt }}" loading="lazy" />
+    {% if badge %}
+    <span class="card__badge">{{ badge }}</span>
+    {% endif %}
+  </div>
   {% endif %}
-  
+
   <div class="card__content">
     {% if meta and (meta.readTime or meta.level or meta.designer or meta.year) %}
-      <div class="card__meta">
-        {% if meta.readTime %}
-          <span class="meta-item">{{ meta.readTime }} min read</span>
-        {% endif %}
-        {% if meta.level %}
-          <span class="meta-item">{{ meta.level }}</span>
-        {% endif %}
-        {% if meta.designer %}
-          <span class="meta-item">{{ meta.designer }}</span>
-        {% endif %}
-        {% if meta.year %}
-          <span class="meta-item">{{ meta.year }}</span>
-        {% endif %}
-      </div>
+    <div class="card__meta">
+      {% if meta.readTime %}
+      <span class="meta-item">{{ meta.readTime }} min read</span>
+      {% endif %} {% if meta.level %}
+      <span class="meta-item">{{ meta.level }}</span>
+      {% endif %} {% if meta.designer %}
+      <span class="meta-item">{{ meta.designer }}</span>
+      {% endif %} {% if meta.year %}
+      <span class="meta-item">{{ meta.year }}</span>
+      {% endif %}
+    </div>
     {% endif %}
-    
+
     <h3 class="card__title">
       <a href="{{ href }}">{{ title }}</a>
     </h3>
-    
+
     {% if description %}
-      <p class="card__description">{{ description }}</p>
-    {% endif %}
-    
-    {% if meta.manufacturer %}
-      <p class="card__manufacturer">{{ meta.manufacturer }}</p>
-    {% endif %}
-    
-    {% if meta.price %}
-      <p class="card__price">{{ meta.price }}</p>
+    <p class="card__description">{{ description }}</p>
+    {% endif %} {% if meta.manufacturer %}
+    <p class="card__manufacturer">{{ meta.manufacturer }}</p>
+    {% endif %} {% if meta.price %}
+    <p class="card__price">{{ meta.price }}</p>
     {% endif %}
   </div>
 </article>

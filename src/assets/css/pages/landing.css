@@ -8,11 +8,7 @@
 
 .hero--split {
   padding: var(--space-16) 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-cream) 0%,
-    var(--color-cream-dark) 100%
-  );
+  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
   overflow: hidden;
 }
 
@@ -218,20 +214,12 @@
 }
 
 .pillar__icon--orange {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-lighter),
-    var(--color-primary)
-  );
+  background: linear-gradient(135deg, var(--color-primary-lighter), var(--color-primary));
   color: white;
 }
 
 .pillar__icon--teal {
-  background: linear-gradient(
-    135deg,
-    var(--color-secondary-lighter),
-    var(--color-secondary)
-  );
+  background: linear-gradient(135deg, var(--color-secondary-lighter), var(--color-secondary));
   color: white;
 }
 
@@ -270,7 +258,7 @@
 }
 
 .pillar__features li::before {
-  content: "→";
+  content: '→';
   position: absolute;
   left: 0;
   color: var(--color-primary);
@@ -293,11 +281,7 @@
 
 .featured {
   padding: var(--space-20) 0;
-  background: linear-gradient(
-    180deg,
-    var(--color-surface) 0%,
-    var(--color-cream) 100%
-  );
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-cream) 100%);
 }
 
 .section__header {
@@ -540,11 +524,7 @@
 
 .newsletter {
   padding: var(--space-20) 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    var(--color-primary-dark) 100%
-  );
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 }
 
 .newsletter__card {
@@ -561,11 +541,7 @@
   height: 80px;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-lighter),
-    var(--color-primary)
-  );
+  background: linear-gradient(135deg, var(--color-primary-lighter), var(--color-primary));
   color: white;
   border-radius: var(--radius-lg);
   margin-bottom: var(--space-6);

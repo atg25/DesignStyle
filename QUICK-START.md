@@ -14,6 +14,7 @@ The development server is running at:
 Open this URL in your browser to see your site!
 
 ### What to Test:
+
 1. ✅ Landing page loads with hero section
 2. ✅ Color palette generator - Click "Generate New Palette" button
 3. ✅ Click on color swatches to copy hex codes (watch for "Copied!" tooltip)
@@ -45,6 +46,7 @@ git push -u origin main
 ```
 
 **Example** (if username is kaw393939):
+
 ```bash
 git remote add origin https://github.com/kaw393939/DesignStyle.git
 git push -u origin main
@@ -58,6 +60,7 @@ git push -u origin main
 4. Done! Wait 2 minutes for the first deployment
 
 Your site will be live at:
+
 ```
 https://YOUR_USERNAME.github.io/DesignStyle/
 ```
@@ -67,6 +70,7 @@ https://YOUR_USERNAME.github.io/DesignStyle/
 ## 📁 What We Built
 
 ### Files Created:
+
 - ✅ `src/index.njk` - Landing page template (300+ lines)
 - ✅ `src/assets/css/main.css` - Base styles (400+ lines)
 - ✅ `src/assets/css/pages/landing.css` - Landing page styles (680 lines)
@@ -81,6 +85,7 @@ https://YOUR_USERNAME.github.io/DesignStyle/
 **Total: 1,700+ lines of production code**
 
 ### Features Implemented:
+
 - 🎨 Split hero layout with rotating furniture image
 - 🎯 Three value pillars (Learn/Explore/Practice)
 - 📚 Featured content cards
@@ -115,6 +120,7 @@ git push             # Push to GitHub (auto-deploys)
 ### Optional: Update Your Info
 
 Edit `src/_data/site.json`:
+
 ```json
 {
   "name": "MCM Design Hub",
@@ -128,6 +134,7 @@ Edit `src/_data/site.json`:
 ```
 
 Then commit:
+
 ```bash
 git add src/_data/site.json
 git commit -m "Update site configuration"
@@ -139,12 +146,14 @@ git push
 ## 🔍 After Deployment
 
 ### Check Deployment Status:
+
 1. Go to your repo's **Actions** tab
 2. Watch the "Deploy to GitHub Pages" workflow
 3. Green checkmark = deployed successfully!
 4. Click on "deploy" job to see your live URL
 
 ### If you see issues:
+
 - CSS not loading? Check `baseUrl` in `site.json` matches repo name
 - 404 error? Make sure Pages is enabled (Settings → Pages)
 - Workflow failing? Check Actions tab for error details
@@ -220,6 +229,7 @@ Before you push to GitHub:
 ## 🎉 You're Ready!
 
 Everything is set up. Just need to:
+
 1. Create GitHub repo
 2. Push code
 3. Enable Pages
@@ -247,6 +257,7 @@ If something doesn't work:
 4. Check that all files were committed: `git status`
 
 Common fixes:
+
 - `npm run clean && npm run build` - Fresh build
 - Clear browser cache - Hard refresh (Cmd+Shift+R)
 - Check file paths - All lowercase, no spaces

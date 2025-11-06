@@ -1,20 +1,6 @@
-{# Icon Component Macro #}
-{% macro icon(name, size="md", color="currentColor") %}
+{# Icon Component Macro #} {% macro icon(name, size="md", color="currentColor") %}
 <span class="icon icon--{{ name }} icon--{{ size }}" aria-hidden="true">
-  {% if name == "arrow-right" %}
-    →
-  {% elif name == "book" %}
-    📚
-  {% elif name == "grid" %}
-    ▦
-  {% elif name == "filter" %}
-    ☰
-  {% elif name == "check" %}
-    ✓
-  {% elif name == "mail" %}
-    ✉
-  {% else %}
-    •
-  {% endif %}
+  {% if name == "arrow-right" %} → {% elif name == "book" %} 📚 {% elif name == "grid" %} ▦ {% elif name == "filter" %}
+  ☰ {% elif name == "check" %} ✓ {% elif name == "mail" %} ✉ {% else %} • {% endif %}
 </span>
 {% endmacro %}

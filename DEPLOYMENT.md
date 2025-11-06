@@ -41,6 +41,7 @@ git push -u origin main
 ```
 
 **Example:** If your username is `kaw393939`:
+
 ```bash
 git remote add origin https://github.com/kaw393939/DesignStyle.git
 git push -u origin main
@@ -98,6 +99,7 @@ npm start
 ```
 
 Test checklist:
+
 - [ ] Homepage loads
 - [ ] Color palette generator works (click "Generate New Palette")
 - [ ] Click swatches to copy colors
@@ -112,6 +114,7 @@ Test checklist:
 Before deploying, you may want to update:
 
 ### `src/_data/site.json`
+
 ```json
 {
   "name": "MCM Design Hub",
@@ -130,16 +133,19 @@ Before deploying, you may want to update:
 ## 🎉 After Deployment
 
 Once deployed, your site will be live at:
+
 ```
 https://YOUR_USERNAME.github.io/DesignStyle/
 ```
 
 ### Share your work:
+
 - Tweet the link
 - Add it to your LinkedIn
 - Share in design communities
 
 ### Next steps:
+
 - Add real furniture images
 - Create Learn section pages
 - Build Explore gallery

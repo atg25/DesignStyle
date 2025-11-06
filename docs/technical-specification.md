@@ -274,21 +274,21 @@ services:
       context: .
       dockerfile: Dockerfile
       target: production
-    ports: ["8080:80"]
-    profiles: ["production"]
+    ports: ['8080:80']
+    profiles: ['production']
     healthcheck: [...]
 
   dev: # Development
     build:
       context: .
       dockerfile: Dockerfile.dev
-    ports: ["3000:8080"]
+    ports: ['3000:8080']
     volumes:
       - ./src:/app/src:cached # Live code updates
       - node_modules:/app/node_modules # Cached dependencies
     environment:
       - CHOKIDAR_USEPOLLING=true # File watching
-    profiles: ["dev", "development"]
+    profiles: ['dev', 'development']
 ```
 
 **Profile System Benefits:**
@@ -368,7 +368,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -381,8 +381,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
-          cache: "npm" # Cache npm dependencies
+          node-version: '18'
+          cache: 'npm' # Cache npm dependencies
 
       - name: Install dependencies
         run: npm ci # Clean install
@@ -398,7 +398,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "_site"
+          path: '_site'
 
   deploy:
     environment:
@@ -582,17 +582,17 @@ jobs:
 
 ```javascript
 // Mobile menu closes on link click
-document.querySelectorAll(".nav-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
+document.querySelectorAll('.nav-link').forEach((link) => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
   });
 });
 
 // Smooth scroll with keyboard support
 window.scrollTo({
   top: offsetPosition,
-  behavior: "smooth",
+  behavior: 'smooth',
 });
 ```
 
@@ -609,11 +609,7 @@ button:focus {
 #### 6. **Alt Text for Images**
 
 ```html
-<img
-  src="{{ project.data.image }}"
-  alt="{{ project.data.title }}"
-  loading="lazy"
-/>
+<img src="{{ project.data.image }}" alt="{{ project.data.title }}" loading="lazy" />
 ```
 
 #### 7. **Skip Links** (Recommended Addition)
@@ -778,7 +774,7 @@ button:focus {
 
 ```javascript
 // 1. Initialize on DOM Ready
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   initMobileNavigation();
   initSmoothScrolling();
   initHeaderScrollEffect();
@@ -793,7 +789,7 @@ function initMobileNavigation() {
   try {
     // Implementation...
   } catch (error) {
-    console.warn("Mobile navigation initialization failed:", error);
+    console.warn('Mobile navigation initialization failed:', error);
   }
 }
 ```
@@ -804,22 +800,18 @@ function initMobileNavigation() {
 
 ```javascript
 // Toggle mobile menu
-hamburger.addEventListener("click", function () {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
+hamburger.addEventListener('click', function () {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
 });
 
 // Close when clicking outside
-document.addEventListener("click", function (event) {
+document.addEventListener('click', function (event) {
   const isClickInsideNav = navMenu.contains(event.target);
   const isClickOnHamburger = hamburger.contains(event.target);
-  if (
-    !isClickInsideNav &&
-    !isClickOnHamburger &&
-    navMenu.classList.contains("active")
-  ) {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
+  if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
   }
 });
 ```
@@ -829,14 +821,13 @@ document.addEventListener("click", function (event) {
 ```javascript
 const anchorLinks = document.querySelectorAll('a[href^="#"]');
 anchorLinks.forEach((link) => {
-  link.addEventListener("click", function (e) {
+  link.addEventListener('click', function (e) {
     const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       const headerOffset = 80;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   });
 });
@@ -846,12 +837,12 @@ anchorLinks.forEach((link) => {
 
 ```javascript
 let lastScrollTop = 0;
-window.addEventListener("scroll", function () {
+window.addEventListener('scroll', function () {
   const scrollTop = window.pageYOffset;
   if (scrollTop > lastScrollTop && scrollTop > 100) {
-    header.style.transform = "translateY(-100%)"; // Hide
+    header.style.transform = 'translateY(-100%)'; // Hide
   } else {
-    header.style.transform = "translateY(0)"; // Show
+    header.style.transform = 'translateY(0)'; // Show
   }
   lastScrollTop = scrollTop;
 });
@@ -861,14 +852,14 @@ window.addEventListener("scroll", function () {
 
 ```javascript
 codeBlocks.forEach((codeBlock) => {
-  const copyButton = document.createElement("button");
-  copyButton.textContent = "Copy";
+  const copyButton = document.createElement('button');
+  copyButton.textContent = 'Copy';
 
-  copyButton.addEventListener("click", async function () {
+  copyButton.addEventListener('click', async function () {
     await navigator.clipboard.writeText(codeBlock.textContent);
-    this.textContent = "Copied!";
+    this.textContent = 'Copied!';
     setTimeout(() => {
-      this.textContent = "Copy";
+      this.textContent = 'Copy';
     }, 2000);
   });
 
@@ -881,10 +872,10 @@ codeBlocks.forEach((codeBlock) => {
 ```javascript
 const images = document.querySelectorAll('img[loading="lazy"]');
 images.forEach((img) => {
-  img.style.opacity = "0";
-  img.style.transition = "opacity 0.3s ease";
-  img.addEventListener("load", function () {
-    this.style.opacity = "1";
+  img.style.opacity = '0';
+  img.style.transition = 'opacity 0.3s ease';
+  img.addEventListener('load', function () {
+    this.style.opacity = '1';
   });
 });
 ```
@@ -910,10 +901,10 @@ images.forEach((img) => {
 ```yaml
 ---
 layout: post.njk
-title: "Post Title"
-description: "Meta description for SEO"
+title: 'Post Title'
+description: 'Meta description for SEO'
 date: 2025-01-01
-tags: ["blog", "category1", "category2"]
+tags: ['blog', 'category1', 'category2']
 ---
 ```
 
@@ -935,15 +926,15 @@ tags: ["blog", "category1", "category2"]
 ```yaml
 ---
 layout: project.njk
-title: "Project Name"
-description: "Brief description"
-technologies: ["React", "Node.js", "PostgreSQL"]
-status: "Completed"
-github: "https://github.com/user/repo"
-demo: "https://demo.example.com"
+title: 'Project Name'
+description: 'Brief description'
+technologies: ['React', 'Node.js', 'PostgreSQL']
+status: 'Completed'
+github: 'https://github.com/user/repo'
+demo: 'https://demo.example.com'
 date: 2025-01-01
 featured: true
-image: "/images/project-screenshot.png"
+image: '/images/project-screenshot.png'
 ---
 ```
 
@@ -957,12 +948,12 @@ image: "/images/project-screenshot.png"
 
 ```javascript
 // Eleventy automatically creates collections from tags
-eleventyConfig.addCollection("blog", function (collectionApi) {
-  return collectionApi.getFilteredByGlob("src/blog/*.md").reverse();
+eleventyConfig.addCollection('blog', function (collectionApi) {
+  return collectionApi.getFilteredByGlob('src/blog/*.md').reverse();
 });
 
-eleventyConfig.addCollection("projects", function (collectionApi) {
-  return collectionApi.getFilteredByGlob("src/projects/*.md").reverse();
+eleventyConfig.addCollection('projects', function (collectionApi) {
+  return collectionApi.getFilteredByGlob('src/projects/*.md').reverse();
 });
 ```
 
@@ -1113,13 +1104,11 @@ docker run -p 8080:80 yourusername/eleventy-portfolio:latest
 ### Code Quality
 
 1. **Consistent Formatting**
-
    - Prettier for code formatting
    - EditorConfig for consistency
    - Pre-commit hooks (recommended)
 
 2. **Version Control**
-
    - Comprehensive `.gitignore` (92 patterns)
    - Meaningful commit messages
    - Branch protection on main
@@ -1198,8 +1187,8 @@ Update CSS custom properties:
   --color-neutral-cool: #475569; /* Cool gray */
 
   /* Period-Appropriate Typography */
-  --font-family-heading: "Futura", "Century Gothic", sans-serif;
-  --font-family-body: "Helvetica Neue", "Arial", sans-serif;
+  --font-family-heading: 'Futura', 'Century Gothic', sans-serif;
+  --font-family-body: 'Helvetica Neue', 'Arial', sans-serif;
 }
 ```
 
@@ -1208,13 +1197,13 @@ Update CSS custom properties:
 ```css
 :root {
   /* Geometric Sans-Serif (MCM characteristic) */
-  --font-family-primary: "Futura", "Century Gothic", "Avenir", sans-serif;
+  --font-family-primary: 'Futura', 'Century Gothic', 'Avenir', sans-serif;
 
   /* Clean, readable body text */
-  --font-family-body: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-family-body: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
   /* Optional serif for contrast */
-  --font-family-serif: "Garamond", "Georgia", serif;
+  --font-family-serif: 'Garamond', 'Georgia', serif;
 
   /* Larger, bolder headings (MCM style) */
   --font-size-hero: 4rem; /* 64px */
@@ -1302,11 +1291,11 @@ src/
 ```yaml
 ---
 layout: designer.njk
-name: "Charles Eames"
-period: "1950s-1960s"
-specialties: ["Furniture Design", "Architecture"]
-notable_works: ["Eames Lounge Chair", "Eames House"]
-image: "/images/designers/eames.jpg"
+name: 'Charles Eames'
+period: '1950s-1960s'
+specialties: ['Furniture Design', 'Architecture']
+notable_works: ['Eames Lounge Chair', 'Eames House']
+image: '/images/designers/eames.jpg'
 ---
 ```
 
@@ -1315,14 +1304,14 @@ image: "/images/designers/eames.jpg"
 ```yaml
 ---
 layout: furniture.njk
-title: "Eames Lounge Chair"
-designer: "Charles and Ray Eames"
+title: 'Eames Lounge Chair'
+designer: 'Charles and Ray Eames'
 year: 1956
-materials: ["Molded Plywood", "Leather", "Aluminum"]
-category: "Seating"
-era: "Mid-Century Modern"
-status: "Iconic"
-image: "/images/furniture/eames-lounge.jpg"
+materials: ['Molded Plywood', 'Leather', 'Aluminum']
+category: 'Seating'
+era: 'Mid-Century Modern'
+status: 'Iconic'
+image: '/images/furniture/eames-lounge.jpg'
 ---
 ```
 
@@ -1332,9 +1321,9 @@ image: "/images/furniture/eames-lounge.jpg"
 ---
 layout: timeline-event.njk
 year: 1956
-title: "Introduction of Eames Lounge Chair"
-significance: "Revolutionized modern furniture design"
-image: "/images/timeline/1956-eames.jpg"
+title: 'Introduction of Eames Lounge Chair'
+significance: 'Revolutionized modern furniture design'
+image: '/images/timeline/1956-eames.jpg'
 ---
 ```
 
@@ -1370,7 +1359,7 @@ image: "/images/timeline/1956-eames.jpg"
 ```javascript
 // Image galleries with smooth transitions
 function initGallery() {
-  const gallery = document.querySelector(".mcm-gallery");
+  const gallery = document.querySelector('.mcm-gallery');
   // Implement lightbox or carousel
 }
 

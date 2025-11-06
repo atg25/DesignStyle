@@ -5,72 +5,72 @@
  */
 class ColorPalettePreview {
   constructor() {
-    this.previewEl = document.querySelector("[data-color-preview]");
+    this.previewEl = document.querySelector('[data-color-preview]');
     if (!this.previewEl) return;
 
-    this.generateBtn = this.previewEl.querySelector("[data-generate-palette]");
-    this.swatchesContainer = this.previewEl.querySelector("[data-swatches]");
+    this.generateBtn = this.previewEl.querySelector('[data-generate-palette]');
+    this.swatchesContainer = this.previewEl.querySelector('[data-swatches]');
 
     // MCM Color Palettes Database
     this.palettes = [
       {
-        name: "Warm Sunset",
+        name: 'Warm Sunset',
         colors: [
-          { name: "Burnt Orange", hex: "#FF6B35" },
-          { name: "Teal", hex: "#1FB7C8" },
-          { name: "Mustard", hex: "#F4C542" },
-          { name: "Walnut", hex: "#6B4D3D" },
-          { name: "Cream", hex: "#FAF8F6" },
+          { name: 'Burnt Orange', hex: '#FF6B35' },
+          { name: 'Teal', hex: '#1FB7C8' },
+          { name: 'Mustard', hex: '#F4C542' },
+          { name: 'Walnut', hex: '#6B4D3D' },
+          { name: 'Cream', hex: '#FAF8F6' },
         ],
       },
       {
-        name: "Cool Retro",
+        name: 'Cool Retro',
         colors: [
-          { name: "Avocado", hex: "#6B8E23" },
-          { name: "Tangerine", hex: "#FF8C42" },
-          { name: "Sky Blue", hex: "#8ECAE6" },
-          { name: "Chocolate", hex: "#5C4A42" },
-          { name: "Beige", hex: "#F2EDE8" },
+          { name: 'Avocado', hex: '#6B8E23' },
+          { name: 'Tangerine', hex: '#FF8C42' },
+          { name: 'Sky Blue', hex: '#8ECAE6' },
+          { name: 'Chocolate', hex: '#5C4A42' },
+          { name: 'Beige', hex: '#F2EDE8' },
         ],
       },
       {
-        name: "Atomic Age",
+        name: 'Atomic Age',
         colors: [
-          { name: "Cherry Red", hex: "#E63946" },
-          { name: "Turquoise", hex: "#2A9D8F" },
-          { name: "Lemon", hex: "#F9C74F" },
-          { name: "Charcoal", hex: "#2C1810" },
-          { name: "White", hex: "#FFFFFF" },
+          { name: 'Cherry Red', hex: '#E63946' },
+          { name: 'Turquoise', hex: '#2A9D8F' },
+          { name: 'Lemon', hex: '#F9C74F' },
+          { name: 'Charcoal', hex: '#2C1810' },
+          { name: 'White', hex: '#FFFFFF' },
         ],
       },
       {
-        name: "Earthy Tones",
+        name: 'Earthy Tones',
         colors: [
-          { name: "Terracotta", hex: "#D4694C" },
-          { name: "Sage", hex: "#9CAA9C" },
-          { name: "Ochre", hex: "#CC9544" },
-          { name: "Dark Brown", hex: "#3E302A" },
-          { name: "Cream", hex: "#FAF8F6" },
+          { name: 'Terracotta', hex: '#D4694C' },
+          { name: 'Sage', hex: '#9CAA9C' },
+          { name: 'Ochre', hex: '#CC9544' },
+          { name: 'Dark Brown', hex: '#3E302A' },
+          { name: 'Cream', hex: '#FAF8F6' },
         ],
       },
       {
-        name: "Bold Primary",
+        name: 'Bold Primary',
         colors: [
-          { name: "Primary Red", hex: "#E74C3C" },
-          { name: "Primary Blue", hex: "#3498DB" },
-          { name: "Primary Yellow", hex: "#F1C40F" },
-          { name: "Black", hex: "#2C1810" },
-          { name: "White", hex: "#FFFFFF" },
+          { name: 'Primary Red', hex: '#E74C3C' },
+          { name: 'Primary Blue', hex: '#3498DB' },
+          { name: 'Primary Yellow', hex: '#F1C40F' },
+          { name: 'Black', hex: '#2C1810' },
+          { name: 'White', hex: '#FFFFFF' },
         ],
       },
       {
-        name: "Pastel Dream",
+        name: 'Pastel Dream',
         colors: [
-          { name: "Blush Pink", hex: "#FFB4A2" },
-          { name: "Mint", hex: "#B8E0D2" },
-          { name: "Butter", hex: "#F9E79F" },
-          { name: "Gray", hex: "#95A5A6" },
-          { name: "Cream", hex: "#FFF5EE" },
+          { name: 'Blush Pink', hex: '#FFB4A2' },
+          { name: 'Mint', hex: '#B8E0D2' },
+          { name: 'Butter', hex: '#F9E79F' },
+          { name: 'Gray', hex: '#95A5A6' },
+          { name: 'Cream', hex: '#FFF5EE' },
         ],
       },
     ];
@@ -80,11 +80,11 @@ class ColorPalettePreview {
   }
 
   init() {
-    this.generateBtn.addEventListener("click", () => this.generateNewPalette());
+    this.generateBtn.addEventListener('click', () => this.generateNewPalette());
 
     // Add click to copy functionality
-    this.swatchesContainer.addEventListener("click", (e) => {
-      const swatch = e.target.closest("[data-swatch]");
+    this.swatchesContainer.addEventListener('click', (e) => {
+      const swatch = e.target.closest('[data-swatch]');
       if (swatch) {
         this.copyColor(swatch);
       }
@@ -93,18 +93,17 @@ class ColorPalettePreview {
 
   generateNewPalette() {
     // Animate button
-    this.generateBtn.style.transform = "rotate(360deg)";
+    this.generateBtn.style.transform = 'rotate(360deg)';
     setTimeout(() => {
-      this.generateBtn.style.transform = "rotate(0deg)";
+      this.generateBtn.style.transform = 'rotate(0deg)';
     }, 300);
 
     // Get next palette (cycle through)
-    this.currentPaletteIndex =
-      (this.currentPaletteIndex + 1) % this.palettes.length;
+    this.currentPaletteIndex = (this.currentPaletteIndex + 1) % this.palettes.length;
     const palette = this.palettes[this.currentPaletteIndex];
 
     // Update swatches with animation
-    const swatches = this.swatchesContainer.querySelectorAll("[data-swatch]");
+    const swatches = this.swatchesContainer.querySelectorAll('[data-swatch]');
     swatches.forEach((swatch, index) => {
       setTimeout(() => {
         this.updateSwatch(swatch, palette.colors[index]);
@@ -113,13 +112,13 @@ class ColorPalettePreview {
   }
 
   updateSwatch(swatchEl, colorData) {
-    const colorBox = swatchEl.querySelector(".swatch__color");
-    const nameEl = swatchEl.querySelector(".swatch__name");
-    const hexEl = swatchEl.querySelector(".swatch__hex");
+    const colorBox = swatchEl.querySelector('.swatch__color');
+    const nameEl = swatchEl.querySelector('.swatch__name');
+    const hexEl = swatchEl.querySelector('.swatch__hex');
 
     // Fade out
-    swatchEl.style.opacity = "0";
-    swatchEl.style.transform = "translateY(10px)";
+    swatchEl.style.opacity = '0';
+    swatchEl.style.transform = 'translateY(10px)';
 
     setTimeout(() => {
       // Update content
@@ -128,13 +127,13 @@ class ColorPalettePreview {
       hexEl.textContent = colorData.hex;
 
       // Fade in
-      swatchEl.style.opacity = "1";
-      swatchEl.style.transform = "translateY(0)";
+      swatchEl.style.opacity = '1';
+      swatchEl.style.transform = 'translateY(0)';
     }, 150);
   }
 
   copyColor(swatchEl) {
-    const hex = swatchEl.querySelector(".swatch__hex").textContent;
+    const hex = swatchEl.querySelector('.swatch__hex').textContent;
 
     // Copy to clipboard
     navigator.clipboard
@@ -144,20 +143,20 @@ class ColorPalettePreview {
         this.showCopyFeedback(swatchEl);
       })
       .catch((err) => {
-        console.error("Failed to copy:", err);
+        console.error('Failed to copy:', err);
       });
   }
 
   showCopyFeedback(swatchEl) {
-    const colorBox = swatchEl.querySelector(".swatch__color");
+    const colorBox = swatchEl.querySelector('.swatch__color');
     const originalTransform = colorBox.style.transform;
 
     // Animate
-    colorBox.style.transform = "scale(1.1)";
+    colorBox.style.transform = 'scale(1.1)';
 
     // Create tooltip
-    const tooltip = document.createElement("div");
-    tooltip.textContent = "Copied!";
+    const tooltip = document.createElement('div');
+    tooltip.textContent = 'Copied!';
     tooltip.style.cssText = `
       position: absolute;
       top: -30px;
@@ -172,7 +171,7 @@ class ColorPalettePreview {
       animation: fadeIn 0.2s ease;
     `;
 
-    swatchEl.style.position = "relative";
+    swatchEl.style.position = 'relative';
     swatchEl.appendChild(tooltip);
 
     // Remove after delay
@@ -188,7 +187,7 @@ class ColorPalettePreview {
  */
 class NewsletterForm {
   constructor() {
-    this.form = document.querySelector("[data-newsletter-form]");
+    this.form = document.querySelector('[data-newsletter-form]');
     if (!this.form) return;
 
     this.emailInput = this.form.querySelector('input[type="email"]');
@@ -199,7 +198,7 @@ class NewsletterForm {
   }
 
   init() {
-    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+    this.form.addEventListener('submit', (e) => this.handleSubmit(e));
   }
 
   async handleSubmit(e) {
@@ -208,7 +207,7 @@ class NewsletterForm {
     const email = this.emailInput.value.trim();
 
     if (!this.validateEmail(email)) {
-      this.showError("Please enter a valid email address");
+      this.showError('Please enter a valid email address');
       return;
     }
 
@@ -222,7 +221,7 @@ class NewsletterForm {
       // Success
       this.showSuccess();
     } catch (error) {
-      this.showError("Something went wrong. Please try again.");
+      this.showError('Something went wrong. Please try again.');
     } finally {
       this.setLoading(false);
     }
@@ -236,7 +235,7 @@ class NewsletterForm {
   setLoading(isLoading) {
     this.submitBtn.disabled = isLoading;
     if (isLoading) {
-      this.submitBtn.innerHTML = "Subscribing...";
+      this.submitBtn.innerHTML = 'Subscribing...';
     } else {
       this.submitBtn.innerHTML = this.originalBtnText;
     }
@@ -258,10 +257,10 @@ class NewsletterForm {
 
   showError(message) {
     // Create or update error message
-    let errorEl = this.form.querySelector(".form-error");
+    let errorEl = this.form.querySelector('.form-error');
     if (!errorEl) {
-      errorEl = document.createElement("div");
-      errorEl.className = "form-error";
+      errorEl = document.createElement('div');
+      errorEl.className = 'form-error';
       errorEl.style.cssText = `
         color: var(--color-error);
         font-size: var(--text-sm);
@@ -293,13 +292,13 @@ class NewsletterForm {
  */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const target = document.querySelector(this.getAttribute("href"));
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
       if (target) {
         e.preventDefault();
         target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
+          behavior: 'smooth',
+          block: 'start',
         });
       }
     });
@@ -311,36 +310,34 @@ function initSmoothScroll() {
  */
 class ScrollAnimations {
   constructor() {
-    this.animatedElements = document.querySelectorAll(
-      ".pillar, .card, .stat-badge"
-    );
+    this.animatedElements = document.querySelectorAll('.pillar, .card, .stat-badge');
     this.observer = null;
     this.init();
   }
 
   init() {
-    if (!("IntersectionObserver" in window)) return;
+    if (!('IntersectionObserver' in window)) return;
 
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
             this.observer.unobserve(entry.target);
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        rootMargin: '0px 0px -50px 0px',
       }
     );
 
     this.animatedElements.forEach((el) => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(20px)";
-      el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       this.observer.observe(el);
     });
   }
@@ -349,11 +346,11 @@ class ScrollAnimations {
 /**
  * Initialize all landing page features
  */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   new ColorPalettePreview();
   new NewsletterForm();
   new ScrollAnimations();
   initSmoothScroll();
 
-  console.log("🎨 MCM Design Hub landing page loaded");
+  console.log('🎨 MCM Design Hub landing page loaded');
 });

@@ -50,6 +50,7 @@ chore(deps): Update Eleventy to 3.1.0
 ```
 
 ### Types
+
 - `feat` - New feature
 - `fix` - Bug fix
 - `docs` - Documentation
@@ -61,6 +62,7 @@ chore(deps): Update Eleventy to 3.1.0
 - `ci` - CI/CD
 
 ### Scopes
+
 - `landing`, `learn`, `explore`, `practice`
 - `components`, `layout`, `styles`
 - `config`, `deploy`, `docs`

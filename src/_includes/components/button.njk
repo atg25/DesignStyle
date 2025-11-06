@@ -1,28 +1,24 @@
-{# Button Component Macro #}
-{% macro button(
-  text,
-  variant="primary",
-  size="md",
-  shape="rounded",
-  href="#",
-  icon="",
-  iconPosition="left",
-  disabled=false,
-  fullWidth=false
-) %}
-<a 
-  href="{{ href }}" 
+{# Button Component Macro #} {% macro button( text, variant="primary", size="md", shape="rounded", href="#", icon="",
+iconPosition="left", disabled=false, fullWidth=false ) %}
+<a
+  href="{{ href }}"
   class="btn btn--{{ variant }} btn--{{ size }} btn--{{ shape }}{% if fullWidth %} btn--full-width{% endif %}{% if disabled %} btn--disabled{% endif %}"
-  {% if disabled %}aria-disabled="true"{% endif %}
+  {%
+  if
+  disabled
+  %}aria-disabled="true"
+  {%
+  endif
+  %}
 >
   {% if icon and iconPosition == "left" %}
-    <span class="btn__icon btn__icon--left">{{ icon }}</span>
+  <span class="btn__icon btn__icon--left">{{ icon }}</span>
   {% endif %}
-  
+
   <span class="btn__text">{{ text }}</span>
-  
+
   {% if icon and iconPosition == "right" %}
-    <span class="btn__icon btn__icon--right">→</span>
+  <span class="btn__icon btn__icon--right">→</span>
   {% endif %}
 </a>
 {% endmacro %}

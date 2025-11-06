@@ -12,19 +12,16 @@ A **complete, production-ready landing page** for the MCM Design Hub that showca
 ### Files Created (3 files)
 
 1. **`src/index.njk`** (320 lines)
-
    - Complete Nunjucks template
    - 6 major sections
    - Uses all existing components
 
 2. **`src/assets/css/pages/landing.css`** (680 lines)
-
    - Mobile-first responsive styles
    - Smooth animations and transitions
    - Print-ready styles
 
 3. **`src/assets/js/pages/landing.js`** (330 lines)
-
    - Interactive color palette generator
    - Newsletter form with validation
    - Scroll-triggered animations
@@ -136,14 +133,12 @@ A **complete, production-ready landing page** for the MCM Design Hub that showca
 ### To Launch:
 
 1. **Replace placeholder images:**
-
    - Hero: Eames chair photo
    - Featured article: Color wheel image
    - Featured furniture: Noguchi table
    - Featured designer: Charles & Ray Eames
 
 2. **Connect newsletter form:**
-
    - Update API endpoint in `landing.js`
    - Configure email service (Mailchimp, ConvertKit, etc.)
 
@@ -187,22 +182,18 @@ A **complete, production-ready landing page** for the MCM Design Hub that showca
 ### MCM Principles Applied:
 
 1. **Form Follows Function**
-
    - Every element serves a purpose
    - No decorative clutter
 
 2. **Bold Use of Color**
-
    - Orange, teal, yellow accents
    - Interactive color generator showcases palette variety
 
 3. **Organic Shapes**
-
    - Rounded corners (8px, 16px, 24px)
    - Smooth transitions
 
 4. **Clean Typography**
-
    - Clear hierarchy
    - Generous whitespace
    - Serif headings, sans-serif body
@@ -276,28 +267,23 @@ With images (optimized):
 ## What Makes This Landing Page Effective
 
 1. **Clear Value Proposition**
-
    - Immediately obvious what the site offers
    - Three pathways cater to different users
 
 2. **Visual Appeal**
-
    - Showcases MCM aesthetic instantly
    - High-quality imagery (placeholder for now)
 
 3. **Multiple CTAs**
-
    - Primary: Start Learning
    - Secondary: Explore Gallery
    - Tertiary: Try tools, subscribe
 
 4. **Interactive Element**
-
    - Color generator provides hands-on preview
    - Low commitment, high engagement
 
 5. **Trust Building**
-
    - Quote from legendary designer
    - Technical badges (accessibility, performance)
 
