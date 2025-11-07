@@ -817,7 +817,7 @@
 }
 
 .impact {
-  background: #8e44ad;
+  background: #1fb7c8;
   padding: clamp(2.5rem, 5vw, 4rem);
   box-shadow: 12px 12px 0 rgb(0, 0, 0, 0.4);
   position: relative;
@@ -829,8 +829,8 @@
 .impact__title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 900;
-  color: #2d3436;
-  background: #f4c542;
+  color: #fff;
+  background: #2d3436;
   display: inline-block;
   padding: 0.5rem 1.5rem;
   margin: 0 0 2rem;
