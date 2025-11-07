@@ -1,288 +1,307 @@
 ---
 layout: base.njk
-title: Discover Mid-Century Modern Graphic Design
-description: Learn the principles and practice with interactive tools. Your complete guide to understanding and applying MCM graphic design style.
+title: Mid-Century Modern Graphic Design Guide
+description: A comprehensive guide to Mid-Century Modern graphic design. Learn about the history, key principles, color theory, typography, and visual elements that defined this iconic design movement from 1945-1970.
 permalink: /
 eleventyNavigation:
   key: Home
   order: 1
 ---
 
-{# Import components #} {% from "components/button.njk" import button %} {% from "components/card.njk" import card %} {%
-from "components/icon.njk" import icon %} {# ============================================ HERO SECTION - Full Width Poster
-============================================ #}
+{# Import components #}
+{% from "components/icon.njk" import icon %}
+
+{# ============================================
+   HERO SECTION - Introduction
+   ============================================ #}
 <section class="hero">
   <div class="hero__content">
     <h1 class="hero__title">
-      MASTER THE ART OF
+      UNDERSTANDING
       <span class="hero__title-highlight">MID-CENTURY MODERN</span>
       GRAPHIC DESIGN
     </h1>
 
     <p class="hero__subtitle">
-      Learn the timeless principles of MCM graphic design through interactive lessons and hands-on tools. Discover the
-      bold colors, clean typography, and geometric patterns that defined an era.
+      From 1945 to 1970, Mid-Century Modern graphic design revolutionized visual communication with bold colors,
+      clean typography, and geometric patterns. This guide explores the key principles that defined an era.
     </p>
 
-    <div class="hero__actions">
-      {{ button( text="Start Learning", variant="primary", size="lg", shape="rounded", href="/learn",
-      icon="arrow-right", iconPosition="right" ) }} {{ button( text="Try Color Tools", variant="secondary", size="lg",
-      shape="rounded", href="/practice" ) }}
-    </div>
-
-    {# Quick stats #}
+    {# Quick overview stats #}
     <div class="hero__stats">
       <div class="stat">
-        <div class="stat__number">12</div>
-        <div class="stat__label">DESIGN PRINCIPLES</div>
+        <div class="stat__number">1945-1970</div>
+        <div class="stat__label">GOLDEN ERA</div>
       </div>
       <div class="stat">
-        <div class="stat__number">50+</div>
-        <div class="stat__label">COLOR PALETTES</div>
+        <div class="stat__number">5</div>
+        <div class="stat__label">KEY PRINCIPLES</div>
       </div>
       <div class="stat">
-        <div class="stat__number">8</div>
-        <div class="stat__label">TYPOGRAPHY GUIDES</div>
+        <div class="stat__number">TIMELESS</div>
+        <div class="stat__label">INFLUENCE</div>
       </div>
     </div>
   </div>
 </section>
 
-{# ============================================ VALUE PILLARS - Full Width Grid
-============================================ #}
+{# ============================================
+   CORE PRINCIPLES - Full Width Grid
+   ============================================ #}
 <section class="pillars">
   <div class="pillars__grid">
-    {# Learn Pillar #}
+    {# Color Theory #}
     <div class="pillar pillar--learn">
-      <div class="pillar__icon pillar__icon--orange">{{ icon(name="book", size="64") }}</div>
-      <h3 class="pillar__title">LEARN</h3>
+      <div class="pillar__icon pillar__icon--orange">{{ icon(name="filter", size="64") }}</div>
+      <h3 class="pillar__title">BOLD COLOR PALETTES</h3>
       <p class="pillar__description">
-        Master the core principles of mid-century modern graphic design through comprehensive lessons on color, typography, and composition.
+        MCM designers embraced vibrant, optimistic colors that reflected post-war prosperity and the atomic age.
       </p>
       <ul class="pillar__features">
-        <li>COLOR THEORY</li>
-        <li>TYPOGRAPHY</li>
-        <li>PATTERNS</li>
-        <li>LAYOUT</li>
+        <li>BURNT ORANGE</li>
+        <li>AVOCADO GREEN</li>
+        <li>TURQUOISE BLUE</li>
+        <li>MUSTARD YELLOW</li>
       </ul>
-      {{ button( text="Start Learning", variant="ghost", href="/learn", icon="arrow-right", iconPosition="right" ) }}
     </div>
 
-    {# Explore Pillar #}
+    {# Typography #}
     <div class="pillar pillar--explore">
-      <div class="pillar__icon pillar__icon--teal">{{ icon(name="grid", size="64") }}</div>
-      <h3 class="pillar__title">EXPLORE</h3>
+      <div class="pillar__icon pillar__icon--teal">{{ icon(name="book", size="64") }}</div>
+      <h3 class="pillar__title">CLEAN TYPOGRAPHY</h3>
       <p class="pillar__description">
-        Browse iconic MCM graphic designers, posters, branding, and visual styles that shaped the era from 1945-1970.
+        Sans-serif typefaces like Helvetica and Futura dominated, emphasizing clarity, simplicity, and geometric forms.
       </p>
       <ul class="pillar__features">
-        <li>DESIGNERS</li>
-        <li>POSTERS</li>
-        <li>BRANDING</li>
-        <li>PATTERNS</li>
+        <li>HELVETICA</li>
+        <li>FUTURA</li>
+        <li>UNIVERS</li>
+        <li>AKZIDENZ GROTESK</li>
       </ul>
-      {{ button( text="Browse Gallery", variant="ghost", href="/explore", icon="arrow-right", iconPosition="right" ) }}
     </div>
 
-    {# Practice Pillar #}
+    {# Geometric Patterns #}
     <div class="pillar pillar--practice">
-      <div class="pillar__icon pillar__icon--yellow">{{ icon(name="filter", size="64") }}</div>
-      <h3 class="pillar__title">PRACTICE</h3>
+      <div class="pillar__icon pillar__icon--yellow">{{ icon(name="grid", size="64") }}</div>
+      <h3 class="pillar__title">GEOMETRIC SHAPES</h3>
       <p class="pillar__description">
-        Apply what you've learned with interactive tools for color palettes, typography pairing, and pattern generation.
+        Circles, starbursts, and atomic patterns created dynamic compositions inspired by science and modernism.
       </p>
       <ul class="pillar__features">
-        <li>COLOR TOOLS</li>
-        <li>TYPE PAIRING</li>
-        <li>GRID TOOL</li>
-        <li>PATTERNS</li>
+        <li>ATOMIC STARBURSTS</li>
+        <li>ORGANIC SHAPES</li>
+        <li>BOLD DIAGONALS</li>
+        <li>ABSTRACT FORMS</li>
       </ul>
-      {{ button( text="Try Tools", variant="ghost", href="/practice", icon="arrow-right", iconPosition="right" ) }}
     </div>
   </div>
 </section>
 
-{# ============================================ FEATURED CONTENT - Design Topics
-============================================ #}
+{# ============================================
+   DESIGN PRINCIPLES - Detailed Sections
+   ============================================ #}
 <section class="section featured">
   <div class="container">
     <div class="section__header">
-      <h2 class="section__title">Featured Design Topics</h2>
-      <p class="section__subtitle">Essential lessons to get you started</p>
+      <h2 class="section__title">Key Design Principles</h2>
+      <p class="section__subtitle">What makes MCM graphic design distinctive</p>
     </div>
 
-    <div class="featured__grid">
-      {# Color Theory Card #} 
-      {{ card( 
-        category="Learn", 
-        categoryHref="/learn", 
-        title="Understanding MCM Color Theory", 
-        description="Discover the vibrant yet sophisticated color palettes that defined the era, from burnt oranges to avocado greens.", 
-        meta={ readTime: "8 min read", level: "Beginner" }, 
-        href="/learn/color-theory",
-        style="soft" 
-      ) }} 
-      
-      {# Typography Card #} 
-      {{ card( 
-        category="Learn", 
-        categoryHref="/learn", 
-        title="MCM Typography Essentials", 
-        description="Learn how modernist typefaces like Helvetica and Futura shaped the clean, geometric aesthetic of the 1950s-60s.", 
-        meta={ readTime: "12 min read", level: "Intermediate" }, 
-        href="/learn/typography",
-        style="soft" 
-      ) }} 
-      
-      {# Geometric Patterns Card #} 
-      {{ card( 
-        category="Explore", 
-        categoryHref="/explore", 
-        title="Geometric Patterns & Motifs", 
-        description="Explore the atomic-age patterns, starbursts, and organic shapes that became iconic MCM design elements.", 
-        meta={ patterns: "25+ examples", era: "1945-1970" }, 
-        href="/explore/patterns",
-        style="soft" 
-      ) }}
-    </div>
+    <div class="principles">
+      <article class="principle">
+        <div class="principle__number">01</div>
+        <h3 class="principle__title">Simplicity & Functionality</h3>
+        <p class="principle__text">
+          "Form follows function" was the mantra. Every element served a purpose. Unnecessary ornamentation was
+          eliminated in favor of clean, purposeful design that communicated directly and efficiently.
+        </p>
+      </article>
 
-    <div class="featured__cta">
-      {{ button( text="View All Lessons", variant="secondary", size="lg", href="/learn" ) }}
+      <article class="principle">
+        <div class="principle__number">02</div>
+        <h3 class="principle__title">Bold Use of Color</h3>
+        <p class="principle__text">
+          MCM designers weren't afraid of color. They used vibrant, saturated hues alongside earthy tones—think burnt
+          orange, avocado green, turquoise, and mustard yellow. These optimistic colors reflected the prosperity and
+          innovation of the era.
+        </p>
+      </article>
+
+      <article class="principle">
+        <div class="principle__number">03</div>
+        <h3 class="principle__title">Geometric Patterns & Shapes</h3>
+        <p class="principle__text">
+          Atomic-age science inspired designers to use geometric patterns extensively. Starbursts, circles, diamonds,
+          and angular shapes created dynamic, energetic compositions. These patterns often represented atoms, molecules,
+          and the excitement of space exploration.
+        </p>
+      </article>
+
+      <article class="principle">
+        <div class="principle__number">04</div>
+        <h3 class="principle__title">Sans-Serif Typography</h3>
+        <p class="principle__text">
+          Clean, geometric sans-serif typefaces like Helvetica (1957), Futura (1927), and Univers (1957) became
+          dominant. These fonts emphasized clarity and modernity, rejecting ornate traditional typefaces for streamlined
+          communication.
+        </p>
+      </article>
+
+      <article class="principle">
+        <div class="principle__number">05</div>
+        <h3 class="principle__title">Asymmetrical Balance</h3>
+        <p class="principle__text">
+          Breaking from traditional centered layouts, MCM designers embraced asymmetry and white space. They created
+          visual tension through off-center compositions, diagonal elements, and bold contrasts that guided the viewer's
+          eye dynamically across the page.
+        </p>
+      </article>
     </div>
   </div>
 </section>
 
-{# ============================================ INTERACTIVE PREVIEW - Color Palette Tool
-============================================ #}
+{# ============================================
+   HISTORICAL CONTEXT - The Era & Influence
+   ============================================ #}
 <section class="section interactive">
   <div class="container container--narrow">
-    <div class="interactive__content">
-      <div class="interactive__text">
-        <h2 class="section__title">Try It Yourself</h2>
-        <p class="section__subtitle">
-          Get a taste of our interactive tools. Generate authentic MCM color palettes with a single click.
+    <div class="historical-context">
+      <div class="section__header">
+        <h2 class="section__title">The Mid-Century Modern Era</h2>
+        <p class="section__subtitle">Understanding the cultural context that shaped this design movement</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline__period">
+          <div class="timeline__years">1945-1955</div>
+          <h3 class="timeline__title">Post-War Optimism</h3>
+          <p class="timeline__description">
+            Following World War II, there was a surge of optimism and innovation. Economic prosperity, suburban growth,
+            and new technologies created demand for fresh, modern design that rejected prewar traditionalism. Designers
+            sought to create a visual language for a new era.
+          </p>
+        </article>
+
+        <article class="timeline__period">
+          <div class="timeline__years">1955-1965</div>
+          <h3 class="timeline__title">Atomic Age & Space Race</h3>
+          <p class="timeline__description">
+            The fascination with atomic science and space exploration profoundly influenced design. Starburst patterns,
+            atomic motifs, and futuristic aesthetics dominated advertising, packaging, and corporate identity. This was
+            the golden age of MCM graphic design, where bold experimentation flourished.
+          </p>
+        </article>
+
+        <article class="timeline__period">
+          <div class="timeline__years">1965-1970</div>
+          <h3 class="timeline__title">Corporate Modernism</h3>
+          <p class="timeline__description">
+            Swiss design principles merged with American innovation. Corporations adopted clean, systematic visual
+            identities. Legendary designers like Saul Bass, Paul Rand, Massimo Vignelli, and Herb Lubalin created
+            iconic logos and brand systems still in use today, proving MCM's timeless effectiveness.
+          </p>
+        </article>
+      </div>
+
+      <div class="impact">
+        <h3 class="impact__title">Lasting Influence on Modern Design</h3>
+        <p class="impact__text">
+          MCM graphic design principles continue to influence contemporary design. The emphasis on simplicity,
+          functionality, and bold visual communication remains relevant. Modern tech companies, startups, and brands
+          frequently reference MCM aesthetics for their timeless appeal, clarity, and ability to communicate complex
+          ideas simply.
         </p>
       </div>
-
-      <div class="color-preview" data-color-preview>
-        <div class="color-preview__header">
-          <h3 class="color-preview__title">MCM Color Palette Generator</h3>
-          <button class="btn btn--sm btn--ghost" data-generate-palette>
-            {{ icon(name="refresh", size="16") }} Generate New Palette
-          </button>
-        </div>
-
-        <div class="color-preview__swatches" data-swatches>
-          <div class="swatch" data-swatch>
-            <div class="swatch__color" style="background: #ff6b35"></div>
-            <div class="swatch__info">
-              <span class="swatch__name">Warm Orange</span>
-              <span class="swatch__hex">#FF6B35</span>
-            </div>
-          </div>
-          <div class="swatch" data-swatch>
-            <div class="swatch__color" style="background: #1fb7c8"></div>
-            <div class="swatch__info">
-              <span class="swatch__name">Teal</span>
-              <span class="swatch__hex">#1FB7C8</span>
-            </div>
-          </div>
-          <div class="swatch" data-swatch>
-            <div class="swatch__color" style="background: #f4c542"></div>
-            <div class="swatch__info">
-              <span class="swatch__name">Sunny Yellow</span>
-              <span class="swatch__hex">#F4C542</span>
-            </div>
-          </div>
-          <div class="swatch" data-swatch>
-            <div class="swatch__color" style="background: #6b4d3d"></div>
-            <div class="swatch__info">
-              <span class="swatch__name">Walnut</span>
-              <span class="swatch__hex">#6B4D3D</span>
-            </div>
-          </div>
-          <div class="swatch" data-swatch>
-            <div class="swatch__color" style="background: #faf8f6"></div>
-            <div class="swatch__info">
-              <span class="swatch__name">Cream</span>
-              <span class="swatch__hex">#FAF8F6</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="color-preview__footer">
-          <p class="text-sm text-tertiary">
-            Want more control? Visit our full
-            <a href="/practice/color-generator">Color Palette Generator</a>
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-{# ============================================ TESTIMONIAL / SOCIAL PROOF ============================================
-#}
+{# ============================================
+   NOTABLE DESIGNERS - Key Figures
+   ============================================ #}
 <section class="section testimonial">
   <div class="container container--narrow">
-    <blockquote class="testimonial__quote">
-      <p class="testimonial__text">"Less is more only when more is too much."</p>
-      <cite class="testimonial__author">
-        <strong>Frank Lloyd Wright</strong>
-        <span>Architect & Designer</span>
-      </cite>
-    </blockquote>
+    <div class="section__header">
+      <h2 class="section__title">Influential MCM Designers</h2>
+      <p class="section__subtitle">The visionaries who shaped the movement</p>
+    </div>
 
-    <div class="testimonial__stats">
-      <div class="stat-badge">
-        <div class="stat-badge__icon">{{ icon(name="check", size="24") }}</div>
-        <div class="stat-badge__text">WCAG 2.1 AA Accessible</div>
-      </div>
-      <div class="stat-badge">
-        <div class="stat-badge__icon">{{ icon(name="check", size="24") }}</div>
-        <div class="stat-badge__text">100/100 Lighthouse Score</div>
-      </div>
-      <div class="stat-badge">
-        <div class="stat-badge__icon">{{ icon(name="check", size="24") }}</div>
-        <div class="stat-badge__text">Mobile Optimized</div>
-      </div>
+    <div class="designers">
+      <article class="designer">
+        <h3 class="designer__name">Saul Bass (1920-1996)</h3>
+        <p class="designer__bio">
+          Master of minimalist movie posters and corporate logos. Created iconic title sequences for films like
+          <em>Vertigo</em> and <em>Psycho</em>, and designed logos for AT&T, United Airlines, and Warner
+          Communications. His work exemplified the power of simple geometric forms.
+        </p>
+      </article>
+
+      <article class="designer">
+        <h3 class="designer__name">Paul Rand (1914-1996)</h3>
+        <p class="designer__bio">
+          Pioneered American modernist graphic design and corporate identity. Created enduring logos for IBM, ABC, UPS,
+          and NeXT. His Swiss-influenced approach emphasized simplicity, clarity, and the use of basic geometric shapes
+          to communicate complex ideas.
+        </p>
+      </article>
+
+      <article class="designer">
+        <h3 class="designer__name">Massimo Vignelli (1931-2014)</h3>
+        <p class="designer__bio">
+          Italian designer who brought European modernism to America. Best known for the 1972 New York City Subway map
+          and the American Airlines identity. His work demonstrated that systematic design could be both beautiful and
+          functional.
+        </p>
+      </article>
+
+      <article class="designer">
+        <h3 class="designer__name">Herb Lubalin (1918-1981)</h3>
+        <p class="designer__bio">
+          Innovative typographer who pushed the boundaries of letterforms. Created distinctive magazine designs and the
+          Avant Garde Gothic typeface. His expressive use of type showed that modernism could be both systematic and
+          playful.
+        </p>
+      </article>
     </div>
   </div>
 </section>
 
-{# ============================================ NEWSLETTER CTA ============================================ #}
+{# ============================================
+   CONCLUSION - Legacy & Relevance
+   ============================================ #}
 <section class="section newsletter">
   <div class="container container--narrow">
-    <div class="newsletter__card">
-      <div class="newsletter__icon">{{ icon(name="mail", size="48") }}</div>
+    <div class="conclusion">
+      <h2 class="section__title">Why MCM Design Still Matters</h2>
 
-      <h2 class="newsletter__title">Stay Inspired</h2>
-      <p class="newsletter__description">
-        Get weekly lessons, design inspiration, and tool updates delivered to your inbox.
-      </p>
+      <div class="conclusion__content">
+        <p class="conclusion__text">
+          Mid-Century Modern graphic design wasn't just about aesthetics—it was a philosophy. The movement proved that
+          good design is clear, functional, and accessible. By stripping away unnecessary ornamentation, MCM designers
+          created visual communication that was both beautiful and effective.
+        </p>
 
-      <form class="newsletter__form" data-newsletter-form>
-        <div class="form-group">
-          <label for="email" class="sr-only">Email address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-input"
-            placeholder="your@email.com"
-            required
-            autocomplete="email"
-          />
-        </div>
-        <button type="submit" class="btn btn--primary btn--lg">
-          Subscribe {{ icon(name="arrow-right", size="20") }}
-        </button>
-      </form>
+        <p class="conclusion__text">
+          Today, we see MCM principles everywhere: in tech company logos that favor simple geometric shapes, in web
+          design that embraces white space and sans-serif typography, and in branding that values clarity over
+          complexity. The movement's emphasis on "form follows function" remains the foundation of modern design
+          thinking.
+        </p>
 
-      <p class="newsletter__privacy text-xs text-tertiary">
-        No spam, ever. Unsubscribe anytime. Read our
-        <a href="/privacy">privacy policy</a>.
-      </p>
+        <blockquote class="conclusion__quote">
+          <p class="quote__text">
+            "Design is the silent ambassador of your brand."
+          </p>
+          <cite class="quote__author">— Paul Rand</cite>
+        </blockquote>
+
+        <p class="conclusion__text">
+          The enduring appeal of MCM graphic design lies in its timelessness. By focusing on fundamental principles
+          rather than trends, these designers created work that remains relevant decades later. Whether you're designing
+          a logo, a poster, or a website, the lessons of the Mid-Century Modern era—simplicity, clarity, bold use of
+          color, and geometric precision—continue to guide effective visual communication.
+        </p>
+      </div>
     </div>
   </div>
 </section>
