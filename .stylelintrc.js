@@ -19,10 +19,5 @@ module.exports = {
       },
     ],
   },
-  ignoreFiles: [
-    'node_modules/**',
-    '_site/**',
-    'dist/**',
-    '**/*.min.css',
-  ],
+  ignoreFiles: ['node_modules/**', '_site/**', 'dist/**', '**/*.min.css'],
 };

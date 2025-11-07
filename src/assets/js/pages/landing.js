@@ -431,7 +431,7 @@ class ScrollAnimations {
       {
         threshold: SCROLL_CONFIG.THRESHOLD,
         rootMargin: SCROLL_CONFIG.ROOT_MARGIN,
-      },
+      }
     );
 
     this.animatedElements.forEach((el) => {

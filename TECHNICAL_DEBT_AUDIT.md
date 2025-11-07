@@ -29,11 +29,13 @@ This audit identified **23 technical debt items** across 5 categories:
 **Impact:** Code quality, maintainability
 
 **Issues Found:**
+
 - 5 ESLint errors (missing curly braces, unused variables, trailing commas)
 - 3 console.log warnings in production code
 - Deprecated `.eslintignore` file still in use
 
 **Current State:**
+
 ```javascript
 // landing.js line 9: Missing curly braces
 if (!this.previewEl) return;
@@ -46,6 +48,7 @@ console.log('🎨 MCM Design Hub initialized');
 ```
 
 **Recommended Fix:**
+
 ```bash
 npm run lint:js -- --fix  # Auto-fix 4 issues
 # Then manually:
@@ -70,6 +73,7 @@ npm run lint:js -- --fix  # Auto-fix 4 issues
 Practice pillar section is duplicated with different content. Lines 103-121 repeat the pillar structure with old content that conflicts with lines 79-102.
 
 **Current State:**
+
 ```html
 <!-- Lines 79-102: Correct Practice pillar -->
 <div class="pillar pillar--practice">
@@ -106,16 +110,20 @@ Delete lines 103-121 entirely (duplicate pillar content)
 **Impact:** Pre-commit hooks failing
 
 **Issue:**
+
 - MD029 ordered list prefix errors at lines 33 and 40
 - List numbering uses 5, 6 instead of 1, 1 (consecutive 1's expected by markdownlint)
 
 **Recommended Fix:**
+
 ```markdown
 <!-- Change from: -->
+
 5. **💬 Commit Message Validation (Commitlint)**
 6. **📊 Success Feedback**
 
 <!-- To: -->
+
 1. **💬 Commit Message Validation (Commitlint)**
 1. **📊 Success Feedback**
 ```
@@ -134,17 +142,20 @@ Delete lines 103-121 entirely (duplicate pillar content)
 **Impact:** File size (915 lines), maintainability
 
 **Issues:**
+
 - Duplicate `.pillar__features` definitions (lines 430-447)
 - Multiple commented "SOLUTION" headers cluttering code
 - Responsive breakpoints duplicated (lines 185-240)
 - Unused CSS for newsletter, testimonial, interactive sections
 
 **Metrics:**
+
 - File size: 915 lines (should be ~600)
 - Duplicate rules: 8+ instances
 - Dead code: ~200 lines (22%)
 
 **Recommended Actions:**
+
 1. Remove duplicate `.pillar__features` definition at line 430-436
 2. Consolidate all responsive queries into one section at bottom
 3. Remove or extract unused section styles to separate file
@@ -177,6 +188,7 @@ border: 6px solid var(--color-text);
 ```
 
 **Locations:**
+
 - `.hero__title`, `.pillar__title`, `.section__title` (font sizes)
 - `.hero__content`, `.pillar` (spacing)
 - Most border values
@@ -195,17 +207,21 @@ Create additional spacing/sizing tokens, then replace clamp() values
 **Impact:** Code organization, testability
 
 **Issues:**
+
 - Classes lack proper JSDoc documentation
 - No error handling in ColorPalettePreview.generateNewPalette()
 - Newsletter form simulates API without configuration
 - No input sanitization
 
 **Example Issues:**
+
 ```javascript
 // Missing JSDoc params and return types
 class ColorPalettePreview {
-  constructor() { /* No param docs */ }
-  
+  constructor() {
+    /* No param docs */
+  }
+
   // No error handling
   generateNewPalette() {
     const swatches = this.swatchesContainer.querySelectorAll('[data-swatch]');
@@ -215,6 +231,7 @@ class ColorPalettePreview {
 ```
 
 **Recommended Actions:**
+
 1. Add comprehensive JSDoc comments
 2. Add null checks and error boundaries
 3. Extract API URL to configuration
@@ -231,6 +248,7 @@ class ColorPalettePreview {
 **Impact:** CSS quality, consistency
 
 **Current State:**
+
 ```json
 "lint:css": "echo 'CSS linting placeholder'"
 ```
@@ -239,6 +257,7 @@ class ColorPalettePreview {
 CSS linting is a placeholder. 915 lines of CSS with no automated quality checks.
 
 **Recommended Fix:**
+
 ```bash
 npm install --save-dev stylelint stylelint-config-standard
 
@@ -258,12 +277,14 @@ npm install --save-dev stylelint stylelint-config-standard
 
 **Issue:**
 `pathPrefix: '/DesignStyle/'` is hardcoded in multiple locations:
+
 - `.eleventy.js` line 20
 - `site.json` baseUrl
 - Referenced in deployment documentation
 
 **Problem:**
 Makes it difficult to:
+
 - Run locally without the prefix
 - Deploy to different environments
 - Rename repository
@@ -273,7 +294,7 @@ Use environment variables:
 
 ```javascript
 // .eleventy.js
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   return {
     pathPrefix: process.env.PATH_PREFIX || '/',
     // ...
@@ -292,14 +313,18 @@ module.exports = function(eleventyConfig) {
 **Impact:** Accessibility, WCAG compliance
 
 **Issues Found:**
+
 1. **Color contrast:** Some text on colored backgrounds may fail WCAG AA
    - White text on `var(--color-accent)` (#f4c542) - likely fails
    - Feature list items with 0.1 opacity backgrounds
 
 2. **Focus indicators:** No visible focus styles for keyboard navigation
+
    ```css
    /* Missing */
-   .btn:focus-visible { outline: 2px solid var(--color-primary); }
+   .btn:focus-visible {
+     outline: 2px solid var(--color-primary);
+   }
    ```
 
 3. **ARIA labels:** Interactive elements missing labels
@@ -309,6 +334,7 @@ module.exports = function(eleventyConfig) {
 4. **Skip link:** Present but not tested
 
 **Recommended Actions:**
+
 1. Audit color contrast with tool (contrast ratio >= 4.5:1)
 2. Add focus-visible styles to all interactive elements
 3. Add aria-label to color swatches
@@ -328,6 +354,7 @@ module.exports = function(eleventyConfig) {
 
 **Issue:**
 Components are defined but may be underutilized:
+
 - `card.njk` - Used in index.njk
 - `button.njk` - Used in index.njk
 - `icon.njk` - Used in index.njk
@@ -348,6 +375,7 @@ However, their internal structure might not match all use cases. Need to verify 
 
 **Current State:**
 Plain JavaScript with no type checking. Easy to make runtime errors:
+
 ```javascript
 updateSwatch(swatchEl, colorData) {
   // What if colorData is missing .name or .hex?
@@ -360,8 +388,8 @@ Add JSDoc with type annotations OR migrate to TypeScript:
 
 ```javascript
 /**
- * @param {HTMLElement} swatchEl 
- * @param {{name: string, hex: string}} colorData 
+ * @param {HTMLElement} swatchEl
+ * @param {{name: string, hex: string}} colorData
  */
 updateSwatch(swatchEl, colorData) {
   // Now VSCode provides intellisense
@@ -379,6 +407,7 @@ updateSwatch(swatchEl, colorData) {
 **Impact:** Maintainability
 
 **Examples:**
+
 ```css
 /* landing.css - What do these numbers mean? */
 transform: rotate(-0.5deg);  /* Why -0.5? */
@@ -419,19 +448,24 @@ const ANIMATION_DELAYS = {
 **Impact:** User experience, debugging
 
 **Issues:**
+
 ```javascript
 // What if clipboard API is unavailable?
-navigator.clipboard.writeText(hex)
-  .then(() => { this.showCopyFeedback(swatchEl); })
+navigator.clipboard
+  .writeText(hex)
+  .then(() => {
+    this.showCopyFeedback(swatchEl);
+  })
   .catch((err) => {
-    console.error('Failed to copy:', err);  // Silent failure
+    console.error('Failed to copy:', err); // Silent failure
   });
 
 // No fallback for older browsers
-if (!('IntersectionObserver' in window)) return;  // Just quits
+if (!('IntersectionObserver' in window)) return; // Just quits
 ```
 
 **Recommended Actions:**
+
 1. Add fallback for clipboard (create temp input, select, copy)
 2. Add graceful degradation for IntersectionObserver
 3. Show user-friendly error messages
@@ -449,11 +483,13 @@ if (!('IntersectionObserver' in window)) return;  // Just quits
 
 **Issue:**
 Breakpoints vary:
+
 - `landing.css`: 768px, 1024px
 - `main.css`: 768px only
 - No documented breakpoint system
 
 **Recommended Fix:**
+
 ```css
 :root {
   --breakpoint-sm: 640px;
@@ -480,6 +516,7 @@ Breakpoints vary:
 
 **Issue:**
 Two different pre-commit implementations:
+
 - `.github/hooks/pre-commit.sample` - Sample with different checks
 - `.husky/pre-commit` - Actual implementation
 
@@ -499,6 +536,7 @@ Remove `.github/hooks/pre-commit.sample` or update it to match actual hooks
 **Impact:** Performance, load times
 
 **Missing Optimizations:**
+
 1. CSS minification
 2. JavaScript minification
 3. Image optimization (none present anyway)
@@ -506,11 +544,13 @@ Remove `.github/hooks/pre-commit.sample` or update it to match actual hooks
 5. Asset versioning/cache busting
 
 **Current Build:**
+
 ```json
 "build": "eleventy"  // Just copies files
 ```
 
 **Recommended Enhancement:**
+
 ```json
 "build": "npm run clean && eleventy && npm run optimize",
 "optimize": "npm run optimize:css && npm run optimize:js",
@@ -530,11 +570,13 @@ Remove `.github/hooks/pre-commit.sample` or update it to match actual hooks
 
 **Issue:**
 Zero test coverage for JavaScript functionality:
+
 - ColorPalettePreview class
 - NewsletterForm validation
 - ScrollAnimations
 
 **Recommended Addition:**
+
 ```bash
 npm install --save-dev vitest @vitest/ui jsdom
 
@@ -558,11 +600,13 @@ npm install --save-dev vitest @vitest/ui jsdom
 
 **Issue:**
 Large documentation files:
+
 - 70+ markdown files (many in docs/research/)
 - Some redundancy between CONTRIBUTING.md, DEPLOYMENT.md, QUICK-START.md
 - Research docs (day1-day12) may be outdated or for reference only
 
 **Recommended Action:**
+
 1. Archive research docs to separate branch
 2. Consolidate main docs into single comprehensive guide
 3. Keep QUICK-START.md for fast onboarding
@@ -586,10 +630,10 @@ Add `.github/dependabot.yml`:
 ```yaml
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 5
 ```
 
@@ -605,11 +649,13 @@ updates:
 
 **Issue:**
 Color palettes hardcoded in JavaScript. Should be in external JSON/data file for:
+
 - Easier editing by non-developers
 - Reuse across pages
 - Potential CMS integration
 
 **Recommended Structure:**
+
 ```javascript
 // src/_data/colorPalettes.json
 [
@@ -635,6 +681,7 @@ import palettes from '../../_data/colorPalettes.json';
 **Impact:** Code readability
 
 **Examples:**
+
 - CSS: BEM mixed with utility classes (`.hero__content` vs `.section`)
 - JavaScript: `previewEl` vs `generateBtn` (inconsistent suffix)
 - Files: `landing.js` vs `main.js` (different conventions)
@@ -687,18 +734,21 @@ if ('PerformanceObserver' in window) {
 ## Summary Metrics
 
 ### Issues by Severity
+
 - 🔴 Critical: 3 issues
-- 🟠 High: 6 issues  
+- 🟠 High: 6 issues
 - 🟡 Medium: 8 issues
 - 🟢 Low: 6 issues
 
 ### Estimated Effort
+
 - **Quick Fixes (<30 min):** 7 issues = 2 hours
 - **Medium Fixes (1-2 hours):** 10 issues = 15 hours
 - **Large Refactors (3+ hours):** 6 issues = 25 hours
 - **Total Effort:** ~42 hours
 
 ### Health Score Breakdown
+
 - **Code Quality:** 65/100 (ESLint errors, duplication)
 - **Maintainability:** 70/100 (magic numbers, documentation)
 - **Performance:** 80/100 (no major issues, just optimization opportunities)
@@ -713,6 +763,7 @@ if ('PerformanceObserver' in window) {
 ## Recommended Action Plan
 
 ### Sprint 1 (Immediate - 4 hours)
+
 1. ✅ Fix ESLint errors (15 min)
 2. ✅ Remove duplicate HTML in index.njk (2 min)
 3. ✅ Fix markdown linting errors (2 min)
@@ -722,6 +773,7 @@ if ('PerformanceObserver' in window) {
 7. ✅ Extract magic numbers to constants (1 hour)
 
 ### Sprint 2 (Next Week - 8 hours)
+
 1. Improve JavaScript error handling (1 hour)
 2. Add JSDoc documentation (2 hours)
 3. Implement build optimization (2 hours)
@@ -731,6 +783,7 @@ if ('PerformanceObserver' in window) {
 7. Setup Dependabot (5 min)
 
 ### Sprint 3 (Following Week - 10 hours)
+
 1. Setup unit testing framework (4 hours)
 2. Refactor color palette to data file (30 min)
 3. Add performance monitoring (1 hour)
@@ -738,6 +791,7 @@ if ('PerformanceObserver' in window) {
 5. Improve component organization (1.5 hours)
 
 ### Ongoing (Nice-to-Have)
+
 1. Consider TypeScript migration
 2. Enhance documentation
 3. Add E2E tests
@@ -750,6 +804,7 @@ if ('PerformanceObserver' in window) {
 The MCM Design Hub project is in **good overall health** with moderate technical debt. The codebase shows:
 
 **Strengths:**
+
 - ✅ Good project structure
 - ✅ Git workflow automation (Husky, commitlint)
 - ✅ Automated deployment
@@ -757,6 +812,7 @@ The MCM Design Hub project is in **good overall health** with moderate technical
 - ✅ Responsive design implementation
 
 **Areas for Improvement:**
+
 - 🔧 Code quality (ESLint compliance)
 - 🔧 CSS organization and deduplication
 - 🔧 Accessibility enhancements
@@ -768,6 +824,7 @@ The MCM Design Hub project is in **good overall health** with moderate technical
 ---
 
 **Next Steps:**
+
 1. Review this audit with the team
 2. Prioritize issues based on project timeline
 3. Create GitHub issues for each item
