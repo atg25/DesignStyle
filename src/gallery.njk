@@ -1,0 +1,45 @@
+---
+layout: gallery.njk
+title: MCM Image Gallery
+description: Mid-Century Modern design reference images and inspiration
+---
+
+<section class="gallery-hero">
+  <div class="container">
+    <h1>MCM Design Gallery</h1>
+    <p>Explore our collection of Mid-Century Modern design references</p>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-grid">
+      {% for i in range(1, 7) %}
+      <div class="gallery-item" data-index="{{ i - 1 }}">
+        <img 
+          src="{{ site.baseUrl }}assets/images/gallery/ref{{ i }}.png" 
+          alt="Mid-Century Modern design reference {{ i }}"
+          loading="lazy"
+        >
+        <div class="gallery-overlay">
+          <span>View</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+  <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+  <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+  
+  <div class="lightbox-content">
+    <img src="" alt="" id="lightbox-image">
+    <div class="lightbox-caption">
+      <span id="lightbox-counter">1 / 6</span>
+    </div>
+  </div>
+</div>
