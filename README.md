@@ -2,6 +2,8 @@
 
 > Educational platform for Mid-Century Modern design principles, iconic pieces, and interactive tools.
 
+**🌐 Live Site:** [https://atg25.github.io/DesignStyle/](https://atg25.github.io/DesignStyle/)
+
 ## 🚀 Quick Start
 
 ### Prerequisites
