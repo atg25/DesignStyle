@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLightbox();
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
-    
+
     // Store the currently focused element
     previouslyFocusedElement = document.activeElement;
-    
+
     // Focus the close button for keyboard users
     setTimeout(() => closeBtn.focus(), 100);
   }
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
-    
+
     // Return focus to the previously focused element
     if (previouslyFocusedElement) {
       previouslyFocusedElement.focus();

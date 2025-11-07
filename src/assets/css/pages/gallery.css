@@ -46,7 +46,9 @@
   border-radius: var(--radius-lg);
   box-shadow: 0 4px 12px rgb(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   aspect-ratio: 4 / 3;
 }
 
