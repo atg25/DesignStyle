@@ -265,16 +265,21 @@ a:focus-visible {
 }
 
 .logo-text {
-  font-family: var(--font-serif);
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+  font-weight: 900;
+  color: #ff6b35;
   line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .logo-subtext {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
 }
 
 .nav-menu {
