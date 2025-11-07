@@ -2,6 +2,9 @@
    MCM Design Hub - Main Stylesheet
    ============================================ */
 
+/* Import Authentic MCM Typefaces */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 /* CSS Variables / Design Tokens */
 :root {
   /* Colors - Primary (Coral/Salmon) */
@@ -43,10 +46,10 @@
   --color-warning: #ff9800;
   --color-info: #2196f3;
 
-  /* Typography */
-  --font-sans:
-    -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
-  --font-serif: 'Georgia', 'Times New Roman', serif;
+  /* Typography - Authentic MCM Typefaces */
+  --font-sans: 'Helvetica Neue', helvetica, arial, sans-serif;
+  --font-display: 'Bebas Neue', impact, 'arial black', sans-serif;
+  --font-serif: georgia, 'Times New Roman', serif;
   --font-mono: 'Courier New', courier, monospace;
 
   /* Font Sizes */
@@ -150,10 +153,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 h1 {
@@ -309,14 +314,14 @@ a:focus-visible {
   overflow: hidden;
 }
 
-.site-footer::before {
+.footer::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 8px;
-  background: linear-gradient(90deg, #ff6b35 0%, #1fb7c8 33%, #f4c542 66%, #8e44ad 100%);
+  background: #ff6b35;
 }
 
 .footer-content {

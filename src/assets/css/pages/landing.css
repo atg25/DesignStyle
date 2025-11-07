@@ -32,13 +32,7 @@
   left: 0;
   width: 100%;
   height: 40%;
-  background: repeating-linear-gradient(
-    45deg,
-    var(--color-accent),
-    var(--color-accent) 50px,
-    var(--color-chartreuse) 50px,
-    var(--color-chartreuse) 100px
-  );
+  background: var(--color-accent);
   z-index: 0;
   opacity: 0.15;
 }
@@ -282,13 +276,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 20px,
-    rgb(0, 0, 0, 0.03) 20px,
-    rgb(0, 0, 0, 0.03) 40px
-  );
+  background: rgb(0, 0, 0, 0.02);
   z-index: 0;
   pointer-events: none;
 }
@@ -954,19 +942,19 @@
 }
 
 .designer--1 .designer__color-bar {
-  background: linear-gradient(180deg, #ff6b35 0%, #ff8c61 100%);
+  background: #ff6b35;
 }
 
 .designer--2 .designer__color-bar {
-  background: linear-gradient(180deg, #1fb7c8 0%, #4dd0e1 100%);
+  background: #1fb7c8;
 }
 
 .designer--3 .designer__color-bar {
-  background: linear-gradient(180deg, #f4c542 0%, #ffd96e 100%);
+  background: #f4c542;
 }
 
 .designer--4 .designer__color-bar {
-  background: linear-gradient(180deg, #8e44ad 0%, #a569bd 100%);
+  background: #8e44ad;
 }
 
 .designer__content {
@@ -1271,7 +1259,7 @@
 
 .newsletter {
   padding: var(--space-20) 0;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: var(--color-primary);
 }
 
 .newsletter__card {
@@ -1288,7 +1276,7 @@
   height: 80px;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-primary-lighter), var(--color-primary));
+  background: var(--color-primary);
   color: white;
   border-radius: var(--radius-lg);
   margin-bottom: var(--space-6);
@@ -1380,7 +1368,7 @@
    PRINCIPLES SECTION
    ============================================ */
 .principles-section {
-  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  background: #ff6b9d;
   padding: clamp(4rem, 10vw, 8rem) 0;
   position: relative;
   overflow: hidden;
@@ -1393,9 +1381,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgb(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgb(255, 255, 255, 0.08) 0%, transparent 50%);
+  background: rgb(255, 255, 255, 0.05);
   pointer-events: none;
 }
 
