@@ -8,12 +8,8 @@ eleventyNavigation:
   order: 1
 ---
 
-{# Import components #}
-{% from "components/icon.njk" import icon %}
-
-{# ============================================
-   HERO SECTION - Introduction
-   ============================================ #}
+{# Import components #} {% from "components/icon.njk" import icon %} {# ============================================
+HERO SECTION - Introduction ============================================ #}
 <section class="hero">
   <div class="hero__content">
     <h1 class="hero__title">
@@ -23,8 +19,8 @@ eleventyNavigation:
     </h1>
 
     <p class="hero__subtitle">
-      From 1945 to 1970, Mid-Century Modern graphic design revolutionized visual communication with bold colors,
-      clean typography, and geometric patterns. This guide explores the key principles that defined an era.
+      From 1945 to 1970, Mid-Century Modern graphic design revolutionized visual communication with bold colors, clean
+      typography, and geometric patterns. This guide explores the key principles that defined an era.
     </p>
 
     {# Quick overview stats #}
@@ -45,14 +41,20 @@ eleventyNavigation:
   </div>
 </section>
 
-{# ============================================
-   CORE PRINCIPLES - Full Width Grid
-   ============================================ #}
+{# ============================================ CORE PRINCIPLES - Full Width Grid
+============================================ #}
 <section class="pillars">
   <div class="pillars__grid">
     {# Color Theory #}
     <div class="pillar pillar--learn">
-      <div class="pillar__icon pillar__icon--orange">{{ icon(name="filter", size="64") }}</div>
+      <div class="pillar__icon pillar__icon--orange">
+        <svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+          <circle cx="30" cy="30" r="20" fill="#ff6b35"/>
+          <circle cx="90" cy="30" r="20" fill="#6b9a3e"/>
+          <circle cx="30" cy="90" r="20" fill="#1fb7c8"/>
+          <circle cx="90" cy="90" r="20" fill="#f4c542"/>
+        </svg>
+      </div>
       <h3 class="pillar__title">BOLD COLOR PALETTES</h3>
       <p class="pillar__description">
         MCM designers embraced vibrant, optimistic colors that reflected post-war prosperity and the atomic age.
@@ -67,7 +69,14 @@ eleventyNavigation:
 
     {# Typography #}
     <div class="pillar pillar--explore">
-      <div class="pillar__icon pillar__icon--teal">{{ icon(name="book", size="64") }}</div>
+      <div class="pillar__icon pillar__icon--teal">
+        <svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+          <text x="10" y="50" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="currentColor">Aa</text>
+          <line x1="10" y1="70" x2="110" y2="70" stroke="currentColor" stroke-width="4"/>
+          <line x1="10" y1="85" x2="90" y2="85" stroke="currentColor" stroke-width="3"/>
+          <line x1="10" y1="100" x2="70" y2="100" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div>
       <h3 class="pillar__title">CLEAN TYPOGRAPHY</h3>
       <p class="pillar__description">
         Sans-serif typefaces like Helvetica and Futura dominated, emphasizing clarity, simplicity, and geometric forms.
@@ -82,7 +91,19 @@ eleventyNavigation:
 
     {# Geometric Patterns #}
     <div class="pillar pillar--practice">
-      <div class="pillar__icon pillar__icon--yellow">{{ icon(name="grid", size="64") }}</div>
+      <div class="pillar__icon pillar__icon--yellow">
+        <svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+          <circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="3"/>
+          <line x1="60" y1="30" x2="60" y2="15" stroke="currentColor" stroke-width="3"/>
+          <line x1="60" y1="90" x2="60" y2="105" stroke="currentColor" stroke-width="3"/>
+          <line x1="30" y1="60" x2="15" y2="60" stroke="currentColor" stroke-width="3"/>
+          <line x1="90" y1="60" x2="105" y2="60" stroke="currentColor" stroke-width="3"/>
+          <line x1="39" y1="39" x2="28" y2="28" stroke="currentColor" stroke-width="3"/>
+          <line x1="81" y1="81" x2="92" y2="92" stroke="currentColor" stroke-width="3"/>
+          <line x1="81" y1="39" x2="92" y2="28" stroke="currentColor" stroke-width="3"/>
+          <line x1="39" y1="81" x2="28" y2="92" stroke="currentColor" stroke-width="3"/>
+        </svg>
+      </div>
       <h3 class="pillar__title">GEOMETRIC SHAPES</h3>
       <p class="pillar__description">
         Circles, starbursts, and atomic patterns created dynamic compositions inspired by science and modernism.
@@ -97,9 +118,8 @@ eleventyNavigation:
   </div>
 </section>
 
-{# ============================================
-   DESIGN PRINCIPLES - Detailed Sections
-   ============================================ #}
+{# ============================================ DESIGN PRINCIPLES - Detailed Sections
+============================================ #}
 <section class="section featured">
   <div class="container">
     <div class="section__header">
@@ -160,9 +180,8 @@ eleventyNavigation:
   </div>
 </section>
 
-{# ============================================
-   HISTORICAL CONTEXT - The Era & Influence
-   ============================================ #}
+{# ============================================ HISTORICAL CONTEXT - The Era & Influence
+============================================ #}
 <section class="section interactive">
   <div class="container container--narrow">
     <div class="historical-context">
@@ -197,8 +216,8 @@ eleventyNavigation:
           <h3 class="timeline__title">Corporate Modernism</h3>
           <p class="timeline__description">
             Swiss design principles merged with American innovation. Corporations adopted clean, systematic visual
-            identities. Legendary designers like Saul Bass, Paul Rand, Massimo Vignelli, and Herb Lubalin created
-            iconic logos and brand systems still in use today, proving MCM's timeless effectiveness.
+            identities. Legendary designers like Saul Bass, Paul Rand, Massimo Vignelli, and Herb Lubalin created iconic
+            logos and brand systems still in use today, proving MCM's timeless effectiveness.
           </p>
         </article>
       </div>
@@ -216,9 +235,8 @@ eleventyNavigation:
   </div>
 </section>
 
-{# ============================================
-   NOTABLE DESIGNERS - Key Figures
-   ============================================ #}
+{# ============================================ NOTABLE DESIGNERS - Key Figures
+============================================ #}
 <section class="section testimonial">
   <div class="container container--narrow">
     <div class="section__header">
@@ -231,8 +249,8 @@ eleventyNavigation:
         <h3 class="designer__name">Saul Bass (1920-1996)</h3>
         <p class="designer__bio">
           Master of minimalist movie posters and corporate logos. Created iconic title sequences for films like
-          <em>Vertigo</em> and <em>Psycho</em>, and designed logos for AT&T, United Airlines, and Warner
-          Communications. His work exemplified the power of simple geometric forms.
+          <em>Vertigo</em> and <em>Psycho</em>, and designed logos for AT&T, United Airlines, and Warner Communications.
+          His work exemplified the power of simple geometric forms.
         </p>
       </article>
 
@@ -266,9 +284,8 @@ eleventyNavigation:
   </div>
 </section>
 
-{# ============================================
-   CONCLUSION - Legacy & Relevance
-   ============================================ #}
+{# ============================================ CONCLUSION - Legacy & Relevance
+============================================ #}
 <section class="section newsletter">
   <div class="container container--narrow">
     <div class="conclusion">
@@ -289,9 +306,7 @@ eleventyNavigation:
         </p>
 
         <blockquote class="conclusion__quote">
-          <p class="quote__text">
-            "Design is the silent ambassador of your brand."
-          </p>
+          <p class="quote__text">"Design is the silent ambassador of your brand."</p>
           <cite class="quote__author">— Paul Rand</cite>
         </blockquote>
 
