@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- Vintage Travel Poster Style - Palm Springs Modern -->
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1fb7c8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4dd0e1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="800" height="1000" fill="url(#sky)"/>
+  
+  <!-- Sun -->
+  <circle cx="600" cy="200" r="120" fill="#f4c542"/>
+  
+  <!-- Mountain layers -->
+  <polygon points="0,600 200,350 400,500 0,1000" fill="#8e44ad"/>
+  <polygon points="200,650 500,300 800,700 800,1000 0,1000" fill="#c44569"/>
+  <polygon points="400,700 700,400 800,650 800,1000 200,1000" fill="#ff6b9d"/>
+  
+  <!-- Modern house silhouette -->
+  <rect x="150" y="650" width="250" height="150" fill="#2d3436"/>
+  <rect x="160" y="670" width="70" height="80" fill="#faf8f6"/>
+  <rect x="250" y="670" width="70" height="80" fill="#faf8f6"/>
+  <rect x="340" y="670" width="50" height="80" fill="#faf8f6"/>
+  <polygon points="140,650 280,580 420,650" fill="#ff6b35"/>
+  
+  <!-- Atomic starburst -->
+  <g transform="translate(650, 750)">
+    <circle cx="0" cy="0" r="50" fill="#ff6b35"/>
+    <line x1="-70" y1="0" x2="70" y2="0" stroke="#faf8f6" stroke-width="4"/>
+    <line x1="0" y1="-70" x2="0" y2="70" stroke="#faf8f6" stroke-width="4"/>
+    <line x1="-50" y1="-50" x2="50" y2="50" stroke="#faf8f6" stroke-width="4"/>
+    <line x1="-50" y1="50" x2="50" y2="-50" stroke="#faf8f6" stroke-width="4"/>
+    <circle cx="-70" cy="0" r="8" fill="#faf8f6"/>
+    <circle cx="70" cy="0" r="8" fill="#faf8f6"/>
+    <circle cx="0" cy="-70" r="8" fill="#faf8f6"/>
+    <circle cx="0" cy="70" r="8" fill="#faf8f6"/>
+    <circle cx="-50" cy="-50" r="8" fill="#faf8f6"/>
+    <circle cx="50" cy="50" r="8" fill="#faf8f6"/>
+    <circle cx="-50" cy="50" r="8" fill="#faf8f6"/>
+    <circle cx="50" cy="-50" r="8" fill="#faf8f6"/>
+  </g>
+  
+  <!-- Typography -->
+  <text x="400" y="120" font-family="Arial, sans-serif" font-size="80" font-weight="900" text-anchor="middle" fill="#faf8f6" letter-spacing="4">MODERN</text>
+  <text x="400" y="180" font-family="Arial, sans-serif" font-size="80" font-weight="900" text-anchor="middle" fill="#faf8f6" letter-spacing="4">LIVING</text>
+  <text x="400" y="950" font-family="Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="#faf8f6" letter-spacing="2">PALM SPRINGS 1955</text>
+</svg>
