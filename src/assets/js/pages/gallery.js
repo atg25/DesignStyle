@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.querySelector('.lightbox-next');
 
   // Array of image sources
-  const images = Array.from(galleryItems).map(item => {
+  const images = Array.from(galleryItems).map((item) => {
     const img = item.querySelector('img');
     return {
       src: img.src,
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   let currentIndex = 0;
+  let previouslyFocusedElement = null;
 
   // Open lightbox
   function openLightbox(index) {
@@ -25,12 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLightbox();
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    // Store the currently focused element
+    previouslyFocusedElement = document.activeElement;
+    
+    // Focus the close button for keyboard users
+    setTimeout(() => closeBtn.focus(), 100);
   }
 
   // Close lightbox
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
+    
+    // Return focus to the previously focused element
+    if (previouslyFocusedElement) {
+      previouslyFocusedElement.focus();
+    }
   }
 
   // Update lightbox content

@@ -31,18 +31,18 @@
     {# Header / Navigation #}
     <header class="site-header">
       <div class="container">
-        <nav class="site-nav">
+        <nav class="site-nav" aria-label="Main navigation">
           <a href="{{ site.baseUrl }}" class="site-logo">
             <span class="logo-text">MCM</span>
             <span class="logo-subtext">Design Hub</span>
           </a>
 
           <ul class="nav-menu">
-            <li><a href="{{ site.baseUrl }}#hero">Home</a></li>
+            <li><a href="{{ site.baseUrl }}#hero" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a></li>
             <li><a href="{{ site.baseUrl }}#principles">Principles</a></li>
             <li><a href="{{ site.baseUrl }}#designers">Designers</a></li>
             <li><a href="{{ site.baseUrl }}#conclusion">Impact</a></li>
-            <li><a href="{{ site.baseUrl }}gallery/">Gallery</a></li>
+            <li><a href="{{ site.baseUrl }}gallery/" {% if page.url == "/gallery/" %}aria-current="page"{% endif %}>Gallery</a></li>
           </ul>
         </nav>
       </div>
@@ -75,7 +75,14 @@
             <h4>Resources</h4>
             <ul>
               <li><a href="{{ site.baseUrl }}gallery/">Image Gallery</a></li>
-              <li><a href="https://github.com/atg25/DesignStyle/tree/main/docs/research" target="_blank" rel="noopener noreferrer">Research Docs</a></li>
+              <li>
+                <a
+                  href="https://github.com/atg25/DesignStyle/tree/main/docs/research"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Research Docs</a
+                >
+              </li>
               <li><a href="https://www.moma.org/" target="_blank" rel="noopener noreferrer">MoMA Collection</a></li>
               <li><a href="https://www.aiga.org/" target="_blank" rel="noopener noreferrer">AIGA Design</a></li>
               <li><a href="https://designmuseum.org/" target="_blank" rel="noopener noreferrer">Design Museum</a></li>

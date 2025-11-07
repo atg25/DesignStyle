@@ -13,14 +13,14 @@ description: Mid-Century Modern design reference images and inspiration
 
 <section class="gallery-section">
   <div class="container">
-    <div class="gallery-grid">
+    <div class="gallery-grid" role="list">
       {% for i in range(1, 13) %}
-      <div class="gallery-item" data-index="{{ i - 1 }}">
-        <img 
-          src="{{ site.baseUrl }}assets/images/gallery/ref{{ i }}.png" 
+      <div class="gallery-item" data-index="{{ i - 1 }}" role="listitem">
+        <img
+          src="{{ site.baseUrl }}assets/images/gallery/ref{{ i }}.png"
           alt="Mid-Century Modern design reference {{ i }}"
           loading="lazy"
-        >
+        />
         <div class="gallery-overlay">
           <span>View</span>
         </div>
@@ -31,14 +31,14 @@ description: Mid-Century Modern design reference images and inspiration
 </section>
 
 <!-- Lightbox Modal -->
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery lightbox">
   <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
   <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
   <button class="lightbox-next" aria-label="Next image">&#10095;</button>
-  
+
   <div class="lightbox-content">
-    <img src="" alt="" id="lightbox-image">
-    <div class="lightbox-caption">
+    <img src="" alt="" id="lightbox-image" />
+    <div class="lightbox-caption" role="status" aria-live="polite">
       <span id="lightbox-counter">1 / 12</span>
     </div>
   </div>
