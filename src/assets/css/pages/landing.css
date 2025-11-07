@@ -144,7 +144,7 @@
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: clamp(1rem, 3vw, 3rem);
   padding-top: clamp(2rem, 4vw, 3rem);
-  border-top: 6px solid var(--color-text);
+  border-top: 4px solid #4a4a4a;
   justify-content: center;
   margin-top: clamp(2rem, 4vw, 3rem);
 }
@@ -159,20 +159,20 @@
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 900;
   font-family: 'Bebas Neue', Impact, var(--font-sans);
-  color: var(--color-background);
-  background: var(--color-text);
+  color: #fff;
+  background: #3a3a3a;
   line-height: 1;
   margin-bottom: var(--space-2);
   display: inline-block;
   padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem);
-  border: 3px solid var(--color-text);
+  border: 3px solid #3a3a3a;
   box-shadow: 3px 3px 0 var(--color-accent);
   transform: rotate(-1deg);
 }
 
 .stat__label {
   font-size: clamp(0.7rem, 1vw, 0.8rem);
-  color: var(--color-text);
+  color: #4a4a4a;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 600;
