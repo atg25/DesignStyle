@@ -925,6 +925,63 @@
   pointer-events: none;
 }
 
+/* Atomic Starburst Decorations */
+.starburst {
+  position: absolute;
+  color: rgb(255, 255, 255, 0.15);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.starburst--1 {
+  top: 10%;
+  left: 5%;
+  animation: float 15s ease-in-out infinite, rotate-slow 30s linear infinite;
+}
+
+.starburst--2 {
+  top: 20%;
+  right: 8%;
+  animation: float 12s ease-in-out infinite 2s, rotate-slow 25s linear infinite reverse;
+}
+
+.starburst--3 {
+  bottom: 15%;
+  left: 10%;
+  animation: float 18s ease-in-out infinite 4s, rotate-slow 35s linear infinite;
+}
+
+.starburst--4 {
+  top: 60%;
+  right: 5%;
+  animation: float 14s ease-in-out infinite 1s, rotate-slow 28s linear infinite reverse;
+}
+
+.starburst--5 {
+  bottom: 25%;
+  right: 15%;
+  animation: float 16s ease-in-out infinite 3s, rotate-slow 32s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(-10px); }
+  75% { transform: translateY(-30px) translateX(5px); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Hide starbursts on mobile for cleaner design */
+@media (width <= 768px) {
+  .starburst {
+    display: none;
+  }
+}
+
 .principles-header {
   text-align: center;
   margin-bottom: clamp(3rem, 6vw, 5rem);
