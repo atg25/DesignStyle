@@ -1022,10 +1022,17 @@
 
 .principles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(1.5rem, 3vw, 2.5rem);
   position: relative;
   z-index: 1;
+}
+
+/* Responsive: stack on tablet */
+@media (width <= 1024px) {
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .principle {
@@ -1085,16 +1092,29 @@
 .principle--3 { border-color: #f4c542; }
 .principle--3 .principle__number { color: #f4c542; }
 
-.principle--4 { border-color: #6b9a3e; }
+.principle--4 {
+  border-color: #6b9a3e;
+  grid-column: 1 / 2;
+}
+
 .principle--4 .principle__number { color: #6b9a3e; }
 
-.principle--5 { border-color: #8e44ad; }
+.principle--5 {
+  border-color: #8e44ad;
+  grid-column: 2 / 3;
+}
+
 .principle--5 .principle__number { color: #8e44ad; }
 
 /* Responsive adjustments */
 @media (width <= 768px) {
   .principles-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .principle--4,
+  .principle--5 {
+    grid-column: auto;
   }
   
   .principle__number {
