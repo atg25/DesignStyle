@@ -67,14 +67,14 @@
   background: var(--color-background);
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
   border: clamp(5px, 0.8vw, 8px) solid var(--color-text);
-  
+
   /* SOLUTION 5: Refined shadows */
-  box-shadow: 
+  box-shadow:
     8px 8px 0 var(--color-primary),
     16px 16px 0 var(--color-secondary),
     24px 24px 0 var(--color-accent),
     24px 24px 20px rgb(0, 0, 0, 0.2);
-  
+
   /* SOLUTION 5: Slight rotation for dynamism */
   transform: rotate(var(--hero-rotation));
   transition: all var(--duration-slow) ease;
@@ -82,12 +82,12 @@
 
 .hero__content:hover {
   transform: rotate(0deg);
-  box-shadow: 
+  box-shadow:
     10px 10px 0 var(--color-primary),
     20px 20px 0 var(--color-secondary),
     30px 30px 0 var(--color-accent),
     30px 30px 25px rgb(0, 0, 0, 0.25);
-}/* SOLUTION 3: Typography Transformation - Refined Scale */
+} /* SOLUTION 3: Typography Transformation - Refined Scale */
 .hero__title {
   font-family: 'Archivo Black', 'Bebas Neue', Impact, var(--font-sans);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
@@ -98,19 +98,19 @@
   text-transform: uppercase;
   letter-spacing: 0;
   text-align: center;
-  
+
   /* SOLUTION 3: Subtle text effects */
-  text-shadow: 
+  text-shadow:
     2px 2px 0 var(--color-primary),
     4px 4px 0 var(--color-secondary);
-}/* SOLUTION 3 + 5: Highlight with refined visual impact */
+} /* SOLUTION 3 + 5: Highlight with refined visual impact */
 .hero__title-highlight {
   display: inline-block;
   color: var(--color-background);
   background: var(--color-primary);
   padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.75rem, 2vw, 1.25rem);
   transform: rotate(-1deg);
-  box-shadow: 
+  box-shadow:
     4px 4px 0 var(--color-text),
     6px 6px 0 var(--color-secondary);
   margin: clamp(0.5rem, 1.5vw, 1rem) 0;
@@ -329,7 +329,7 @@
 /* SOLUTION 5: Dramatic hover effects */
 .pillar:hover {
   transform: scale(var(--pillar-hover-scale));
-  z-index: var(--z-fixed);
+  z-index: var(--z-dropdown);
   box-shadow:
     0 0 0 clamp(8px, 1.5vw, 16px) var(--color-text),
     clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px) 0 rgb(0, 0, 0, 0.3);
@@ -338,7 +338,7 @@
 .pillar:focus-within {
   outline: 4px solid var(--color-text);
   outline-offset: 4px;
-  z-index: var(--z-fixed);
+  z-index: var(--z-dropdown);
 }
 
 .pillar > * {
@@ -400,7 +400,7 @@
   text-transform: uppercase;
   margin-bottom: clamp(1rem, 2vw, 1.5rem);
   position: relative;
-  text-shadow: 
+  text-shadow:
     2px 2px 0 rgb(0, 0, 0, 0.15),
     3px 3px 0 rgb(0, 0, 0, 0.08);
 }
