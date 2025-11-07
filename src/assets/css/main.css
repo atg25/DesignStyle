@@ -18,23 +18,23 @@
   --color-accent: #f4c542;
   --color-accent-light: #f7d570;
   --color-accent-dark: #d4d01f;
-  
+
   /* Colors - Tertiary (Additional MCM colors) */
   --color-mint: #9dd9d2;
   --color-purple: #a86aa4;
   --color-pink: #ff6f91;
   --color-chartreuse: #d4d01f;
-  
+
   /* Colors - Neutrals */
   --color-walnut: #6b4d3d;
   --color-cream: #faf8f6;
   --color-cream-dark: #f5f2ed;
   --color-text: #2d2d2d;
-  --color-text-secondary: #666666;
-  --color-text-tertiary: #999999;
-  --color-background: #ffffff;
+  --color-text-secondary: #666;
+  --color-text-tertiary: #999;
+  --color-background: #fff;
   --color-surface: #faf8f6;
-  --color-surface-raised: #ffffff;
+  --color-surface-raised: #fff;
   --color-border: #e5e5e5;
 
   /* Colors - Semantic */
@@ -45,9 +45,9 @@
 
   /* Typography */
   --font-sans:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
   --font-serif: 'Georgia', 'Times New Roman', serif;
-  --font-mono: 'Courier New', Courier, monospace;
+  --font-mono: 'Courier New', courier, monospace;
 
   /* Font Sizes */
   --text-xs: 0.75rem; /* 12px */
@@ -80,11 +80,40 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
-  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 1px 2px rgb(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgb(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgb(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgb(0, 0, 0, 0.15);
+  --shadow-2xl: 0 25px 50px rgb(0, 0, 0, 0.25);
+
+  /* Animation & Timing */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Z-index layers */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 50;
+  --z-fixed: 100;
+  --z-modal: 1000;
+  --z-tooltip: 2000;
+
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1400px;
+
+  /* MCM Design-specific values */
+  --hero-rotation: -0.5deg;
+  --pillar-min-height: 60vh;
+  --pillar-hover-scale: 1.05;
 }
 
 /* ============================================
@@ -130,18 +159,23 @@ h6 {
 h1 {
   font-size: var(--text-5xl);
 }
+
 h2 {
   font-size: var(--text-4xl);
 }
+
 h3 {
   font-size: var(--text-3xl);
 }
+
 h4 {
   font-size: var(--text-2xl);
 }
+
 h5 {
   font-size: var(--text-xl);
 }
+
 h6 {
   font-size: var(--text-lg);
 }
@@ -153,11 +187,17 @@ p {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--duration-base) ease;
 }
 
 a:hover {
   color: var(--color-primary-dark);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* ============================================
@@ -166,7 +206,7 @@ a:hover {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--container-xl);
   margin: 0 auto;
   padding: 0 var(--space-4);
 }
@@ -204,7 +244,7 @@ a:hover {
   padding: var(--space-4) 0;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: var(--z-sticky);
 }
 
 .site-nav {
@@ -243,12 +283,17 @@ a:hover {
   font-weight: 500;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
-  transition: all 0.2s ease;
+  transition: all var(--duration-base) ease;
 }
 
 .nav-menu a:hover {
   background: var(--color-surface);
   color: var(--color-primary);
+}
+
+.nav-menu a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* ============================================
@@ -276,7 +321,7 @@ a:hover {
 }
 
 .footer-section p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255, 0.8);
 }
 
 .footer-section ul {
@@ -284,7 +329,7 @@ a:hover {
 }
 
 .footer-section a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255, 0.8);
   display: block;
   padding: var(--space-1) 0;
 }
@@ -294,10 +339,10 @@ a:hover {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgb(255, 255, 255, 0.1);
   padding-top: var(--space-4);
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(255, 255, 255, 0.6);
 }
 
 /* ============================================
@@ -316,7 +361,7 @@ a:hover {
   border: 2px solid transparent;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--duration-base) ease;
   text-align: center;
 }
 
@@ -331,6 +376,11 @@ a:hover {
   box-shadow: var(--shadow-lg);
 }
 
+.btn--primary:focus-visible {
+  outline: 3px solid var(--color-primary-dark);
+  outline-offset: 3px;
+}
+
 .btn--secondary {
   background: transparent;
   color: var(--color-primary);
@@ -342,6 +392,11 @@ a:hover {
   color: white;
 }
 
+.btn--secondary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 .btn--ghost {
   background: transparent;
   color: var(--color-primary);
@@ -349,6 +404,11 @@ a:hover {
 
 .btn--ghost:hover {
   background: var(--color-surface);
+}
+
+.btn--ghost:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 .btn--lg {
@@ -374,7 +434,7 @@ a:hover {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all var(--duration-slow) ease;
 }
 
 .card:hover {
@@ -448,7 +508,7 @@ a:hover {
    Responsive Design
    ============================================ */
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .nav-menu {
     gap: var(--space-4);
   }
@@ -461,9 +521,11 @@ a:hover {
   h1 {
     font-size: var(--text-3xl);
   }
+
   h2 {
     font-size: var(--text-2xl);
   }
+
   h3 {
     font-size: var(--text-xl);
   }

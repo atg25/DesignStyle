@@ -9,24 +9,29 @@ Your MCM Design Hub now has **enterprise-grade quality controls** in place. Ever
 ## 🛡️ What's Now Active
 
 ### 1. **Git Hooks (Husky)**
+
 Automatically runs checks at key points in your Git workflow:
 
 **Pre-commit Hook** ✅
+
 - Validates that `npm run build` succeeds
 - Prevents broken code from being committed
 - Fast check (< 5 seconds)
 
 **Commit-msg Hook** ✅
+
 - Validates commit message format
 - Enforces Conventional Commits standard
 - Ensures clear, categorized messages
 
 **Post-commit Hook** ✅
+
 - Shows commit stats
 - Provides helpful feedback
 - Reminds you to push
 
 ### 2. **Code Formatting (Prettier)**
+
 Automatically formats code to ensure consistency:
 
 - ✅ JavaScript (ES6+)
@@ -37,6 +42,7 @@ Automatically formats code to ensure consistency:
 - ✅ HTML
 
 **Settings:**
+
 - Single quotes
 - Semicolons
 - 2-space indentation
@@ -44,6 +50,7 @@ Automatically formats code to ensure consistency:
 - LF line endings
 
 ### 3. **JavaScript Linting (ESLint v9)**
+
 Catches errors and enforces best practices:
 
 - ✅ No `console.log` (warns)
@@ -54,6 +61,7 @@ Catches errors and enforces best practices:
 - ✅ Single quotes for strings
 
 ### 4. **Markdown Linting (Markdownlint)**
+
 Ensures documentation quality:
 
 - ✅ Consistent heading styles
@@ -62,9 +70,11 @@ Ensures documentation quality:
 - ✅ Blank lines around elements
 
 ### 5. **Commit Message Validation (Commitlint)**
+
 Enforces conventional commit format:
 
 **Required Format:**
+
 ```
 <type>(<scope>): <subject>
 ```
@@ -76,6 +86,7 @@ Enforces conventional commit format:
 `landing`, `learn`, `explore`, `practice`, `components`, `layout`, `styles`, `config`, `deploy`, `docs`, `workflow`, `deps`
 
 ### 6. **Editor Integration (VS Code)**
+
 Automatic formatting on save:
 
 - ✅ Format on save enabled
@@ -84,6 +95,7 @@ Automatic formatting on save:
 - ✅ Recommended extensions configured
 
 ### 7. **EditorConfig**
+
 Consistent coding styles across editors:
 
 - ✅ UTF-8 encoding
@@ -131,6 +143,7 @@ git commit -m "feat(landing): Add new color palette"
 ## 📋 Daily Workflow
 
 ### Before You Start
+
 ```bash
 # Pull latest changes
 git pull origin main
@@ -140,6 +153,7 @@ git status
 ```
 
 ### While Working
+
 ```bash
 # Format your code (recommended before committing)
 npm run format
@@ -155,6 +169,7 @@ npm run build
 ```
 
 ### Making Commits
+
 ```bash
 # Stage specific files
 git add src/assets/js/pages/landing.js
@@ -213,6 +228,7 @@ Your commit will be **automatically rejected** if:
 5. **Type/scope not lowercase**
 
 **Example of rejection:**
+
 ```bash
 $ git commit -m "added stuff"
 
@@ -262,20 +278,20 @@ npm test
 
 All configuration is stored in these files:
 
-| File | Purpose |
-|------|---------|
-| `.husky/pre-commit` | Runs before commit (build check) |
-| `.husky/commit-msg` | Validates commit message |
-| `.husky/post-commit` | Shows success feedback |
-| `.prettierrc.js` | Prettier configuration |
-| `.prettierignore` | Files Prettier should skip |
-| `eslint.config.js` | ESLint rules and config |
-| `.eslintignore` | Files ESLint should skip |
-| `.markdownlint.json` | Markdown linting rules |
-| `commitlint.config.js` | Commit message rules |
-| `.editorconfig` | Editor settings |
-| `.vscode/settings.json` | VS Code integration |
-| `.vscode/extensions.json` | Recommended extensions |
+| File                      | Purpose                          |
+| ------------------------- | -------------------------------- |
+| `.husky/pre-commit`       | Runs before commit (build check) |
+| `.husky/commit-msg`       | Validates commit message         |
+| `.husky/post-commit`      | Shows success feedback           |
+| `.prettierrc.js`          | Prettier configuration           |
+| `.prettierignore`         | Files Prettier should skip       |
+| `eslint.config.js`        | ESLint rules and config          |
+| `.eslintignore`           | Files ESLint should skip         |
+| `.markdownlint.json`      | Markdown linting rules           |
+| `commitlint.config.js`    | Commit message rules             |
+| `.editorconfig`           | Editor settings                  |
+| `.vscode/settings.json`   | VS Code integration              |
+| `.vscode/extensions.json` | Recommended extensions           |
 
 ---
 
@@ -292,6 +308,7 @@ git commit -n -m "emergency fix"
 ```
 
 **When to use:**
+
 - ✅ Critical production hotfix
 - ✅ Temporary WIP commit on feature branch
 - ❌ "I don't want to fix my code"
@@ -313,6 +330,7 @@ Complete guides available:
 ## ✨ Benefits
 
 ### For You
+
 - ✅ Catches errors before they reach GitHub
 - ✅ Automatic formatting (no debates!)
 - ✅ Consistent code style
@@ -321,6 +339,7 @@ Complete guides available:
 - ✅ Confidence in every commit
 
 ### For the Team
+
 - ✅ Easy to review (consistent formatting)
 - ✅ Clear commit history (conventional commits)
 - ✅ Reduced merge conflicts
@@ -328,6 +347,7 @@ Complete guides available:
 - ✅ Easier onboarding
 
 ### For the Project
+
 - ✅ Professional appearance
 - ✅ Better maintainability
 - ✅ Clear project history
@@ -339,6 +359,7 @@ Complete guides available:
 ## 🎓 Best Practices
 
 1. **Format before committing**
+
    ```bash
    npm run format
    git add .
@@ -346,6 +367,7 @@ Complete guides available:
    ```
 
 2. **Test build frequently**
+
    ```bash
    npm run build
    ```
@@ -368,6 +390,7 @@ Complete guides available:
 ## 🐛 Troubleshooting
 
 ### "Hooks not running"
+
 ```bash
 # Make hooks executable
 chmod +x .husky/pre-commit .husky/commit-msg .husky/post-commit
@@ -377,12 +400,14 @@ npm install
 ```
 
 ### "commitlint not found"
+
 ```bash
 # Reinstall commitlint
 npm install --save-dev @commitlint/cli @commitlint/config-conventional
 ```
 
 ### "Build fails but works in dev"
+
 ```bash
 # Clean build
 npm run clean
@@ -392,9 +417,11 @@ npm run build
 ```
 
 ### "Prettier keeps changing files"
+
 Add them to `.prettierignore`
 
 ### "ESLint errors won't go away"
+
 Fix them! Or document why in `eslint.config.js` before disabling.
 
 ---
@@ -449,6 +476,7 @@ With this system, you ensure:
 **Your repository is now production-ready with enterprise-grade quality controls!** 🛡️
 
 No more:
+
 - ❌ Inconsistent formatting
 - ❌ Broken builds in Git history
 - ❌ Vague commit messages
@@ -456,6 +484,7 @@ No more:
 - ❌ Merge conflict nightmares
 
 Only:
+
 - ✅ Clean, formatted code
 - ✅ Clear commit history
 - ✅ Working builds always

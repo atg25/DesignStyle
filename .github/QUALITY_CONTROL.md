@@ -30,14 +30,14 @@ This project uses a comprehensive quality control system to ensure every commit 
 
 ### During Commit (Commit-msg Hook)
 
-5. **💬 Commit Message Validation (Commitlint)**
+1. **💬 Commit Message Validation (Commitlint)**
    - Enforces [Conventional Commits](https://www.conventionalcommits.org/) format
    - Ensures clear, categorized commit messages
    - Validates type and scope
 
 ### After Commit (Post-commit Hook)
 
-6. **📊 Success Feedback**
+1. **📊 Success Feedback**
    - Shows commit stats
    - Reminds you to push changes
    - Provides helpful tips
@@ -47,21 +47,27 @@ This project uses a comprehensive quality control system to ensure every commit 
 ## 🔧 Tools Used
 
 ### Husky
+
 Git hooks manager that runs scripts at different Git lifecycle events.
 
 ### lint-staged
+
 Runs linters on staged files only (not the entire project), making commits fast.
 
 ### Prettier
+
 Opinionated code formatter that ensures consistent style.
 
 ### ESLint
+
 JavaScript linter that catches errors and enforces best practices.
 
 ### Markdownlint
+
 Linter for markdown files to ensure documentation quality.
 
 ### Commitlint
+
 Validates commit messages against conventional commit format.
 
 ---
@@ -75,6 +81,7 @@ git commit -m "feat(landing): Add new feature"
 **Step-by-step process:**
 
 1. **🔍 Pre-commit hook runs**
+
    ```
    Running pre-commit checks...
    ✨ Formatting staged files with Prettier...
@@ -86,6 +93,7 @@ git commit -m "feat(landing): Add new feature"
    ```
 
 2. **💬 Commit-msg hook runs**
+
    ```
    🔍 Validating commit message...
    ✅ Commit message is valid!
@@ -103,11 +111,13 @@ git commit -m "feat(landing): Add new feature"
 ## ✅ Valid Commit Message Format
 
 ### Format
+
 ```
 <type>(<scope>): <subject>
 ```
 
 ### Valid Types
+
 - `feat` - New feature
 - `fix` - Bug fix
 - `docs` - Documentation changes
@@ -121,6 +131,7 @@ git commit -m "feat(landing): Add new feature"
 - `revert` - Revert previous commit
 
 ### Valid Scopes
+
 - `landing` - Landing page
 - `learn` - Learn section
 - `explore` - Explore section
@@ -135,6 +146,7 @@ git commit -m "feat(landing): Add new feature"
 - `deps` - Dependencies
 
 ### Valid Examples
+
 ✅ `feat(landing): Add color palette generator`  
 ✅ `fix(newsletter): Correct email validation regex`  
 ✅ `docs(readme): Update installation instructions`  
@@ -142,6 +154,7 @@ git commit -m "feat(landing): Add new feature"
 ✅ `chore(deps): Update Eleventy to 3.1.0`
 
 ### Invalid Examples
+
 ❌ `Update files` (no type or scope)  
 ❌ `feat: add feature` (missing scope)  
 ❌ `FEAT(landing): Add feature` (wrong case)  
@@ -160,6 +173,7 @@ Your commit will be **rejected** if:
 4. **Files contain `console.log` or `debugger`** (ESLint rule)
 
 ### Example: Rejected Commit
+
 ```bash
 $ git commit -m "added stuff"
 
@@ -179,6 +193,7 @@ Examples:
 Location: `.prettierrc.js`
 
 **Settings:**
+
 - Semi-colons: Yes
 - Single quotes: Yes
 - Print width: 100 characters
@@ -187,11 +202,13 @@ Location: `.prettierrc.js`
 - End of line: LF (Unix)
 
 **File-specific rules:**
+
 - `.njk` files: 120 char width, HTML parser
 - `.json` files: 80 char width
 - `.md` files: Preserve wrapping, 100 char width
 
 **Ignored files:** (`.prettierignore`)
+
 - `node_modules/`
 - `_site/`
 - `docs/research/` (preserve original formatting)
@@ -203,6 +220,7 @@ Location: `.prettierrc.js`
 Location: `.eslintrc.js`
 
 **Key Rules:**
+
 - ✅ Use `const` by default, not `var`
 - ✅ No `console.log` (use `console.warn` or `console.error`)
 - ✅ No `debugger` statements
@@ -255,11 +273,13 @@ git commit -n -m "emergency fix"
 ```
 
 **When to use:**
+
 - Critical production hotfix that needs to go out immediately
 - Temporary work-in-progress commit on a feature branch
 - You'll immediately follow up with a proper commit
 
 **When NOT to use:**
+
 - "I don't want to fix my code" ❌
 - "The linter is annoying" ❌
 - "I'm in a hurry" ❌
@@ -269,18 +289,23 @@ git commit -n -m "emergency fix"
 ## 🎓 Best Practices
 
 ### 1. Commit Early, Commit Often
+
 The hooks are fast! Don't wait to commit until you have a lot of changes.
 
 ### 2. Review Auto-Formatted Changes
+
 Prettier might change your formatting. Review with `git diff` before committing.
 
 ### 3. Fix ESLint Errors, Don't Disable Rules
+
 If ESLint catches something, it's usually for a good reason.
 
 ### 4. Use Descriptive Commit Messages
+
 The hooks ensure format, but YOU ensure meaning. Be descriptive!
 
 ### 5. Test Locally First
+
 Run `npm run build` frequently during development.
 
 ---
@@ -288,6 +313,7 @@ Run `npm run build` frequently during development.
 ## 🐛 Troubleshooting
 
 ### Pre-commit hook fails with "command not found"
+
 ```bash
 # Reinstall dependencies
 npm install
@@ -297,19 +323,24 @@ chmod +x .husky/pre-commit .husky/commit-msg .husky/post-commit
 ```
 
 ### Prettier keeps changing files I don't want changed
+
 Add them to `.prettierignore`
 
 ### ESLint shows errors I don't agree with
+
 Discuss with team or document why in `.eslintrc.js` before disabling rules
 
 ### Commit message keeps getting rejected
+
 Check the format carefully:
+
 - Type must be lowercase
 - Must include a scope in parentheses
 - No period at the end
 - Subject should be imperative ("Add" not "Added")
 
 ### Build fails but works in dev server
+
 Different process! `npm run build` catches issues dev server might miss.
 
 ---
@@ -329,18 +360,21 @@ With this system in place, you ensure:
 ## 🎯 Benefits
 
 ### For You
+
 - Catches errors before they reach GitHub
 - Enforces consistency automatically
 - Saves time in code review
 - Professional-looking commits
 
 ### For the Team
+
 - Easy to review changes (consistent formatting)
 - Clear commit history (conventional commits)
 - Confidence in every commit (all checks passed)
 - Reduced merge conflicts (consistent formatting)
 
 ### For the Project
+
 - Higher code quality
 - Better maintainability
 - Professional appearance
@@ -351,15 +385,19 @@ With this system in place, you ensure:
 ## 🔄 Updating Configuration
 
 ### Add New File Types to Format
+
 Edit `.prettierrc.js` overrides section
 
 ### Add New ESLint Rules
+
 Edit `.eslintrc.js` rules section
 
 ### Add New Commit Scopes
+
 Edit `commitlint.config.js` scope-enum
 
 ### Add New Commit Types
+
 Edit `commitlint.config.js` type-enum (rarely needed)
 
 ---

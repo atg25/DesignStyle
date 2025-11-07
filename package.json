@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
+    "build:prod": "PATH_PREFIX=/DesignStyle/ eleventy",
     "dev": "eleventy --serve --watch --port=8080",
     "serve": "eleventy --serve",
     "start": "npm run dev",
@@ -12,7 +13,7 @@
     "deploy": "npm run build && gh-pages -d _site",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:md",
     "lint:js": "eslint \"src/**/*.js\"",
-    "lint:css": "echo 'CSS linting placeholder'",
+    "lint:css": "stylelint \"src/**/*.css\"",
     "lint:md": "markdownlint \"**/*.md\" --ignore node_modules --ignore _site",
     "format": "prettier --write \"**/*.{js,json,md,njk,css}\"",
     "format:check": "prettier --check \"**/*.{js,json,md,njk,css}\"",
@@ -55,6 +56,8 @@
     "lint-staged": "^16.2.6",
     "markdown-it": "^14.1.0",
     "markdownlint-cli": "^0.45.0",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1"
   }
 }
