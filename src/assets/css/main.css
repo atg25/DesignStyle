@@ -312,11 +312,19 @@ a:focus-visible {
   flex-direction: column;
   gap: 6px;
   background: transparent;
-  border: none;
+  border: 3px solid var(--color-text);
   cursor: pointer;
-  padding: var(--space-2);
+  padding: var(--space-3);
   z-index: 1001;
   position: relative;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-base) ease;
+}
+
+.nav-toggle:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.05);
 }
 
 .nav-toggle__line {
@@ -325,6 +333,19 @@ a:focus-visible {
   background: var(--color-text);
   border-radius: 2px;
   transition: all var(--duration-base) var(--ease-in-out);
+}
+
+.nav-toggle:hover .nav-toggle__line {
+  background: white;
+}
+
+.nav-toggle[aria-expanded="true"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__line {
+  background: white;
 }
 
 .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(1) {
@@ -337,10 +358,6 @@ a:focus-visible {
 
 .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
-}
-
-.nav-toggle:hover .nav-toggle__line {
-  background: var(--color-primary);
 }
 
 .nav-toggle:focus-visible {
@@ -684,7 +701,7 @@ a:focus-visible {
     right: -100%;
     width: 280px;
     height: 100vh;
-    background: var(--color-surface-raised);
+    background: var(--color-text);
     flex-direction: column;
     gap: 0;
     padding: var(--space-20) var(--space-6) var(--space-6);
@@ -701,7 +718,7 @@ a:focus-visible {
 
   .nav-menu li {
     width: 100%;
-    border-bottom: 2px solid var(--color-border);
+    border-bottom: 2px solid rgb(255, 255, 255, 0.1);
   }
 
   .nav-menu li:last-child {
@@ -713,16 +730,35 @@ a:focus-visible {
     width: 100%;
     padding: var(--space-4) var(--space-3);
     font-size: var(--text-lg);
-    font-weight: 600;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     transition: all var(--duration-base) ease;
+    position: relative;
+  }
+
+  .nav-menu a::before {
+    content: '▸';
+    position: absolute;
+    left: var(--space-3);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all var(--duration-base) ease;
+    color: var(--color-primary);
   }
 
   .nav-menu a:hover,
   .nav-menu a[aria-current="page"] {
     background: var(--color-primary);
-    color: white;
-    padding-left: var(--space-6);
-    transform: translateX(4px);
+    color: var(--color-text);
+    padding-left: var(--space-8);
+  }
+
+  .nav-menu a:hover::before,
+  .nav-menu a[aria-current="page"]::before {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   /* Mobile menu overlay */
