@@ -10,16 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle menu on button click
     navToggle.addEventListener('click', () => {
       const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      
+
       navToggle.setAttribute('aria-expanded', !isOpen);
       navMenu.classList.toggle('is-open');
-      
+
       // Prevent body scroll when menu is open
       document.body.style.overflow = !isOpen ? 'hidden' : '';
     });
 
     // Close menu when clicking on a link
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         navToggle.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('is-open');

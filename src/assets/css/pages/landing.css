@@ -14,10 +14,10 @@
    ============================================ */
 
 .hero {
-  padding: clamp(2rem, 4vw, 4rem) 0;
+  padding: clamp(3rem, 6vw, 6rem) 0;
   background: var(--color-cream);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   min-height: auto;
   display: flex;
   align-items: center;
@@ -55,19 +55,19 @@
 .hero__content {
   position: relative;
   z-index: 10;
-  width: 90vw;
-  max-width: 1000px;
+  width: calc(100% - 4rem);
+  max-width: 900px;
   margin: 0 auto;
   background: var(--color-background);
-  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
-  border: clamp(5px, 0.8vw, 8px) solid var(--color-text);
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3rem);
+  border: clamp(6px, 0.8vw, 8px) solid var(--color-text);
 
   /* SOLUTION 5: Refined shadows */
   box-shadow:
-    8px 8px 0 var(--color-primary),
-    16px 16px 0 var(--color-secondary),
-    24px 24px 0 var(--color-accent),
-    24px 24px 20px rgb(0, 0, 0, 0.2);
+    10px 10px 0 var(--color-primary),
+    20px 20px 0 var(--color-secondary),
+    30px 30px 0 var(--color-accent),
+    30px 30px 30px rgb(0, 0, 0, 0.15);
 
   /* SOLUTION 5: Slight rotation for dynamism */
   transform: rotate(var(--hero-rotation));
@@ -75,54 +75,57 @@
 }
 
 .hero__content:hover {
-  transform: rotate(0deg);
+  transform: rotate(0deg) translateY(-4px);
   box-shadow:
-    10px 10px 0 var(--color-primary),
-    20px 20px 0 var(--color-secondary),
-    30px 30px 0 var(--color-accent),
-    30px 30px 25px rgb(0, 0, 0, 0.25);
+    12px 12px 0 var(--color-primary),
+    24px 24px 0 var(--color-secondary),
+    36px 36px 0 var(--color-accent),
+    36px 36px 35px rgb(0, 0, 0, 0.2);
 } /* SOLUTION 3: Typography Transformation - Refined Scale */
 .hero__title {
   font-family: 'Archivo Black', 'Bebas Neue', Impact, var(--font-sans);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.1;
   color: var(--color-text);
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   text-align: center;
 
   /* SOLUTION 3: Subtle text effects */
   text-shadow:
-    2px 2px 0 var(--color-primary),
-    4px 4px 0 var(--color-secondary);
-} /* SOLUTION 3 + 5: Highlight with refined visual impact */
+    3px 3px 0 var(--color-primary),
+    6px 6px 0 var(--color-secondary);
+}
+
+/* SOLUTION 3 + 5: Highlight with refined visual impact */
 .hero__title-highlight {
-  display: inline-block;
+  display: block;
   color: var(--color-background);
   background: var(--color-primary);
-  padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.75rem, 2vw, 1.25rem);
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
   transform: rotate(-1deg);
   box-shadow:
-    4px 4px 0 var(--color-text),
-    6px 6px 0 var(--color-secondary);
-  margin: clamp(0.5rem, 1.5vw, 1rem) 0;
-  border: 3px solid var(--color-text);
+    5px 5px 0 var(--color-text),
+    8px 8px 0 var(--color-secondary);
+  margin: clamp(0.75rem, 2vw, 1.25rem) auto;
+  border: 4px solid var(--color-text);
   position: relative;
+  max-width: fit-content;
 }
 
 .hero__subtitle {
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.7;
   color: var(--color-text);
-  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
-  max-width: 650px;
+  margin-bottom: clamp(2rem, 3vw, 2.5rem);
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   font-weight: 400;
   text-align: center;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .hero__actions {
@@ -176,35 +179,61 @@
 /* Responsive Hero */
 @media (width <= 768px) {
   .hero {
-    padding: var(--space-8) 0;
+    padding: clamp(2rem, 8vw, 4rem) 0;
     min-height: auto;
+    overflow: hidden;
   }
 
   .hero__content {
-    padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
-    width: 95vw;
+    padding: clamp(2rem, 6vw, 3rem) clamp(1.5rem, 5vw, 2rem);
+    width: calc(100% - 2rem);
+    max-width: none;
+    transform: rotate(0deg);
     box-shadow:
-      12px 12px 0 var(--color-primary),
-      24px 24px 0 var(--color-secondary),
-      36px 36px 0 var(--color-accent);
+      8px 8px 0 var(--color-primary),
+      16px 16px 0 var(--color-secondary),
+      24px 24px 0 var(--color-accent),
+      24px 24px 20px rgb(0, 0, 0, 0.15);
+  }
+
+  .hero__content:hover {
+    transform: rotate(0deg);
+    box-shadow:
+      8px 8px 0 var(--color-primary),
+      16px 16px 0 var(--color-secondary),
+      24px 24px 0 var(--color-accent),
+      24px 24px 20px rgb(0, 0, 0, 0.15);
   }
 
   .hero__title {
-    font-size: clamp(2rem, 10vw, 4rem);
+    font-size: clamp(1.75rem, 8vw, 3rem);
+    text-shadow:
+      2px 2px 0 var(--color-primary),
+      4px 4px 0 var(--color-secondary);
+  }
+
+  .hero__title-highlight {
+    font-size: clamp(1.75rem, 8vw, 3rem);
+    padding: clamp(0.5rem, 3vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
+    border: 3px solid var(--color-text);
+    box-shadow:
+      4px 4px 0 var(--color-text),
+      6px 6px 0 var(--color-secondary);
   }
 
   .hero__subtitle {
-    font-size: var(--text-lg);
+    font-size: clamp(1rem, 3.5vw, 1.125rem);
   }
 
   .hero__stats {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: var(--space-4);
   }
 
   .hero__actions {
     flex-direction: column;
     width: 100%;
+    gap: var(--space-4);
   }
 
   .hero__actions .btn {
@@ -1472,12 +1501,15 @@
   100% {
     transform: translateY(0) translateX(0);
   }
+
   25% {
     transform: translateY(-20px) translateX(10px);
   }
+
   50% {
     transform: translateY(-10px) translateX(-10px);
   }
+
   75% {
     transform: translateY(-30px) translateX(5px);
   }
@@ -1487,6 +1519,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -1518,6 +1551,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -1607,6 +1641,7 @@
 .principle--1 {
   border-color: #ff6b35;
 }
+
 .principle--1 .principle__number {
   color: #ff6b35;
 }
@@ -1614,6 +1649,7 @@
 .principle--2 {
   border-color: #1fb7c8;
 }
+
 .principle--2 .principle__number {
   color: #1fb7c8;
 }
@@ -1621,6 +1657,7 @@
 .principle--3 {
   border-color: #f4c542;
 }
+
 .principle--3 .principle__number {
   color: #f4c542;
 }
