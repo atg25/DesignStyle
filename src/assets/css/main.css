@@ -35,10 +35,10 @@
   --color-text: #2d2d2d;
   --color-text-secondary: #666;
   --color-text-tertiary: #999;
-  --color-background: #fff;
+  --color-background: #f5f1ea;
   --color-surface: #faf8f6;
-  --color-surface-raised: #fff;
-  --color-border: #e5e5e5;
+  --color-surface-raised: #f5f1ea;
+  --color-border: #e5e1d9;
 
   /* Colors - Semantic */
   --color-success: #4caf50;
@@ -131,6 +131,7 @@
 
 html {
   scroll-behavior: smooth;
+  position: relative;
 }
 
 body {
@@ -141,6 +142,29 @@ body {
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Paper texture overlay using pseudo-element */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="noise" seed="2"/></filter><rect width="100%" height="100%" fill="rgba(0,0,0,0.02)" filter="url(%23noise)"/></svg>');
+  background-size: auto;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+}
+
+body > * {
+  position: relative;
+  z-index: 9999;
 }
 
 /* ============================================
