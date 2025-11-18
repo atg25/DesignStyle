@@ -44,10 +44,12 @@
           </button>
 
           <ul class="nav-menu">
+            {# prettier-ignore #}
             <li><a href="{{ site.baseUrl }}#hero" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a></li>
             <li><a href="{{ site.baseUrl }}#principles">Principles</a></li>
             <li><a href="{{ site.baseUrl }}#designers">Designers</a></li>
             <li><a href="{{ site.baseUrl }}#conclusion">Impact</a></li>
+            {# prettier-ignore #}
             <li><a href="{{ site.baseUrl }}gallery/" {% if page.url == "/gallery/" %}aria-current="page"{% endif %}>Gallery</a></li>
           </ul>
         </nav>

@@ -1,20 +1,5 @@
 // Landing Page Interactive Features
 
-// Animation and timing constants
-const ANIMATION_DELAYS = {
-  FADE_IN: 150,
-  FADE_OUT: 300,
-  TOOLTIP: 1000,
-  SWATCH_STAGGER: 50,
-};
-
-const SCROLL_CONFIG = {
-  THRESHOLD: 0.1,
-  ROOT_MARGIN: '0px 0px -50px 0px',
-};
-
-const API_SIMULATE_DELAY = 1500;
-
 /**
  * Color Palette Generator - Mini Preview
  * Provides interactive color palette generation and copying functionality
@@ -32,6 +17,14 @@ class ColorPalettePreview {
 
     this.generateBtn = this.previewEl.querySelector('[data-generate-palette]');
     this.swatchesContainer = this.previewEl.querySelector('[data-swatches]');
+
+    // Animation timing constants
+    this.ANIMATION_DELAYS = {
+      FADE_IN: 150,
+      FADE_OUT: 300,
+      TOOLTIP: 1000,
+      SWATCH_STAGGER: 50,
+    };
 
     // MCM Color Palettes Database
     this.palettes = [
@@ -126,7 +119,7 @@ class ColorPalettePreview {
     this.generateBtn.style.transform = 'rotate(360deg)';
     setTimeout(() => {
       this.generateBtn.style.transform = 'rotate(0deg)';
-    }, ANIMATION_DELAYS.FADE_OUT);
+    }, this.ANIMATION_DELAYS.FADE_OUT);
 
     // Get next palette (cycle through)
     this.currentPaletteIndex = (this.currentPaletteIndex + 1) % this.palettes.length;
@@ -137,7 +130,7 @@ class ColorPalettePreview {
     swatches.forEach((swatch, index) => {
       setTimeout(() => {
         this.updateSwatch(swatch, palette.colors[index]);
-      }, index * ANIMATION_DELAYS.SWATCH_STAGGER);
+      }, index * this.ANIMATION_DELAYS.SWATCH_STAGGER);
     });
   }
 
@@ -165,7 +158,7 @@ class ColorPalettePreview {
       // Fade in
       swatchEl.style.opacity = '1';
       swatchEl.style.transform = 'translateY(0)';
-    }, ANIMATION_DELAYS.FADE_IN);
+    }, this.ANIMATION_DELAYS.FADE_IN);
   }
 
   /**
@@ -224,7 +217,7 @@ class ColorPalettePreview {
     setTimeout(() => {
       colorBox.style.transform = originalTransform;
       tooltip.remove();
-    }, ANIMATION_DELAYS.TOOLTIP);
+    }, this.ANIMATION_DELAYS.TOOLTIP);
   }
 }
 
@@ -406,6 +399,13 @@ class ScrollAnimations {
   constructor() {
     this.animatedElements = document.querySelectorAll('.pillar, .card, .stat-badge');
     this.observer = null;
+
+    // Scroll config constants
+    this.SCROLL_CONFIG = {
+      THRESHOLD: 0.1,
+      ROOT_MARGIN: '0px 0px -50px 0px',
+    };
+
     this.init();
   }
 
@@ -429,9 +429,9 @@ class ScrollAnimations {
         });
       },
       {
-        threshold: SCROLL_CONFIG.THRESHOLD,
-        rootMargin: SCROLL_CONFIG.ROOT_MARGIN,
-      }
+        threshold: this.SCROLL_CONFIG.THRESHOLD,
+        rootMargin: this.SCROLL_CONFIG.ROOT_MARGIN,
+      },
     );
 
     this.animatedElements.forEach((el) => {
