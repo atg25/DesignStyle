@@ -1588,7 +1588,7 @@
   letter-spacing: 0.2em;
   color: rgb(255, 255, 255, 0.9);
   font-weight: 600;
-  margin: 0;
+  margin: 0 auto;
   max-width: 65ch; /* Optimal line length */
   line-height: 1.618; /* Golden ratio */
 }
