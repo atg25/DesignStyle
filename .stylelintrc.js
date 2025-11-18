@@ -12,6 +12,7 @@ module.exports = {
     'at-rule-no-vendor-prefix': null,
     'alpha-value-notation': 'number', // Prefer rgba(0, 0, 0, 0.5) over rgb(0 0 0 / 0.5)
     'color-function-notation': 'legacy', // Prefer rgba() over rgb()
+    'color-function-alias-notation': null, // Allow rgba() and rgb() interchangeably
     'selector-pseudo-class-no-unknown': [
       true,
       {

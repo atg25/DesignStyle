@@ -1,0 +1,519 @@
+/* ============================================
+   Cross-Browser Compatibility & Vendor Prefixes
+   Chrome (Blink), Firefox (Gecko), Safari (WebKit)
+
+   Note: This file intentionally uses deprecated/vendor-specific
+   properties for cross-browser compatibility. Stylelint warnings
+   for vendor prefixes, -ms-flexbox, @-moz-document, etc. are
+   expected and necessary for older browser support.
+   ============================================ */
+
+/* stylelint-disable property-no-deprecated */
+/* stylelint-disable declaration-property-value-no-unknown */
+/* stylelint-disable at-rule-prelude-no-invalid */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable declaration-block-no-duplicate-properties */
+/* stylelint-disable declaration-block-no-shorthand-property-overrides */
+
+/* ============================================
+   CSS Feature Queries & Fallbacks
+   ============================================ */
+
+/* Grid fallback to Flexbox */
+@supports not (display: grid) {
+  .featured__grid,
+  .principles-grid,
+  .footer-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+
+  .featured__grid > *,
+  .principles-grid > *,
+  .footer-content > * {
+    flex-grow: 1;
+    -ms-flex: 1 1 300px;
+    flex: 1 1 300px;
+    min-width: 250px;
+  }
+}
+
+/* Flexbox vendor prefixes */
+.nav-menu,
+.hero__actions,
+.btn,
+.footer-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Flex properties with vendor prefixes */
+.nav-menu {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.hero__actions,
+.btn {
+  align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+/* ============================================
+   Transform Vendor Prefixes
+   ============================================ */
+
+.hero__content,
+.pillar,
+.card,
+.impact {
+  -webkit-transform: rotate(var(--hero-rotation, -0.5deg));
+  -moz-transform: rotate(var(--hero-rotation, -0.5deg));
+  -ms-transform: rotate(var(--hero-rotation, -0.5deg));
+  -o-transform: rotate(var(--hero-rotation, -0.5deg));
+  transform: rotate(var(--hero-rotation, -0.5deg));
+}
+
+.hero__content:hover,
+.pillar:hover,
+.card:hover {
+  -webkit-transform: rotate(0deg) translateY(-4px);
+  -moz-transform: rotate(0deg) translateY(-4px);
+  -ms-transform: rotate(0deg) translateY(-4px);
+  -o-transform: rotate(0deg) translateY(-4px);
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.btn:hover {
+  -webkit-transform: translate(-2px, -2px);
+  -moz-transform: translate(-2px, -2px);
+  -ms-transform: translate(-2px, -2px);
+  -o-transform: translate(-2px, -2px);
+  transform: translate(-2px, -2px);
+}
+
+/* ============================================
+   Transition Vendor Prefixes
+   ============================================ */
+
+.hero__content,
+.pillar,
+.card,
+.btn,
+.nav-menu a,
+.form-input {
+  -webkit-transition: all var(--duration-slow, 300ms) ease;
+  -moz-transition: all var(--duration-slow, 300ms) ease;
+  -ms-transition: all var(--duration-slow, 300ms) ease;
+  -o-transition: all var(--duration-slow, 300ms) ease;
+  transition: all var(--duration-slow, 300ms) ease;
+}
+
+/* ============================================
+   Animation Vendor Prefixes
+   ============================================ */
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    -o-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   Safari-Specific Fixes
+   ============================================ */
+
+/* Safari flexbox min-height bug fix */
+@supports (-webkit-appearance: none) {
+  .pillar,
+  .card,
+  .hero {
+    min-height: 0;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+  }
+}
+
+/* Safari position sticky with -webkit- prefix */
+.site-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky, 50);
+}
+
+/* Safari backdrop-filter support */
+@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .lightbox,
+  .nav-menu::before {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .lightbox,
+  .nav-menu::before {
+    background: rgb(0, 0, 0, 0.8);
+  }
+}
+
+/* Safari date input styling */
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Safari iOS viewport height fix */
+@supports (-webkit-touch-callout: none) {
+  .hero,
+  .pillar {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* ============================================
+   Firefox-Specific Fixes
+   ============================================ */
+
+/* Firefox scrollbar styling */
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary, #ff6b35) var(--color-surface, #faf8f6);
+  }
+}
+
+/* Firefox flexbox bug fixes */
+@supports (-moz-appearance: none) {
+  .pillar,
+  .card {
+    min-height: 1px;
+  }
+
+  /* Firefox form validation styling */
+  input:invalid,
+  textarea:invalid {
+    box-shadow: none;
+  }
+
+  input:-moz-ui-invalid,
+  textarea:-moz-ui-invalid {
+    box-shadow: none;
+  }
+}
+
+/* Firefox focus outline */
+@-moz-document url-prefix() {
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+/* ============================================
+   Chrome/Blink-Specific Fixes
+   ============================================ */
+
+/* Chrome autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-text, #2d2d2d);
+  -webkit-box-shadow: 0 0 0 1000px var(--color-background, #fff) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Chrome scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface, #faf8f6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary, #ff6b35);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark, #e55a2b);
+}
+
+/* ============================================
+   User Select with Vendor Prefixes
+   ============================================ */
+
+.logo-text,
+.nav-toggle {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ============================================
+   Box-Sizing Universal Fix
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   Appearance Reset for Form Elements
+   ============================================ */
+
+button,
+input,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Restore some default appearances for usability */
+input[type='checkbox'],
+input[type='radio'] {
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto;
+}
+
+/* ============================================
+   Text Rendering Optimizations
+   ============================================ */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* ============================================
+   Gradient Vendor Prefixes
+   ============================================ */
+
+.btn--primary,
+.pillar {
+  background: -webkit-linear-gradient(top, var(--color-primary), var(--color-primary-dark));
+  background: -moz-linear-gradient(top, var(--color-primary), var(--color-primary-dark));
+  background: -o-linear-gradient(top, var(--color-primary), var(--color-primary-dark));
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-dark));
+}
+
+/* ============================================
+   Filter Vendor Prefixes
+   ============================================ */
+
+.card:hover {
+  -webkit-filter: brightness(1.05);
+  -moz-filter: brightness(1.05);
+  -ms-filter: brightness(1.05);
+  -o-filter: brightness(1.05);
+  filter: brightness(1.05);
+}
+
+/* ============================================
+   Clip-Path Vendor Prefixes
+   ============================================ */
+
+.hero::after {
+  -webkit-clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ============================================
+   Object-Fit Vendor Prefixes
+   ============================================ */
+
+.card__image img,
+.gallery-item img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+/* Fallback for browsers without object-fit */
+@supports not (object-fit: cover) {
+  .card__image,
+  .gallery-item {
+    overflow: hidden;
+  }
+
+  .card__image img,
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+/* ============================================
+   Will-Change for Performance
+   ============================================ */
+
+.hero__content,
+.pillar,
+.card,
+.btn {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after transition for better performance */
+.hero__content:not(:hover),
+.pillar:not(:hover),
+.card:not(:hover),
+.btn:not(:hover) {
+  will-change: auto;
+}
+
+/* ============================================
+   Touch Action for Better Mobile Performance
+   ============================================ */
+
+.nav-menu,
+.lightbox {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+/* ============================================
+   Prevent Text Selection on Interactive Elements
+   ============================================ */
+
+button,
+.btn,
+.nav-toggle {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* ============================================
+   Print-Specific Vendor Prefixes
+   ============================================ */
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ============================================
+   Reduced Motion Support (Accessibility)
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    -moz-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    -moz-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+    -moz-transition-duration: 0.01ms !important;
+    -o-transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   CSS Grid with -ms- Prefix (IE11 Support)
+   ============================================ */
+
+@supports (-ms-grid-columns: auto) {
+  .featured__grid {
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: auto;
+  }
+}

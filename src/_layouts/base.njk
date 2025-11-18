@@ -3,15 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {# IE Compatibility Mode - Force latest rendering engine #}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {# iOS Safari specific meta tags #}
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    {# Chrome Android theme color #}
+    <meta name="theme-color" content="#ff6b35" />
+
     <title>{{ title }} | {{ site.name }}</title>
     <meta name="description" content="{{ description or site.description }}" />
 
     {# Favicon #}
-    <link rel="icon" type="image/svg+xml" href="{{ site.baseUrl }}assets/images/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="{{ '/' | url }}assets/images/favicon.svg" />
 
-    {# CSS #}
-    <link rel="stylesheet" href="{{ site.baseUrl }}assets/css/main.css" />
-    <link rel="stylesheet" href="{{ site.baseUrl }}assets/css/pages/landing.css" />
+    {# CSS - Browser Compatibility First #}
+    <link rel="stylesheet" href="{{ '/' | url }}assets/css/browser-compatibility.css" />
+    <link rel="stylesheet" href="{{ '/' | url }}assets/css/main.css" />
+    <link rel="stylesheet" href="{{ '/' | url }}assets/css/pages/landing.css" />
 
     {# Open Graph / Social Media #}
     <meta property="og:title" content="{{ title }} | {{ site.name }}" />
@@ -32,7 +44,7 @@
     <header class="site-header">
       <div class="container">
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="{{ site.baseUrl }}" class="site-logo">
+          <a href="{{ '/' | url }}" class="site-logo">
             <span class="logo-text">MCM</span>
             <span class="logo-subtext">Design Hub</span>
           </a>
@@ -45,12 +57,14 @@
 
           <ul class="nav-menu">
             {# prettier-ignore #}
-            <li><a href="{{ site.baseUrl }}#hero" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a></li>
-            <li><a href="{{ site.baseUrl }}#principles">Principles</a></li>
-            <li><a href="{{ site.baseUrl }}#designers">Designers</a></li>
-            <li><a href="{{ site.baseUrl }}#conclusion">Impact</a></li>
+            <li><a href="{{ '/' | url }}#hero" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a></li>
+            <li><a href="{{ '/' | url }}#principles">Principles</a></li>
+            <li><a href="{{ '/' | url }}#designers">Designers</a></li>
+            <li><a href="{{ '/' | url }}#conclusion">Impact</a></li>
             {# prettier-ignore #}
-            <li><a href="{{ site.baseUrl }}gallery/" {% if page.url == "/gallery/" %}aria-current="page"{% endif %}>Gallery</a></li>
+            <li>
+              <a href="{{ '/' | url }}gallery/" {% if page.url == "/gallery/" %}aria-current="page"{% endif %}>Gallery</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -71,18 +85,18 @@
           <div class="footer-section">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="{{ site.baseUrl }}#hero">Home</a></li>
-              <li><a href="{{ site.baseUrl }}#principles">Principles</a></li>
-              <li><a href="{{ site.baseUrl }}#designers">Designers</a></li>
-              <li><a href="{{ site.baseUrl }}#conclusion">Impact</a></li>
-              <li><a href="{{ site.baseUrl }}gallery/">Gallery</a></li>
+              <li><a href="{{ '/' | url }}#hero">Home</a></li>
+              <li><a href="{{ '/' | url }}#principles">Principles</a></li>
+              <li><a href="{{ '/' | url }}#designers">Designers</a></li>
+              <li><a href="{{ '/' | url }}#conclusion">Impact</a></li>
+              <li><a href="{{ '/' | url }}gallery/">Gallery</a></li>
             </ul>
           </div>
 
           <div class="footer-section">
             <h4>Resources</h4>
             <ul>
-              <li><a href="{{ site.baseUrl }}gallery/">Image Gallery</a></li>
+              <li><a href="{{ '/' | url }}gallery/">Image Gallery</a></li>
               <li>
                 <a
                   href="https://github.com/atg25/DesignStyle/tree/main/docs/research"
@@ -104,8 +118,9 @@
       </div>
     </footer>
 
-    {# JavaScript #}
-    <script src="{{ site.baseUrl }}assets/js/main.js"></script>
-    <script src="{{ site.baseUrl }}assets/js/pages/landing.js"></script>
+    {# JavaScript - Polyfills must load first #}
+    <script src="{{ '/' | url }}assets/js/polyfills.js"></script>
+    <script src="{{ '/' | url }}assets/js/main.js"></script>
+    <script src="{{ '/' | url }}assets/js/pages/landing.js"></script>
   </body>
 </html>

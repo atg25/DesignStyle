@@ -1,0 +1,18 @@
+# Browsers that this project supports
+# Used by Autoprefixer and other tools
+
+# Modern browsers
+> 0.5%
+last 2 versions
+not dead
+
+# Specific browser versions
+Chrome >= 90
+Firefox >= 88
+Safari >= 13.1
+iOS >= 13.1
+Edge >= 90
+
+# Exclude very old browsers
+not IE 11
+not op_mini all

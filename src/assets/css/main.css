@@ -52,16 +52,26 @@
   --font-serif: georgia, 'Times New Roman', serif;
   --font-mono: 'Courier New', courier, monospace;
 
-  /* Font Sizes - Fluid Typography with clamp() */
-  --text-xs: clamp(0.65rem, 1vw + 0.5rem, 0.75rem); /* 10.4px - 12px */
-  --text-sm: clamp(0.75rem, 1.2vw + 0.5rem, 0.875rem); /* 12px - 14px */
-  --text-base: clamp(0.875rem, 1.5vw + 0.5rem, 1rem); /* 14px - 16px */
-  --text-lg: clamp(1rem, 1.8vw + 0.6rem, 1.125rem); /* 16px - 18px */
-  --text-xl: clamp(1.125rem, 2vw + 0.7rem, 1.25rem); /* 18px - 20px */
-  --text-2xl: clamp(1.25rem, 2.5vw + 0.8rem, 1.5rem); /* 20px - 24px */
-  --text-3xl: clamp(1.5rem, 3.5vw + 0.9rem, 1.875rem); /* 24px - 30px */
-  --text-4xl: clamp(1.75rem, 4.5vw + 1rem, 2.25rem); /* 28px - 36px */
-  --text-5xl: clamp(2.25rem, 6vw + 1.2rem, 3rem); /* 36px - 48px */
+  /* Golden Ratio Typography Scale (1.618) */
+  --golden-ratio: 1.618;
+  --base-font-size: 1rem; /* 16px */
+
+  /* Font Sizes - Golden Ratio Scale for harmonious proportions */
+  --text-xs: 0.618rem; /* 9.888px - φ⁻² */
+  --text-sm: 0.786rem; /* 12.576px - φ⁻¹ */
+  --text-base: 1rem; /* 16px - base */
+  --text-lg: 1.125rem; /* 18px - comfortable reading */
+  --text-xl: 1.272rem; /* 20.352px - φ⁰·² */
+  --text-2xl: 1.618rem; /* 25.888px - φ¹ */
+  --text-3xl: 2.058rem; /* 32.928px - φ¹·² */
+  --text-4xl: 2.618rem; /* 41.888px - φ² */
+  --text-5xl: 4.236rem; /* 67.776px - φ³ */
+
+  /* Optimal line length for readability (65-75 characters) */
+  --text-max-width: 65ch; /* Optimal: ~65 characters */
+  --text-max-width-comfortable: 75ch; /* Maximum comfortable: ~75 characters */
+  --text-max-width-narrow: 45ch; /* For large text */
+  --text-max-width-wide: 85ch; /* For technical content */
 
   /* Display Sizes - For hero sections and large headings */
   --text-display-sm: clamp(2rem, 5vw + 1rem, 2.5rem); /* 32px - 40px */
@@ -142,7 +152,7 @@ html {
 body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: 1.618; /* Golden ratio for comfortable reading */
   color: var(--color-text);
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
@@ -162,9 +172,10 @@ h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: var(--space-4);
+  margin-bottom: calc(var(--space-4) * var(--golden-ratio)); /* Golden ratio spacing */
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  max-width: var(--text-max-width-narrow); /* Prevent overly long heading lines */
 }
 
 h1 {
@@ -192,7 +203,9 @@ h6 {
 }
 
 p {
-  margin-bottom: var(--space-4);
+  margin-bottom: calc(var(--space-4) * var(--golden-ratio));
+  max-width: var(--text-max-width); /* Optimal 65 characters per line */
+  line-height: 1.618; /* Golden ratio for comfortable reading */
 }
 
 a {
@@ -209,6 +222,47 @@ a:focus-visible {
   outline: 3px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+/* ============================================
+   Readability Utilities
+   ============================================ */
+
+/* Optimal line lengths for different content types */
+.text-readable {
+  max-width: var(--text-max-width); /* 65ch - optimal for body text */
+  line-height: 1.618;
+}
+
+.text-comfortable {
+  max-width: var(--text-max-width-comfortable); /* 75ch - maximum comfortable */
+  line-height: 1.618;
+}
+
+.text-narrow {
+  max-width: var(--text-max-width-narrow); /* 45ch - for large text/headings */
+  line-height: 1.2;
+}
+
+.text-technical {
+  max-width: var(--text-max-width-wide); /* 85ch - for code/technical content */
+  line-height: 1.618;
+}
+
+/* Center text blocks automatically */
+.text-center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Welcoming, inviting text styling */
+.text-welcoming {
+  line-height: 1.75; /* Extra comfortable spacing */
+  letter-spacing: 0.01em;
+  word-spacing: 0.05em;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ============================================
@@ -434,8 +488,9 @@ a:focus-visible {
 
 .footer-section p {
   color: rgb(255, 255, 255, 0.9);
-  line-height: 1.7;
+  line-height: 1.618; /* Golden ratio for comfortable reading */
   font-size: clamp(1rem, 1.5vw, 1.125rem);
+  max-width: 65ch; /* Optimal line length */
 }
 
 .footer-section ul {
@@ -894,5 +949,81 @@ a:focus-visible {
 
   .container {
     max-width: 100%;
+  }
+}
+
+/* ============================================
+   FORM STYLES - Newsletter & Input States
+   ============================================ */
+
+.newsletter-form {
+  margin-top: var(--space-4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+.form-group input {
+  padding: var(--space-2);
+  font-size: var(--text-base);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-group input[aria-invalid='true'] {
+  border-color: var(--color-error, #d32f2f);
+  background-color: rgba(211, 47, 47, 0.05);
+}
+
+.form-group input.input-error {
+  border-color: var(--color-error, #d32f2f);
+}
+
+.form-feedback {
+  min-height: 1.5rem;
+  font-size: var(--text-sm);
+  color: var(--color-success, #1976d2);
+  text-align: center;
+}
+
+.form-feedback[role='alert'] {
+  color: var(--color-error, #d32f2f);
+  font-weight: 600;
+}
+
+.btn--small {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+/* Responsive form layout */
+@media (width >= 640px) {
+  .form-group {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: var(--space-2);
+  }
+
+  .form-group input {
+    flex: 1;
+  }
+
+  .form-group button {
+    flex-shrink: 0;
   }
 }

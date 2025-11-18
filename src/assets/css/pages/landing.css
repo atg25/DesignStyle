@@ -4,12 +4,7 @@
    ============================================ */
 
 /* ============================================
-   Typography - MCM Fonts
-   ============================================ */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Archivo+Black&display=swap');
-
-/* ============================================
-   HERO SECTION - Full Bleed Poster Design
+   Hero SECTION - Full Bleed Poster Design
    Solutions 1, 2, 3, 4, 5 Combined
    ============================================ */
 
@@ -72,6 +67,9 @@
   /* SOLUTION 5: Slight rotation for dynamism */
   transform: rotate(var(--hero-rotation));
   transition: all var(--duration-slow) ease;
+
+  /* Welcoming psychological design: comfortable breathing room */
+  line-height: 1.618;
 }
 
 .hero__content:hover {
@@ -96,14 +94,19 @@
     3px 3px 0 var(--color-primary),
     6px 6px 0 var(--color-secondary);
   word-spacing: 9999px;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 @media (width <= 768px) {
   .hero__title {
-    text-shadow: none;
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    text-shadow:
+      2px 2px 0 var(--color-primary),
+      4px 4px 0 var(--color-secondary);
+    font-size: clamp(1.25rem, 6.5vw, 2rem);
     word-spacing: normal;
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -132,10 +135,10 @@
 
 .hero__subtitle {
   font-size: var(--text-lg);
-  line-height: 1.6;
+  line-height: 1.618; /* Golden ratio */
   color: var(--color-text);
   margin-bottom: clamp(2rem, 3vw, 2.5rem);
-  max-width: 700px;
+  max-width: min(65ch, 700px); /* Optimal 65 characters or 700px */
   margin-left: auto;
   margin-right: auto;
   font-weight: 400;
@@ -145,8 +148,9 @@
 
 @media (width <= 768px) {
   .hero__subtitle {
-    line-height: 1.5;
+    line-height: 1.618; /* Maintain golden ratio on mobile */
     font-size: var(--text-base);
+    max-width: 65ch; /* Optimal character count */
   }
 }
 
@@ -207,15 +211,15 @@
   }
 
   .hero__content {
-    padding: clamp(2rem, 6vw, 3rem) clamp(1.5rem, 5vw, 2rem);
-    width: calc(100% - 2rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
+    width: calc(100% - 1.5rem);
     max-width: none;
     transform: rotate(0deg);
     box-shadow:
-      8px 8px 0 var(--color-primary),
-      16px 16px 0 var(--color-secondary),
-      24px 24px 0 var(--color-accent),
-      24px 24px 20px rgb(0, 0, 0, 0.15);
+      6px 6px 0 var(--color-primary),
+      12px 12px 0 var(--color-secondary),
+      18px 18px 0 var(--color-accent),
+      18px 18px 15px rgb(0, 0, 0, 0.1);
   }
 
   .hero__content:hover {
@@ -428,10 +432,10 @@
 /* SOLUTION 5: More refined description text */
 .pillar__description {
   font-size: var(--text-base);
-  line-height: 1.7;
+  line-height: 1.618; /* Golden ratio */
   font-weight: 400;
   margin-bottom: clamp(1.5rem, 3vw, 2rem);
-  max-width: 550px;
+  max-width: min(65ch, 550px); /* Optimal 65 characters per line */
   margin-left: auto;
   margin-right: auto;
 }
@@ -525,6 +529,9 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  max-width: 65ch; /* Optimal line length */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .featured__grid {
@@ -830,10 +837,11 @@
 
 .timeline__description {
   font-size: var(--text-xl);
-  line-height: 1.8;
+  line-height: 1.618; /* Golden ratio for comfortable reading */
   color: #3a3a3a;
   margin: 0;
   font-weight: 500;
+  max-width: 65ch; /* Optimal 65 characters per line */
 }
 
 .impact {
@@ -1358,6 +1366,10 @@
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-8);
+  max-width: 65ch; /* Optimal 65 characters per line */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.618; /* Golden ratio */
 }
 
 .newsletter__form {
@@ -1574,6 +1586,8 @@
   color: rgb(255, 255, 255, 0.9);
   font-weight: 600;
   margin: 0;
+  max-width: 65ch; /* Optimal line length */
+  line-height: 1.618; /* Golden ratio */
 }
 
 .principles-grid {
@@ -1696,4 +1710,72 @@
     font-size: 3.5rem;
     top: -15px;
   }
+}
+
+/* ============================================
+   SCROLL ANIMATIONS - Utility Classes
+   ============================================ */
+
+/**
+ * scroll-animate: Initial hidden state for elements
+ * scroll-animate--visible: Visible state when intersecting viewport
+ */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.scroll-animate--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   SWATCH TOOLTIP - Color Palette Feedback
+   ============================================ */
+
+.swatch__tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background: var(--color-charcoal);
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  animation: fadeIn 0.2s ease;
+  white-space: nowrap;
+}
+
+/* ============================================
+   NEWSLETTER BLOCK - Conclusion Section
+   ============================================ */
+
+.conclusion-newsletter-block {
+  background: var(--color-cream);
+  padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+.conclusion-newsletter-block h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  letter-spacing: 2px;
+  margin-bottom: var(--space-1);
+  color: var(--color-charcoal);
+}
+
+.conclusion-newsletter-block > p {
+  margin-bottom: var(--space-3);
+  color: var(--color-text-secondary);
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -1,5 +1,10 @@
 // Landing Page Interactive Features
 
+// ============================================
+// TIMING CONSTANTS - Centralized for consistency
+// ============================================
+const API_SIMULATE_DELAY = 1500; // API call simulation delay in milliseconds
+
 /**
  * Color Palette Generator - Mini Preview
  * Provides interactive color palette generation and copying functionality
@@ -15,14 +20,20 @@ class ColorPalettePreview {
       return;
     }
 
-    this.generateBtn = this.previewEl.querySelector('[data-generate-palette]');
-    this.swatchesContainer = this.previewEl.querySelector('[data-swatches]');
+    this.generateBtn = this.previewEl?.querySelector('[data-generate-palette]');
+    this.swatchesContainer = this.previewEl?.querySelector('[data-swatches]');
+
+    // Defensive check - ensure required elements exist
+    if (!this.generateBtn || !this.swatchesContainer) {
+      console.warn('ColorPalettePreview: Required elements not found');
+      return;
+    }
 
     // Animation timing constants
     this.ANIMATION_DELAYS = {
       FADE_IN: 150,
       FADE_OUT: 300,
-      TOOLTIP: 1000,
+      TOOLTIP: 2000,
       SWATCH_STAGGER: 50,
     };
 
@@ -163,22 +174,67 @@ class ColorPalettePreview {
 
   /**
    * Copy color hex code to clipboard
+   * Cross-browser compatible with fallback
    * @param {HTMLElement} swatchEl - The swatch element clicked
    * @private
    */
   copyColor(swatchEl) {
     const hex = swatchEl.querySelector('.swatch__hex').textContent;
 
-    // Copy to clipboard
-    navigator.clipboard
-      .writeText(hex)
-      .then(() => {
-        // Show feedback
+    // Modern Clipboard API with fallback for older browsers
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      // Modern browsers (Chrome 63+, Firefox 53+, Safari 13.1+)
+      navigator.clipboard
+        .writeText(hex)
+        .then(() => {
+          this.showCopyFeedback(swatchEl);
+        })
+        .catch((err) => {
+          console.error('Failed to copy:', err);
+          this.fallbackCopyToClipboard(hex, swatchEl);
+        });
+    } else {
+      // Fallback for older browsers (IE11, Safari < 13.1)
+      this.fallbackCopyToClipboard(hex, swatchEl);
+    }
+  }
+
+  /**
+   * Fallback clipboard copy for older browsers
+   * @param {string} text - Text to copy
+   * @param {HTMLElement} swatchEl - The swatch element
+   * @private
+   */
+  fallbackCopyToClipboard(text, swatchEl) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.top = '0';
+    textArea.style.left = '0';
+    textArea.style.width = '2em';
+    textArea.style.height = '2em';
+    textArea.style.padding = '0';
+    textArea.style.border = 'none';
+    textArea.style.outline = 'none';
+    textArea.style.boxShadow = 'none';
+    textArea.style.background = 'transparent';
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      const successful = document.execCommand('copy');
+      if (successful) {
         this.showCopyFeedback(swatchEl);
-      })
-      .catch((err) => {
-        console.error('Failed to copy:', err);
-      });
+      } else {
+        console.error('Fallback copy failed');
+      }
+    } catch (err) {
+      console.error('Fallback copy error:', err);
+    }
+
+    document.body.removeChild(textArea);
   }
 
   /**
@@ -187,7 +243,15 @@ class ColorPalettePreview {
    * @private
    */
   showCopyFeedback(swatchEl) {
-    const colorBox = swatchEl.querySelector('.swatch__color');
+    if (!swatchEl) {
+      return;
+    }
+
+    const colorBox = swatchEl?.querySelector('.swatch__color');
+    if (!colorBox) {
+      return;
+    }
+
     const originalTransform = colorBox.style.transform;
 
     // Animate
@@ -196,21 +260,11 @@ class ColorPalettePreview {
     // Create tooltip
     const tooltip = document.createElement('div');
     tooltip.textContent = 'Copied!';
-    tooltip.style.cssText = `
-      position: absolute;
-      top: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 4px 8px;
-      background: var(--color-charcoal);
-      color: white;
-      font-size: 12px;
-      border-radius: 4px;
-      pointer-events: none;
-      animation: fadeIn 0.2s ease;
-    `;
+    tooltip.className = 'swatch__tooltip';
 
-    swatchEl.style.position = 'relative';
+    if (!swatchEl.style.position) {
+      swatchEl.style.position = 'relative';
+    }
     swatchEl.appendChild(tooltip);
 
     // Remove after delay
@@ -236,8 +290,16 @@ class NewsletterForm {
       return;
     }
 
-    this.emailInput = this.form.querySelector('input[type="email"]');
-    this.submitBtn = this.form.querySelector('button[type="submit"]');
+    this.emailInput = this.form?.querySelector('input[type="email"]');
+    this.submitBtn = this.form?.querySelector('button[type="submit"]');
+    this.feedbackRegion = this.form?.querySelector('[aria-live="polite"]');
+
+    // Defensive check - ensure required elements exist
+    if (!this.emailInput || !this.submitBtn) {
+      console.warn('NewsletterForm: Required form elements not found');
+      return;
+    }
+
     this.originalBtnText = this.submitBtn.innerHTML;
 
     this.init();
@@ -248,7 +310,9 @@ class NewsletterForm {
    * @private
    */
   init() {
-    this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+    if (this.form && this.submitBtn && this.emailInput) {
+      this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+    }
   }
 
   /**
@@ -259,7 +323,11 @@ class NewsletterForm {
   async handleSubmit(e) {
     e.preventDefault();
 
-    const email = this.emailInput.value.trim();
+    const email = this.emailInput?.value?.trim();
+    if (!email) {
+      this.showError('Please enter an email address');
+      return;
+    }
 
     if (!this.validateEmail(email)) {
       this.showError('Please enter a valid email address');
@@ -284,13 +352,15 @@ class NewsletterForm {
 
   /**
    * Validate email address format
+   * Uses stricter regex matching proper email format
    * @param {string} email - Email address to validate
-   * @returns {boolean} True if valid email format
+   * @returns {boolean} True if valid email format (RFC 5322 simplified)
    * @private
    */
   validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+    // Stricter email validation (requires at least 2 chars in TLD)
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    return re.test(email) && email.length <= 254;
   }
 
   /**
@@ -312,6 +382,11 @@ class NewsletterForm {
    * @private
    */
   showSuccess() {
+    if (this.feedbackRegion) {
+      this.feedbackRegion.textContent =
+        'Thanks for subscribing! Check your inbox for a confirmation email.';
+    }
+
     this.form.innerHTML = `
       <div style="text-align: center; padding: 2rem;">
         <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
@@ -331,27 +406,25 @@ class NewsletterForm {
    * @private
    */
   showError(message) {
-    // Create or update error message
-    let errorEl = this.form.querySelector('.form-error');
-    if (!errorEl) {
-      errorEl = document.createElement('div');
-      errorEl.className = 'form-error';
-      errorEl.style.cssText = `
-        color: var(--color-error);
-        font-size: var(--text-sm);
-        margin-top: var(--space-2);
-        text-align: center;
-      `;
-      this.form.appendChild(errorEl);
+    // Announce error to screen readers via aria-live region
+    if (this.feedbackRegion) {
+      this.feedbackRegion.textContent = `Error: ${message}`;
+      this.feedbackRegion.setAttribute('role', 'alert');
     }
 
-    errorEl.textContent = message;
-    this.emailInput.focus();
+    // Visual feedback - add error state to input
+    if (this.emailInput) {
+      this.emailInput.setAttribute('aria-invalid', 'true');
+      this.emailInput.classList.add('input-error');
 
-    // Remove error after 3 seconds
-    setTimeout(() => {
-      errorEl.remove();
-    }, 3000);
+      // Remove error state on next input
+      const clearError = () => {
+        this.emailInput?.removeAttribute('aria-invalid');
+        this.emailInput?.classList.remove('input-error');
+        this.emailInput?.removeEventListener('input', clearError);
+      };
+      this.emailInput.addEventListener('input', clearError);
+    }
   }
 
   /**
@@ -418,12 +491,16 @@ class ScrollAnimations {
       return;
     }
 
+    // Apply CSS class for initial styles instead of inline styles
+    this.animatedElements.forEach((el) => {
+      el.classList.add('scroll-animate');
+    });
+
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('scroll-animate--visible');
             this.observer.unobserve(entry.target);
           }
         });
@@ -431,13 +508,10 @@ class ScrollAnimations {
       {
         threshold: this.SCROLL_CONFIG.THRESHOLD,
         rootMargin: this.SCROLL_CONFIG.ROOT_MARGIN,
-      },
+      }
     );
 
     this.animatedElements.forEach((el) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       this.observer.observe(el);
     });
   }
