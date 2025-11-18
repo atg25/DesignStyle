@@ -213,7 +213,7 @@ if (!Array.prototype.find) {
 
 if (!BrowserSupport.supports.intersectionObserver) {
   console.warn(
-    'IntersectionObserver not supported - animations may not work. Consider loading polyfill from polyfill.io'
+    'IntersectionObserver not supported - animations may not work. Consider loading polyfill from polyfill.io',
   );
 }
 

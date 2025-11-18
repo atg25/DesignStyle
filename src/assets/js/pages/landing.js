@@ -3,7 +3,6 @@
 // ============================================
 // TIMING CONSTANTS - Centralized for consistency
 // ============================================
-const API_SIMULATE_DELAY = 1500; // API call simulation delay in milliseconds
 
 /**
  * Color Palette Generator - Mini Preview
@@ -275,171 +274,6 @@ class ColorPalettePreview {
   }
 }
 
-/**
- * Newsletter Form Handler
- * Manages newsletter subscription form validation and submission
- */
-class NewsletterForm {
-  /**
-   * Initialize the newsletter form component
-   * Sets up form elements and event listeners
-   */
-  constructor() {
-    this.form = document.querySelector('[data-newsletter-form]');
-    if (!this.form) {
-      return;
-    }
-
-    this.emailInput = this.form?.querySelector('input[type="email"]');
-    this.submitBtn = this.form?.querySelector('button[type="submit"]');
-    this.feedbackRegion = this.form?.querySelector('[aria-live="polite"]');
-
-    // Defensive check - ensure required elements exist
-    if (!this.emailInput || !this.submitBtn) {
-      console.warn('NewsletterForm: Required form elements not found');
-      return;
-    }
-
-    this.originalBtnText = this.submitBtn.innerHTML;
-
-    this.init();
-  }
-
-  /**
-   * Initialize form submit event listener
-   * @private
-   */
-  init() {
-    if (this.form && this.submitBtn && this.emailInput) {
-      this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-    }
-  }
-
-  /**
-   * Handle form submission
-   * @param {Event} e - Submit event
-   * @private
-   */
-  async handleSubmit(e) {
-    e.preventDefault();
-
-    const email = this.emailInput?.value?.trim();
-    if (!email) {
-      this.showError('Please enter an email address');
-      return;
-    }
-
-    if (!this.validateEmail(email)) {
-      this.showError('Please enter a valid email address');
-      return;
-    }
-
-    // Show loading state
-    this.setLoading(true);
-
-    try {
-      // In production, this would POST to your newsletter API
-      await this.simulateAPICall();
-
-      // Success
-      this.showSuccess();
-    } catch {
-      this.showError('Something went wrong. Please try again.');
-    } finally {
-      this.setLoading(false);
-    }
-  }
-
-  /**
-   * Validate email address format
-   * Uses stricter regex matching proper email format
-   * @param {string} email - Email address to validate
-   * @returns {boolean} True if valid email format (RFC 5322 simplified)
-   * @private
-   */
-  validateEmail(email) {
-    // Stricter email validation (requires at least 2 chars in TLD)
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    return re.test(email) && email.length <= 254;
-  }
-
-  /**
-   * Toggle loading state on submit button
-   * @param {boolean} isLoading - Whether form is in loading state
-   * @private
-   */
-  setLoading(isLoading) {
-    this.submitBtn.disabled = isLoading;
-    if (isLoading) {
-      this.submitBtn.innerHTML = 'Subscribing...';
-    } else {
-      this.submitBtn.innerHTML = this.originalBtnText;
-    }
-  }
-
-  /**
-   * Display success message after form submission
-   * @private
-   */
-  showSuccess() {
-    if (this.feedbackRegion) {
-      this.feedbackRegion.textContent =
-        'Thanks for subscribing! Check your inbox for a confirmation email.';
-    }
-
-    this.form.innerHTML = `
-      <div style="text-align: center; padding: 2rem;">
-        <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
-        <p style="font-size: 1.25rem; font-weight: 600; color: var(--color-success); margin-bottom: 0.5rem;">
-          Thanks for subscribing!
-        </p>
-        <p style="color: var(--color-text-secondary);">
-          Check your inbox for a confirmation email.
-        </p>
-      </div>
-    `;
-  }
-
-  /**
-   * Display error message below form
-   * @param {string} message - Error message to display
-   * @private
-   */
-  showError(message) {
-    // Announce error to screen readers via aria-live region
-    if (this.feedbackRegion) {
-      this.feedbackRegion.textContent = `Error: ${message}`;
-      this.feedbackRegion.setAttribute('role', 'alert');
-    }
-
-    // Visual feedback - add error state to input
-    if (this.emailInput) {
-      this.emailInput.setAttribute('aria-invalid', 'true');
-      this.emailInput.classList.add('input-error');
-
-      // Remove error state on next input
-      const clearError = () => {
-        this.emailInput?.removeAttribute('aria-invalid');
-        this.emailInput?.classList.remove('input-error');
-        this.emailInput?.removeEventListener('input', clearError);
-      };
-      this.emailInput.addEventListener('input', clearError);
-    }
-  }
-
-  /**
-   * Simulate API call for newsletter subscription
-   * In production, this would make a real POST request
-   * @returns {Promise<void>} Resolves after simulated delay
-   * @private
-   */
-  simulateAPICall() {
-    // Simulate API delay
-    return new Promise((resolve) => {
-      setTimeout(resolve, API_SIMULATE_DELAY);
-    });
-  }
-}
 
 /**
  * Smooth Scroll for Anchor Links
@@ -508,7 +342,7 @@ class ScrollAnimations {
       {
         threshold: this.SCROLL_CONFIG.THRESHOLD,
         rootMargin: this.SCROLL_CONFIG.ROOT_MARGIN,
-      }
+      },
     );
 
     this.animatedElements.forEach((el) => {
@@ -522,7 +356,6 @@ class ScrollAnimations {
  */
 document.addEventListener('DOMContentLoaded', () => {
   new ColorPalettePreview();
-  new NewsletterForm();
   new ScrollAnimations();
   initSmoothScroll();
 });
