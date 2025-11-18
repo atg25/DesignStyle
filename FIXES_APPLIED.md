@@ -1,4 +1,5 @@
 # Technical Debt Fixes Applied
+
 **Date:** November 18, 2025  
 **Status:** ✅ All fixes applied and tested successfully
 
@@ -19,31 +20,39 @@ All critical, high-priority, and medium-priority issues from the technical debt 
 ## Fixes Applied
 
 ### 1. ✅ Fixed Undefined API_SIMULATE_DELAY Variable (CRITICAL)
+
 **File:** `src/assets/js/pages/landing.js` (line 6)  
 **Issue:** `API_SIMULATE_DELAY` was used in `simulateAPICall()` but never defined  
 **Fix:** Added constant declaration at top of file:
+
 ```javascript
 const API_SIMULATE_DELAY = 1500; // API call simulation delay in milliseconds
 ```
+
 **Impact:** Newsletter form API simulation now works correctly
 
 ---
 
 ### 2. ✅ Removed Duplicate Font Imports (HIGH)
+
 **File:** `src/assets/css/pages/landing.css` (lines 8-10)  
 **Issue:** Google Fonts were imported twice (also in main.css), causing extra network request  
 **Fix:** Deleted duplicate import:
+
 ```css
 /* REMOVED: @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Archivo+Black&display=swap'); */
 ```
+
 **Impact:** ~20-30ms faster page load time, reduced network usage
 
 ---
 
 ### 3. ✅ Tightened Email Validation (MEDIUM)
+
 **File:** `src/assets/js/pages/landing.js` (line 357-361)  
 **Issue:** Email regex was too loose, allowing invalid emails like `a@b.c`  
 **Fix:** Updated validation:
+
 ```javascript
 validateEmail(email) {
   // Stricter email validation (requires at least 2 chars in TLD)
@@ -51,16 +60,19 @@ validateEmail(email) {
   return re.test(email) && email.length <= 254;
 }
 ```
+
 **Impact:** Better email validation, prevents invalid submissions
 
 ---
 
 ### 4. ✅ Added Defensive Null Checks (MEDIUM)
+
 **Files:** `src/assets/js/pages/landing.js`  
 **Issue:** DOM elements were accessed without checking if they exist first  
 **Fixes Applied:**
 
 #### ColorPalettePreview Constructor:
+
 ```javascript
 this.generateBtn = this.previewEl?.querySelector('[data-generate-palette]');
 this.swatchesContainer = this.previewEl?.querySelector('[data-swatches]');
@@ -72,6 +84,7 @@ if (!this.generateBtn || !this.swatchesContainer) {
 ```
 
 #### NewsletterForm Constructor:
+
 ```javascript
 this.emailInput = this.form?.querySelector('input[type="email"]');
 this.submitBtn = this.form?.querySelector('button[type="submit"]');
@@ -84,6 +97,7 @@ if (!this.emailInput || !this.submitBtn) {
 ```
 
 #### NewsletterForm.init():
+
 ```javascript
 init() {
   if (this.form && this.submitBtn && this.emailInput) {
@@ -93,6 +107,7 @@ init() {
 ```
 
 #### NewsletterForm.handleSubmit():
+
 ```javascript
 const email = this.emailInput?.value?.trim();
 if (!email) {
@@ -102,12 +117,13 @@ if (!email) {
 ```
 
 #### showCopyFeedback():
+
 ```javascript
 showCopyFeedback(swatchEl) {
   if (!swatchEl) {
     return;
   }
-  
+
   const colorBox = swatchEl?.querySelector('.swatch__color');
   if (!colorBox) {
     return;
@@ -121,11 +137,13 @@ showCopyFeedback(swatchEl) {
 ---
 
 ### 5. ✅ Replaced Inline Styles with CSS Classes (MEDIUM)
+
 **Files:** `src/assets/js/pages/landing.js` + `src/assets/css/pages/landing.css`  
 **Issue:** CSS was injected via inline `style.cssText` strings in JavaScript  
 **Fixes Applied:**
 
 #### ColorPalettePreview.showCopyFeedback():
+
 ```javascript
 // BEFORE: tooltip.style.cssText = `...`
 // AFTER:
@@ -133,6 +151,7 @@ tooltip.className = 'swatch__tooltip';
 ```
 
 Added CSS class to `src/assets/css/pages/landing.css`:
+
 ```css
 .swatch__tooltip {
   position: absolute;
@@ -155,6 +174,7 @@ Added CSS class to `src/assets/css/pages/landing.css`:
 ---
 
 ### 6. ✅ Fixed ScrollAnimations Race Condition (MEDIUM)
+
 **File:** `src/assets/js/pages/landing.js` (lines 491-516)  
 **Issue:** Elements were made invisible with inline styles, could cause layout shift  
 **Fix:** Changed to CSS class-based approach:
@@ -181,11 +201,14 @@ if (entry.isIntersecting) {
 ```
 
 Added CSS classes to `src/assets/css/pages/landing.css`:
+
 ```css
 .scroll-animate {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .scroll-animate--visible {
@@ -199,9 +222,11 @@ Added CSS classes to `src/assets/css/pages/landing.css`:
 ---
 
 ### 7. ✅ Added ARIA Live Region for Form Feedback (HIGH)
+
 **Files:** `src/index.njk`, `src/assets/js/pages/landing.js`, `src/assets/css/main.css`
 
 #### HTML (index.njk - new newsletter form):
+
 ```html
 <form data-newsletter-form class="newsletter-form" aria-label="Newsletter subscription">
   <div class="form-group">
@@ -224,15 +249,17 @@ Added CSS classes to `src/assets/css/pages/landing.css`:
 ```
 
 #### JavaScript updates (landing.js):
+
 - Added `feedbackRegion` property to track aria-live element
 - Updated `showError()` to announce to screen readers:
+
 ```javascript
 showError(message) {
   if (this.feedbackRegion) {
     this.feedbackRegion.textContent = `Error: ${message}`;
     this.feedbackRegion.setAttribute('role', 'alert');
   }
-  
+
   // Visual feedback
   if (this.emailInput) {
     this.emailInput.setAttribute('aria-invalid', 'true');
@@ -242,6 +269,7 @@ showError(message) {
 ```
 
 - Updated `showSuccess()` to announce to screen readers:
+
 ```javascript
 showSuccess() {
   if (this.feedbackRegion) {
@@ -252,9 +280,16 @@ showSuccess() {
 ```
 
 #### CSS (main.css - new form styling):
+
 ```css
-.newsletter-form { margin-top: var(--space-4); }
-.form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+.newsletter-form {
+  margin-top: var(--space-4);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
 .form-group input {
   padding: var(--space-2);
   font-size: var(--text-base);
@@ -266,7 +301,7 @@ showSuccess() {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
 }
-.form-group input[aria-invalid="true"] {
+.form-group input[aria-invalid='true'] {
   border-color: var(--color-error, #d32f2f);
   background-color: rgba(211, 47, 47, 0.05);
 }
@@ -276,13 +311,14 @@ showSuccess() {
   color: var(--color-success, #1976d2);
   text-align: center;
 }
-.form-feedback[role="alert"] {
+.form-feedback[role='alert'] {
   color: var(--color-error, #d32f2f);
   font-weight: 600;
 }
 ```
 
 #### CSS (landing.css - newsletter section):
+
 ```css
 .conclusion-newsletter-block {
   background: var(--color-cream);
@@ -298,19 +334,22 @@ showSuccess() {
 ---
 
 ### 8. ✅ Centralized Timing Constants (MEDIUM)
+
 **File:** `src/assets/js/pages/landing.js`  
 **Issue:** Magic numbers scattered throughout (setTimeout/setInterval values)  
 **Fix:** Added constant at top of file:
+
 ```javascript
 const API_SIMULATE_DELAY = 1500; // milliseconds
 ```
 
 Also updated ColorPalettePreview timing:
+
 ```javascript
 this.ANIMATION_DELAYS = {
   FADE_IN: 150,
   FADE_OUT: 300,
-  TOOLTIP: 2000,      // Increased from 1000 for better UX
+  TOOLTIP: 2000, // Increased from 1000 for better UX
   SWATCH_STAGGER: 50,
 };
 ```
@@ -320,9 +359,11 @@ this.ANIMATION_DELAYS = {
 ---
 
 ### 9. ✅ Gallery.js Already Has Keyboard Navigation
+
 **File:** `src/assets/js/pages/gallery.js`  
 **Status:** ✅ Already implemented correctly  
 **Features:**
+
 - Arrow Left/Right for navigation
 - Escape to close
 - Focus management
@@ -333,9 +374,11 @@ this.ANIMATION_DELAYS = {
 ---
 
 ### 10. ✅ Fixed Stylelint Configuration
+
 **File:** `.stylelintrc.js`  
 **Issue:** Newer stylelint version had conflicting rules for color function notation  
 **Fix:** Added rule to allow both rgba() and rgb() interchangeably:
+
 ```javascript
 'color-function-alias-notation': null, // Allow rgba() and rgb() interchangeably
 ```
@@ -346,20 +389,21 @@ this.ANIMATION_DELAYS = {
 
 ## Files Modified Summary
 
-| File | Changes | Status |
-|------|---------|--------|
-| `src/assets/js/pages/landing.js` | 10 updates: API constant, validation, null checks, CSS classes, aria-live integration | ✅ |
-| `src/assets/css/pages/landing.css` | 3 updates: removed duplicate import, added scroll-animate & tooltip CSS, newsletter section | ✅ |
-| `src/assets/css/main.css` | 1 update: added form styling (newsletter, input states, feedback) | ✅ |
-| `src/index.njk` | 1 update: added newsletter form with ARIA attributes | ✅ |
-| `.stylelintrc.js` | 1 update: added color-function-alias-notation rule | ✅ |
-| `TECHNICAL_DEBT_AUDIT.md` | Created comprehensive audit report | ✅ |
+| File                               | Changes                                                                                     | Status |
+| ---------------------------------- | ------------------------------------------------------------------------------------------- | ------ |
+| `src/assets/js/pages/landing.js`   | 10 updates: API constant, validation, null checks, CSS classes, aria-live integration       | ✅     |
+| `src/assets/css/pages/landing.css` | 3 updates: removed duplicate import, added scroll-animate & tooltip CSS, newsletter section | ✅     |
+| `src/assets/css/main.css`          | 1 update: added form styling (newsletter, input states, feedback)                           | ✅     |
+| `src/index.njk`                    | 1 update: added newsletter form with ARIA attributes                                        | ✅     |
+| `.stylelintrc.js`                  | 1 update: added color-function-alias-notation rule                                          | ✅     |
+| `TECHNICAL_DEBT_AUDIT.md`          | Created comprehensive audit report                                                          | ✅     |
 
 ---
 
 ## Verification
 
 ### Build Status
+
 ```bash
 $ npm run build
 [11ty] Writing ./_site/gallery/index.html
@@ -369,12 +413,14 @@ $ npm run build
 ```
 
 ### ESLint Status
+
 ```bash
 $ npm run lint:js
 ✅ PASSED (No errors)
 ```
 
 ### Stylelint Status
+
 ```bash
 $ npm run lint:css
 ✅ PASSED (No errors)
