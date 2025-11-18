@@ -521,6 +521,7 @@
   margin-bottom: var(--space-3);
   text-transform: uppercase;
   letter-spacing: -0.01em;
+  text-align: center;
 }
 
 .section__subtitle {
@@ -532,6 +533,7 @@
   max-width: 65ch; /* Optimal line length */
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .featured__grid {
@@ -756,11 +758,12 @@
   background: #f4c542;
   display: inline-block;
   padding: clamp(1rem, 2vw, 1.5rem) clamp(2rem, 4vw, 3rem);
-  margin: 0 0 2rem;
+  margin: 0 auto 2rem;
   box-shadow: 12px 12px 0 rgb(0, 0, 0, 0.4);
   letter-spacing: 0.05em;
   transform: rotate(-2deg);
   line-height: 1;
+  text-align: center;
 }
 
 .historical-context .section__subtitle {
