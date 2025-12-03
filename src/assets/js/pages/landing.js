@@ -274,7 +274,6 @@ class ColorPalettePreview {
   }
 }
 
-
 /**
  * Smooth Scroll for Anchor Links
  * Enables smooth scrolling behavior for all internal anchor links
@@ -342,7 +341,7 @@ class ScrollAnimations {
       {
         threshold: this.SCROLL_CONFIG.THRESHOLD,
         rootMargin: this.SCROLL_CONFIG.ROOT_MARGIN,
-      },
+      }
     );
 
     this.animatedElements.forEach((el) => {
