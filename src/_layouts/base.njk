@@ -20,10 +20,8 @@
     {# Favicon #}
     <link rel="icon" type="image/svg+xml" href="{{ '/' | url }}assets/images/favicon.svg" />
 
-    {# CSS - Browser Compatibility First #}
-    <link rel="stylesheet" href="{{ '/' | url }}assets/css/browser-compatibility.css" />
-    <link rel="stylesheet" href="{{ '/' | url }}assets/css/main.css" />
-    <link rel="stylesheet" href="{{ '/' | url }}assets/css/pages/landing.css" />
+    {# CSS - Use bundled minified CSS for better performance #}
+    <link rel="stylesheet" href="{{ '/' | url }}assets/css/bundle.min.css" />
 
     {# Open Graph / Social Media #}
     <meta property="og:title" content="{{ title }} | {{ site.name }}" />
@@ -75,6 +73,7 @@
 
     {# Footer #}
     <footer class="site-footer">
+      <h2 class="visually-hidden">Site Footer</h2>
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">

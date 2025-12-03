@@ -16,11 +16,17 @@ description: Mid-Century Modern design reference images and inspiration
     <div class="gallery-grid" role="list">
       {% for i in range(1, 13) %}
       <div class="gallery-item" data-index="{{ i - 1 }}" role="listitem">
-        <img
-          src="{{ '/' | url }}assets/images/gallery/ref{{ i }}.png"
-          alt="Mid-Century Modern design reference {{ i }}"
-          loading="lazy"
-        />
+        <picture>
+          <source srcset="{{ '/' | url }}assets/images/gallery/ref{{ i }}.webp" type="image/webp" />
+          <img
+            src="{{ '/' | url }}assets/images/gallery/ref{{ i }}.png"
+            alt="Mid-Century Modern design reference {{ i }}"
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="300"
+          />
+        </picture>
         <div class="gallery-overlay">
           <span>View</span>
         </div>
